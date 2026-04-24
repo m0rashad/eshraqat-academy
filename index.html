@@ -890,17 +890,18 @@
 
     .course-card:hover::after { opacity: 1; }
 
-    .course-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
-      font-weight: 700;
-      color: var(--gold);
-      opacity: 0.09;
-      position: absolute;
-      top: 0.3rem;
-      right: 1.5rem;
-      line-height: 1;
-      user-select: none;
+    .course-icon {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1.4rem;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 8px rgba(201,168,76,0.35));
+      transition: opacity 0.3s, filter 0.3s;
+    }
+
+    .course-card:hover .course-icon {
+      opacity: 1;
+      filter: drop-shadow(0 0 14px rgba(201,168,76,0.65));
     }
 
     .course-name {
@@ -1611,7 +1612,19 @@
       <div class="courses-grid">
 
         <div class="course-card reveal">
-          <span class="course-num">1</span>
+          <!-- Quran: open book / mushaf -->
+          <svg class="course-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 14 C24 10 12 11 8 14 L8 52 C12 49 24 48 32 52 C40 48 52 49 56 52 L56 14 C52 11 40 10 32 14 Z" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.06)"/>
+            <line x1="32" y1="14" x2="32" y2="52" stroke="#c9a84c" stroke-width="1.5"/>
+            <line x1="16" y1="21" x2="29" y2="21" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <line x1="16" y1="26" x2="29" y2="26" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <line x1="16" y1="31" x2="29" y2="31" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <line x1="16" y1="36" x2="29" y2="36" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <line x1="35" y1="21" x2="48" y2="21" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <line x1="35" y1="26" x2="48" y2="26" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <line x1="35" y1="31" x2="48" y2="31" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <line x1="35" y1="36" x2="48" y2="36" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+          </svg>
           <div class="course-name en">Quran</div>
           <div class="course-name-ar ar">القرآن الكريم</div>
           <ul class="course-topics en">
@@ -1629,7 +1642,18 @@
         </div>
 
         <div class="course-card reveal reveal-delay-1">
-          <span class="course-num">2</span>
+          <!-- Hadith: scroll / parchment -->
+          <svg class="course-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="10" width="36" height="44" rx="4" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.06)"/>
+            <path d="M14 14 Q10 14 10 18 Q10 22 14 22" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+            <path d="M50 14 Q54 14 54 18 Q54 22 50 22" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+            <path d="M14 42 Q10 42 10 46 Q10 50 14 50" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+            <path d="M50 42 Q54 42 54 46 Q54 50 50 50" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+            <line x1="21" y1="26" x2="43" y2="26" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <line x1="21" y1="31" x2="43" y2="31" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <line x1="21" y1="36" x2="36" y2="36" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+            <circle cx="32" cy="19" r="3" stroke="#c9a84c" stroke-width="1.2" fill="rgba(201,168,76,0.15)"/>
+          </svg>
           <div class="course-name en">Hadith</div>
           <div class="course-name-ar ar">الحديث الشريف</div>
           <ul class="course-topics en">
@@ -1647,7 +1671,11 @@
         </div>
 
         <div class="course-card reveal">
-          <span class="course-num">3</span>
+          <!-- Aqeedah: crescent and star -->
+          <svg class="course-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M38 12 A18 18 0 1 0 38 52 A13 13 0 1 1 38 12 Z" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.08)"/>
+            <polygon points="46,10 47.5,14.5 52,14.5 48.5,17.2 50,22 46,19 42,22 43.5,17.2 40,14.5 44.5,14.5" fill="#c9a84c" opacity="0.75"/>
+          </svg>
           <div class="course-name en">Aqeedah</div>
           <div class="course-name-ar ar">العقيدة</div>
           <ul class="course-topics en">
@@ -1665,7 +1693,18 @@
         </div>
 
         <div class="course-card reveal reveal-delay-1">
-          <span class="course-num">4</span>
+          <!-- Fiqh: scales of justice -->
+          <svg class="course-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="8" x2="32" y2="56" stroke="#c9a84c" stroke-width="2"/>
+            <line x1="20" y1="14" x2="44" y2="14" stroke="#c9a84c" stroke-width="2"/>
+            <line x1="32" y1="56" x2="22" y2="56" stroke="#c9a84c" stroke-width="2"/>
+            <line x1="32" y1="56" x2="42" y2="56" stroke="#c9a84c" stroke-width="2"/>
+            <line x1="20" y1="14" x2="12" y2="34" stroke="#c9a84c" stroke-width="1.5"/>
+            <line x1="44" y1="14" x2="52" y2="34" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M8 34 Q12 42 16 34" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.12)"/>
+            <path d="M48 34 Q52 42 56 34" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.12)"/>
+            <circle cx="32" cy="8" r="2.5" fill="#c9a84c" opacity="0.7"/>
+          </svg>
           <div class="course-name en">Fiqh</div>
           <div class="course-name-ar ar">الفقه</div>
           <ul class="course-topics en">
