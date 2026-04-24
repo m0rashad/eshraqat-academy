@@ -69,19 +69,22 @@
       text-decoration: none;
     }
 
-    .nav-logo img {
+    .nav-logo-mark {
       height: 84px;
       width: 84px;
-      object-fit: cover;
-      object-position: center 32%;
       border-radius: 50%;
-      background: #f0eee8;
-      transform: scale(1.0);
+      background-color: #f0eee8;
+      background-image: url('logo.png');
+      background-size: 140%;
+      background-position: center 28%;
+      background-repeat: no-repeat;
       box-shadow: 0 0 0 1px rgba(201,168,76,0.45), 0 2px 14px rgba(0,0,0,0.35);
       transition: transform 0.3s;
+      flex-shrink: 0;
     }
 
-    .nav-logo:hover img { transform: scale(1.05); }
+    .nav-logo:hover .nav-logo-mark { transform: scale(1.05); }
+
 
     .nav-logo-text {
       display: flex;
@@ -1347,7 +1350,7 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <img src="logo.png" alt="Eshraqat Academy" />
+      <div class="nav-logo-mark" role="img" aria-label="Eshraqat Academy"></div>
       <div class="nav-logo-text">
         <span class="name">Eshraqat Academy</span>
         <span class="slogan">Pearls from the Sunna</span>
