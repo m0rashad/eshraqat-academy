@@ -1337,10 +1337,63 @@
     body.ar .section-title,
     body.ar .section-body { display: none !important; }
 
+    /* ── HAMBURGER BUTTON ── */
+    .nav-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 200;
+    }
+    .nav-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gold2);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(11,22,40,0.97);
+      z-index: 150;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--gold2);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+    .nav-drawer a:hover { color: var(--white); }
+    .nav-drawer-close {
+      position: absolute;
+      top: 1.4rem; right: 1.6rem;
+      background: none;
+      border: none;
+      color: var(--gold2);
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       nav { padding: 1rem 2rem; }
       .nav-links { display: none; }
+      .nav-menu-btn { display: flex; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .vision-layout { grid-template-columns: 1fr; }
       .vision-ornament { display: none; }
@@ -1354,12 +1407,64 @@
     }
 
     @media (max-width: 600px) {
-      .goals-grid { grid-template-columns: 1fr; }
-      .structure-grid { grid-template-columns: 1fr; }
-      .hero-actions { flex-direction: column; align-items: center; }
-      .pillars-icons { gap: 1.5rem; }
-      footer { padding: 2.5rem 1.5rem; }
       nav { padding: 0.8rem 1.2rem; }
+
+      .section-inner { padding: 0 1.2rem; }
+
+      /* Hero */
+      .hero { min-height: 100svh; padding-top: 80px; }
+      .hero-inner { padding: 3rem 1.2rem 4rem; text-align: center; }
+      .hero-orb-1 { width: 320px; height: 320px; top: -60px; left: -80px; }
+      .hero-orb-2 { width: 240px; height: 240px; }
+      .hero-orb-3 { width: 160px; height: 160px; }
+      .hero-badge { font-size: 0.6rem; padding: 0.45rem 1rem; }
+      .hero-sub, .hero-sub-ar { font-size: 0.95rem; }
+      .hero-slogan, .hero-slogan-ar { font-size: 1rem; }
+      .hero-actions { flex-direction: column; align-items: center; gap: 0.8rem; }
+      .hero-actions a { width: 100%; max-width: 260px; text-align: center; }
+      .hero-scroll { display: none; }
+
+      /* Sections */
+      #about, #vision, #goals, #sabiqat, #cta { padding: 5rem 0; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      /* Goals */
+      .goals-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .goal-card { padding: 1.4rem; }
+
+      /* Pillars strip */
+      .pillars-icons { gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+      .pillar-item { min-width: 100px; }
+
+      /* SABIQAT */
+      .sabiqat-header { padding: 0 0.5rem; }
+      .courses-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .course-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.6rem 1.2rem;
+        gap: 1.2rem;
+      }
+      .course-img-wrap { width: 100%; height: 180px; border-radius: 10px; }
+      .course-topics li, .course-topics-ar li { text-align: left; }
+      .course-topics-ar li { text-align: right; }
+
+      /* Structure */
+      .structure-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .struct-item { padding: 1.2rem; }
+
+      /* CTA */
+      .cta-inner { padding: 3rem 1.2rem; }
+      .cta-actions { flex-direction: column; align-items: center; gap: 0.8rem; }
+      .cta-actions a { width: 100%; max-width: 260px; text-align: center; }
+
+      /* Footer */
+      footer { padding: 2.5rem 1.2rem; gap: 2rem; }
+      .footer-links { justify-content: center; flex-wrap: wrap; gap: 0.8rem; }
+      .footer-social { justify-content: center; }
     }
   </style>
 </head>
@@ -1384,7 +1489,23 @@
       <button class="active" id="btn-en" onclick="setLang('en')">EN</button>
       <button id="btn-ar" onclick="setLang('ar')">ع</button>
     </div>
+    <button class="nav-menu-btn" aria-label="Open menu" onclick="document.getElementById('navDrawer').classList.add('open')">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="nav-drawer" id="navDrawer">
+    <button class="nav-drawer-close" aria-label="Close menu" onclick="document.getElementById('navDrawer').classList.remove('open')">✕</button>
+    <a href="#about" onclick="document.getElementById('navDrawer').classList.remove('open')">About</a>
+    <a href="#goals" onclick="document.getElementById('navDrawer').classList.remove('open')">Our Goals</a>
+    <a href="#sabiqat" onclick="document.getElementById('navDrawer').classList.remove('open')">SABIQAT</a>
+    <a href="#cta" onclick="document.getElementById('navDrawer').classList.remove('open')" style="color:var(--gold);border:1px solid var(--gold);padding:0.5rem 2rem;border-radius:4px;">Enroll</a>
+    <div class="lang-toggle" style="margin-top:1rem;">
+      <button class="active" onclick="setLang('en');document.getElementById('navDrawer').classList.remove('open')">EN</button>
+      <button onclick="setLang('ar');document.getElementById('navDrawer').classList.remove('open')">ع</button>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section id="hero">
