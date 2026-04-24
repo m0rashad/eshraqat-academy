@@ -14,11 +14,8 @@
       --text:      #171717;
       --accent:    #877965;
       --white:     #FFFFFF;
-      --transparent-white: #FFFFFF00;
       --cream:     #F9F6F0;
       --sand:      #F3F1EA;
-      --white-d:   #FFFFFFD1;
-      --shadow:    #23211C4D;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,9 +42,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.9rem 3rem;
-      background: rgba(249,246,240,0.92);
+      background: rgba(249,246,240,0.94);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(216,184,137,0.2);
+      border-bottom: 1px solid rgba(216,184,137,0.18);
       transition: padding 0.3s;
     }
 
@@ -59,35 +56,29 @@
     }
 
     .nav-logo-mark {
-      height: 52px;
-      width: 52px;
+      height: 50px;
+      width: 50px;
       border-radius: 50%;
       background-color: #f0eee8;
       background-image: url('logo.png');
       background-size: 90%;
       background-position: center 38%;
       background-repeat: no-repeat;
-      box-shadow: 0 0 0 1px rgba(216,184,137,0.4), 0 2px 10px rgba(35,33,28,0.12);
+      box-shadow: 0 0 0 1px rgba(216,184,137,0.4), 0 2px 10px rgba(35,33,28,0.1);
       flex-shrink: 0;
     }
 
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
 
     .nav-logo-text .name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.2rem;
       font-weight: 600;
       color: var(--text);
-      letter-spacing: 0.01em;
     }
 
     .nav-logo-text .slogan {
-      font-family: 'Roboto', sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent);
@@ -104,12 +95,11 @@
     .nav-links a {
       color: var(--text);
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 500;
       transition: color 0.2s;
-      font-family: 'Roboto', sans-serif;
     }
 
     .nav-links a:hover { color: var(--accent); }
@@ -117,17 +107,13 @@
     .nav-cta {
       background: var(--text) !important;
       color: var(--white) !important;
-      padding: 0.5rem 1.4rem !important;
+      padding: 0.45rem 1.3rem !important;
       border-radius: 2px;
     }
 
-    .nav-cta:hover { opacity: 0.85; }
+    .nav-cta:hover { opacity: 0.82 !important; }
 
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0.2rem;
-    }
+    .lang-toggle { display: flex; align-items: center; gap: 0.2rem; }
 
     .lang-toggle button {
       background: none;
@@ -158,54 +144,68 @@
       align-items: flex-end;
       justify-content: flex-start;
       overflow: hidden;
-      padding: 0;
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://placehold.co/1920x1080/8B7355/8B7355') center/cover no-repeat;
+      background: linear-gradient(160deg, #b8a07a 0%, #8a7055 30%, #5a4830 60%, #3a3020 100%);
       z-index: 0;
     }
 
-    /* Warm mountain/light scene gradient overlay */
+    /* Light ray burst from top center */
     .hero-bg::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse at 50% 20%, rgba(255,220,130,0.35) 0%, transparent 55%),
-        linear-gradient(180deg,
-          rgba(120,90,50,0.15) 0%,
-          rgba(80,60,30,0.1) 40%,
-          rgba(30,25,15,0.55) 75%,
-          rgba(20,16,8,0.75) 100%
-        );
+        radial-gradient(ellipse 60% 55% at 52% 18%, rgba(255,225,140,0.55) 0%, rgba(255,190,80,0.2) 35%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 50% 5%, rgba(255,240,180,0.4) 0%, transparent 60%);
       z-index: 1;
     }
 
-    /* Warm light ray effect */
+    /* Bottom darkening */
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(170deg, rgba(255,210,100,0.18) 0%, transparent 45%),
-        linear-gradient(190deg, rgba(255,180,60,0.08) 0%, transparent 40%);
+      background: linear-gradient(to top, rgba(20,15,8,0.65) 0%, transparent 50%);
       z-index: 2;
+    }
+
+    /* Landscape silhouette */
+    .hero-landscape {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 45%;
+      background:
+        radial-gradient(ellipse 70% 90% at 20% 100%, #2d2218 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 100%, #231a10 0%, transparent 55%),
+        linear-gradient(to top, #1a1208 0%, #2d2218 30%, transparent 70%);
+      z-index: 2;
+    }
+
+    /* River/path light streak */
+    .hero-landscape::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 42%; right: 42%;
+      height: 55%;
+      background: linear-gradient(to top, rgba(200,160,80,0.35) 0%, rgba(230,190,100,0.12) 60%, transparent 100%);
+      filter: blur(8px);
     }
 
     .hero-inner {
       position: relative;
-      z-index: 3;
-      max-width: 680px;
+      z-index: 4;
+      max-width: 640px;
       padding: 0 5rem 7rem;
-      width: 100%;
     }
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 5vw, 4rem);
+      font-size: clamp(2.6rem, 4.5vw, 3.8rem);
       font-weight: 400;
       line-height: 1.15em;
       letter-spacing: -0.01em;
@@ -215,40 +215,37 @@
 
     .hero-title-ar {
       font-family: 'Amiri', serif;
-      font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
       font-weight: 400;
       color: var(--white);
       margin-bottom: 2rem;
       line-height: 1.4;
-      display: none;
       direction: rtl;
+      display: none;
     }
 
     .hero-btn {
       display: inline-block;
-      padding: 0.7rem 2rem;
-      border: 1px solid rgba(255,255,255,0.7);
+      padding: 0.65rem 1.8rem;
+      border: 1px solid rgba(255,255,255,0.65);
       background: transparent;
       color: var(--white);
       font-family: 'Roboto', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 500;
       text-decoration: none;
       border-radius: 2px;
       transition: all 0.25s;
-      cursor: pointer;
     }
 
     .hero-btn:hover {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.12);
       border-color: var(--white);
     }
 
-    /* ── SECTION COMMONS ── */
-    section { position: relative; }
-
+    /* ── SHARED ── */
     .section-inner {
       max-width: 1140px;
       margin: 0 auto;
@@ -256,33 +253,32 @@
     }
 
     .section-label {
-      font-family: 'Roboto', sans-serif;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       font-weight: 500;
     }
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
       font-weight: 500;
       color: var(--text);
       line-height: 1.2em;
       letter-spacing: -0.025em;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
     }
 
     .section-title-ar {
       font-family: 'Amiri', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
       font-weight: 700;
       color: var(--text);
       direction: rtl;
       line-height: 1.4;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       display: none;
     }
 
@@ -290,8 +286,7 @@
       font-size: 16px;
       line-height: 1.65em;
       color: var(--text);
-      opacity: 0.78;
-      max-width: 560px;
+      opacity: 0.72;
     }
 
     .section-body-ar {
@@ -299,8 +294,7 @@
       font-size: 1.05rem;
       line-height: 2em;
       color: var(--text);
-      opacity: 0.78;
-      max-width: 560px;
+      opacity: 0.72;
       direction: rtl;
       display: none;
     }
@@ -318,43 +312,25 @@
       align-items: center;
     }
 
-    .about-image-wrap {
-      position: relative;
-    }
-
-    .about-image {
+    .about-img-wrap {
       width: 100%;
       aspect-ratio: 4/5;
-      object-fit: cover;
       border-radius: 4px;
+      overflow: hidden;
+      background: var(--sand);
+    }
+
+    .about-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
       display: block;
     }
 
-    .about-image-placeholder {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: linear-gradient(145deg, #e8dfc8, #d4c9ae);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+    .about-right { display: flex; flex-direction: column; }
 
-    .about-image-placeholder img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about-right {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .about-right .section-body + .section-body {
-      margin-top: 1.2rem;
+    .about-right .section-body + .section-body,
+    .about-right .section-body-ar + .section-body-ar {
+      margin-top: 1rem;
     }
 
     /* ── VISION ── */
@@ -365,248 +341,522 @@
 
     .vision-layout {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 4rem;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 5rem;
       align-items: start;
     }
-
-    .vision-left {}
 
     .vision-pillars {
       display: flex;
       gap: 2.5rem;
-      margin-top: 3rem;
+      margin-top: 1rem;
       flex-wrap: wrap;
+      align-items: flex-start;
     }
 
     .vision-pillar {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       text-align: center;
+      width: 90px;
     }
 
     .vision-pillar-icon {
-      width: 64px;
-      height: 64px;
+      width: 68px;
+      height: 68px;
       background: var(--white);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 12px rgba(35,33,28,0.08);
-      font-size: 1.5rem;
-      margin-bottom: 0.25rem;
+      box-shadow: 0 2px 14px rgba(35,33,28,0.08);
+      font-size: 1.6rem;
     }
 
     .vision-pillar-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .vision-pillar-label-ar {
+      font-family: 'Amiri', serif;
+      font-size: 0.85rem;
+      color: var(--accent);
+      line-height: 1.5;
+      display: none;
+    }
+
+    /* ── GOALS ── */
+    #goals {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .goals-intro {
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .goal-card {
+      background: var(--sand);
+      border-radius: 4px;
+      padding: 2rem 1.8rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(35,33,28,0.09);
+    }
+
+    .goal-icon { font-size: 1.6rem; margin-bottom: 0.9rem; display: block; }
+
+    .goal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.02em;
+    }
+
+    .goal-title-ar {
+      font-family: 'Amiri', serif;
+      font-size: 1.2rem;
+      color: var(--text);
+      direction: rtl;
+      margin-bottom: 0.45rem;
+      display: none;
+    }
+
+    .goal-desc {
+      font-size: 14px;
+      line-height: 1.6em;
+      color: var(--text);
+      opacity: 0.65;
+    }
+
+    .goal-desc-ar {
+      font-family: 'Amiri', serif;
+      font-size: 0.95rem;
+      line-height: 1.8em;
+      color: var(--text);
+      opacity: 0.65;
+      direction: rtl;
+      display: none;
+    }
+
+    /* ── PILLARS STRIP ── */
+    #pillars {
+      padding: 5rem 0;
+      background: var(--sand);
+      border-top: 1px solid rgba(216,184,137,0.25);
+      border-bottom: 1px solid rgba(216,184,137,0.25);
+      text-align: center;
+    }
+
+    .pillars-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .pillars-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      opacity: 0.85;
+    }
+
+    .pillars-quote-ar {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: var(--text);
+      line-height: 1.9;
+      direction: rtl;
+      margin-bottom: 0.5rem;
+      opacity: 0.85;
+      display: none;
+    }
+
+    .pillars-source {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 3rem;
+    }
+
+    .pillars-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .pillar-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pillar-icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 2px 14px rgba(35,33,28,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .pillar-item:hover .pillar-icon-wrap {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(35,33,28,0.12);
+    }
+
+    .pillar-label {
       font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
       font-weight: 500;
-      font-family: 'Roboto', sans-serif;
     }
 
-    /* ── MISSION ── */
-    #mission {
-      padding: 6rem 0;
-      background: var(--white);
+    .pillar-label-ar {
+      font-family: 'Amiri', serif;
+      font-size: 0.9rem;
+      color: var(--accent);
+      display: none;
     }
 
-    .mission-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-      margin-bottom: 4rem;
-    }
-
-    .mission-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .mission-card {
-      border-radius: 4px;
-      overflow: hidden;
-      background: var(--sand);
-      position: relative;
-    }
-
-    .mission-card-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-    }
-
-    .mission-card-img-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      display: block;
-      object-fit: cover;
-    }
-
-    .mission-card-body {
-      padding: 1.4rem 1.4rem 1.6rem;
-    }
-
-    .mission-card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-      line-height: 1.3em;
-    }
-
-    .mission-card-desc {
-      font-size: 14px;
-      line-height: 1.6em;
-      color: var(--text);
-      opacity: 0.7;
-    }
-
-    /* ── PATHWAYS ── */
-    #pathways {
+    /* ── SABIQAT ── */
+    #sabiqat {
       padding: 7rem 0;
       background: var(--cream);
-      text-align: center;
     }
 
-    .pathways-header {
-      max-width: 640px;
+    .sabiqat-header {
+      text-align: center;
+      max-width: 680px;
       margin: 0 auto 4rem;
     }
 
-    .pathways-grid {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    .pathway-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.9rem;
-      width: 110px;
-    }
-
-    .pathway-icon-wrap {
-      width: 90px;
-      height: 90px;
-      background: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 16px rgba(35,33,28,0.08);
-      font-size: 2.2rem;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-
-    .pathway-item:hover .pathway-icon-wrap {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(35,33,28,0.14);
-    }
-
-    .pathway-icon-img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-    }
-
-    .pathway-label {
-      font-family: 'Roboto', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
+    .sabiqat-badge {
+      display: inline-block;
+      background: rgba(216,184,137,0.15);
+      border: 1px solid rgba(216,184,137,0.45);
+      color: var(--accent);
+      font-size: 0.66rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--text);
+      padding: 0.35rem 1.2rem;
+      border-radius: 100px;
+      margin-bottom: 1.2rem;
       font-weight: 500;
     }
 
-    /* ── COURSES ── */
-    #courses {
-      padding: 7rem 0;
-      background: var(--white);
+    .sabiqat-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
     }
 
-    .courses-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
+    .sabiqat-tagline {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 1.4rem;
+      font-weight: 400;
+    }
+
+    .sabiqat-tagline-ar {
+      font-family: 'Amiri', serif;
+      font-size: 0.95rem;
+      color: var(--accent);
+      direction: rtl;
+      margin-bottom: 1.4rem;
+      display: none;
+    }
+
+    .sabiqat-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--primary);
+      margin: 0 auto 1.4rem;
+      opacity: 0.6;
+    }
+
+    .sabiqat-desc {
+      font-size: 15px;
+      line-height: 1.75em;
+      color: var(--text);
+      opacity: 0.72;
+    }
+
+    .sabiqat-desc-ar {
+      font-family: 'Amiri', serif;
+      font-size: 1.05rem;
+      line-height: 2em;
+      color: var(--text);
+      opacity: 0.72;
+      direction: rtl;
+      display: none;
+    }
+
+    /* Courses */
+    .courses-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
     }
 
     .courses-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 4rem;
     }
 
     .course-card {
+      background: var(--white);
       border-radius: 4px;
-      overflow: hidden;
-      background: var(--sand);
+      padding: 2.2rem 2rem;
       position: relative;
-      transition: transform 0.25s, box-shadow 0.25s;
+      border-left: 2px solid rgba(216,184,137,0.4);
+      transition: border-color 0.25s, box-shadow 0.25s;
     }
 
     .course-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(35,33,28,0.12);
+      border-color: var(--primary);
+      box-shadow: 0 6px 24px rgba(35,33,28,0.08);
     }
 
-    .course-card-img-wrap {
-      position: relative;
-      aspect-ratio: 3/4;
-      overflow: hidden;
-    }
-
-    .course-card-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      /* Arched/rounded top */
-      border-radius: 4px 4px 0 0;
-    }
-
-    /* Arch overlay */
-    .course-card-img-wrap::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 55%;
-      background: linear-gradient(to top, rgba(20,16,8,0.75) 0%, transparent 100%);
-    }
-
-    .course-card-title {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      z-index: 2;
-      padding: 1rem 1rem 1.1rem;
+    .course-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--white);
-      line-height: 1.3em;
-      letter-spacing: -0.01em;
+      font-size: 4rem;
+      font-weight: 600;
+      color: var(--primary);
+      opacity: 0.12;
+      position: absolute;
+      top: 0.5rem; right: 1.2rem;
+      line-height: 1;
+      user-select: none;
     }
 
-    .courses-cta {
-      text-align: center;
-      margin-top: 2.5rem;
+    .course-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.02em;
     }
+
+    .course-name-ar {
+      font-family: 'Amiri', serif;
+      font-size: 1.7rem;
+      color: var(--text);
+      direction: rtl;
+      margin-bottom: 0.2rem;
+      display: none;
+    }
+
+    .course-topics {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .course-topics li {
+      font-size: 14px;
+      color: var(--text);
+      opacity: 0.68;
+      padding: 0.28rem 0;
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .course-topics li::before {
+      content: '◆';
+      font-size: 0.35rem;
+      color: var(--primary);
+      position: absolute;
+      left: 0; top: 0.62rem;
+    }
+
+    .course-topics-ar {
+      list-style: none;
+      margin-top: 1rem;
+      direction: rtl;
+      display: none;
+    }
+
+    .course-topics-ar li {
+      font-family: 'Amiri', serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      opacity: 0.68;
+      padding: 0.28rem 0;
+      padding-right: 1.1rem;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .course-topics-ar li::before {
+      content: '◆';
+      font-size: 0.35rem;
+      color: var(--primary);
+      position: absolute;
+      right: 0; top: 0.62rem;
+    }
+
+    /* Structure */
+    .structure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 0;
+    }
+
+    .struct-item {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .struct-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(35,33,28,0.08);
+    }
+
+    .struct-icon { font-size: 1.4rem; margin-bottom: 0.7rem; }
+
+    .struct-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .struct-label {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .struct-label-ar {
+      font-family: 'Amiri', serif;
+      font-size: 0.88rem;
+      color: var(--accent);
+      direction: rtl;
+      line-height: 1.6;
+      display: none;
+    }
+
+    /* ── CTA ── */
+    #cta {
+      padding: 7rem 0;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.8vw, 2.8rem);
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.025em;
+      line-height: 1.2em;
+      margin-bottom: 1rem;
+    }
+
+    .cta-title-ar {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--text);
+      direction: rtl;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .cta-sub {
+      font-size: 16px;
+      color: var(--text);
+      opacity: 0.65;
+      line-height: 1.65em;
+      margin-bottom: 2.2rem;
+    }
+
+    .cta-sub-ar {
+      font-family: 'Amiri', serif;
+      font-size: 1.05rem;
+      color: var(--text);
+      opacity: 0.65;
+      direction: rtl;
+      margin-bottom: 2.2rem;
+      display: none;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.72rem 2.2rem;
+      background: var(--text);
+      color: var(--white);
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: opacity 0.2s, transform 0.2s;
+      margin: 0.3rem;
+    }
+
+    .btn-primary:hover { opacity: 0.8; transform: translateY(-1px); }
 
     .btn-outline {
       display: inline-block;
-      padding: 0.65rem 2rem;
+      padding: 0.72rem 2.2rem;
       border: 1px solid var(--text);
       background: transparent;
       color: var(--text);
@@ -617,157 +867,17 @@
       font-weight: 500;
       text-decoration: none;
       border-radius: 2px;
-      transition: all 0.25s;
-      cursor: pointer;
+      transition: all 0.2s;
+      margin: 0.3rem;
     }
 
-    .btn-outline:hover {
-      background: var(--text);
-      color: var(--white);
-    }
-
-    /* ── TESTIMONIALS ── */
-    #testimonials {
-      padding: 7rem 0 6rem;
-      background: var(--sand);
-      position: relative;
-      overflow: hidden;
-    }
-
-    #testimonials::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('https://placehold.co/1920x600/3d3228/3d3228') center/cover no-repeat;
-      opacity: 0.18;
-    }
-
-    .testimonials-header {
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .testimonial-card {
-      background: var(--white);
-      border-radius: 4px;
-      padding: 1.8rem;
-      box-shadow: 0 2px 12px rgba(35,33,28,0.06);
-    }
-
-    .testimonial-stars {
-      color: #D8B889;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.8rem;
-    }
-
-    .testimonial-name {
-      font-family: 'Roboto', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.15rem;
-    }
-
-    .testimonial-role {
-      font-size: 0.72rem;
-      color: var(--accent);
-      margin-bottom: 0.9rem;
-      font-weight: 400;
-    }
-
-    .testimonial-text {
-      font-size: 14px;
-      line-height: 1.65em;
-      color: var(--text);
-      opacity: 0.75;
-    }
-
-    .testimonial-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--sand);
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      overflow: hidden;
-    }
-
-    .testimonial-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* ── CTA ── */
-    #cta {
-      padding: 7rem 0;
-      text-align: center;
-      background: var(--cream);
-    }
-
-    .cta-inner {
-      max-width: 660px;
-      margin: 0 auto;
-    }
-
-    .cta-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 500;
-      color: var(--text);
-      letter-spacing: -0.025em;
-      line-height: 1.2em;
-      margin-bottom: 1rem;
-    }
-
-    .cta-sub {
-      font-size: 16px;
-      color: var(--text);
-      opacity: 0.7;
-      line-height: 1.65em;
-      margin-bottom: 2.2rem;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.75rem 2.4rem;
-      background: var(--text);
-      color: var(--white);
-      font-family: 'Roboto', sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 500;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.25s;
-      border: none;
-      cursor: pointer;
-      margin-right: 0.8rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .btn-primary:hover { opacity: 0.82; transform: translateY(-1px); }
+    .btn-outline:hover { background: var(--text); color: var(--white); }
 
     /* ── FOOTER ── */
     footer {
       background: #2a2419;
-      color: rgba(255,255,255,0.6);
-      padding: 2.5rem 3rem;
+      color: rgba(255,255,255,0.5);
+      padding: 2.2rem 3rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -777,30 +887,27 @@
 
     .footer-brand {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--primary);
       font-weight: 500;
     }
 
     .footer-brand small {
       font-family: 'Roboto', sans-serif;
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.35);
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.3);
       display: block;
       margin-top: 0.2rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
+    .footer-links { display: flex; gap: 1.8rem; }
 
     .footer-links a {
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.38);
       text-decoration: none;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: color 0.2s;
@@ -808,42 +915,32 @@
 
     .footer-links a:hover { color: var(--primary); }
 
-    .footer-social {
-      display: flex;
-      gap: 0.7rem;
-    }
+    .footer-social { display: flex; gap: 0.6rem; }
 
     .social-btn {
-      width: 36px; height: 36px;
-      border: 1px solid rgba(255,255,255,0.15);
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.7rem;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.68rem;
       font-weight: 600;
-      transition: all 0.25s;
+      transition: all 0.2s;
     }
 
-    .social-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
+    .social-btn:hover { border-color: var(--primary); color: var(--primary); }
 
     /* ── ANIMATIONS ── */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(22px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
@@ -851,36 +948,71 @@
     /* ── LANGUAGE ── */
     body.ar .en { display: none !important; }
     body.ar .ar { display: block !important; }
+
+    body.ar .hero-title    { display: none !important; }
     body.ar .hero-title-ar { display: block !important; }
-    body.ar .hero-title { display: none !important; }
+
+    body.ar .section-title    { display: none !important; }
     body.ar .section-title-ar { display: block !important; }
-    body.ar .section-title { display: none !important; }
+
+    body.ar .section-body    { display: none !important; }
     body.ar .section-body-ar { display: block !important; }
-    body.ar .section-body { display: none !important; }
+
+    body.ar .pillars-quote    { display: none !important; }
+    body.ar .pillars-quote-ar { display: block !important; }
+
+    body.ar .pillar-label    { display: none !important; }
+    body.ar .pillar-label-ar { display: inline !important; }
+
+    body.ar .vision-pillar-label    { display: none !important; }
+    body.ar .vision-pillar-label-ar { display: block !important; }
+
+    body.ar .goal-title    { display: none !important; }
+    body.ar .goal-title-ar { display: block !important; }
+
+    body.ar .goal-desc    { display: none !important; }
+    body.ar .goal-desc-ar { display: block !important; }
+
+    body.ar .sabiqat-tagline    { display: none !important; }
+    body.ar .sabiqat-tagline-ar { display: block !important; }
+
+    body.ar .sabiqat-desc    { display: none !important; }
+    body.ar .sabiqat-desc-ar { display: block !important; }
+
+    body.ar .course-name    { display: none !important; }
+    body.ar .course-name-ar { display: block !important; }
+
+    body.ar .course-topics    { display: none !important; }
+    body.ar .course-topics-ar { display: block !important; }
+
+    body.ar .struct-label    { display: none !important; }
+    body.ar .struct-label-ar { display: block !important; }
+
+    body.ar .cta-title    { display: none !important; }
+    body.ar .cta-title-ar { display: block !important; }
+
+    body.ar .cta-sub    { display: none !important; }
+    body.ar .cta-sub-ar { display: block !important; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .mission-cards { grid-template-columns: 1fr 1fr; }
-      .courses-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 860px) {
+    @media (max-width: 960px) {
       nav { padding: 0.8rem 1.5rem; }
       .nav-links { display: none; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .vision-layout { grid-template-columns: 1fr; }
-      .mission-header { grid-template-columns: 1fr; gap: 2rem; }
-      .mission-cards { grid-template-columns: 1fr 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
+      .vision-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .goals-grid { grid-template-columns: repeat(2, 1fr); }
+      .courses-grid { grid-template-columns: 1fr; }
+      .structure-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-inner { padding: 0 2rem 5rem; }
-      footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      footer { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
     }
 
     @media (max-width: 600px) {
-      .courses-grid { grid-template-columns: 1fr; }
-      .mission-cards { grid-template-columns: 1fr; }
-      .pathways-grid { gap: 1.2rem; }
-      .section-inner { padding: 0 1.5rem; }
+      .goals-grid { grid-template-columns: 1fr; }
+      .structure-grid { grid-template-columns: 1fr; }
+      .pillars-icons { gap: 1.4rem; }
+      .section-inner { padding: 0 1.4rem; }
+      .pillars-inner { padding: 0 1.4rem; }
     }
   </style>
 </head>
@@ -898,7 +1030,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#vision">Vision</a></li>
-      <li><a href="#courses">Courses</a></li>
+      <li><a href="#sabiqat">SABIQAT</a></li>
       <li><a href="#cta" class="nav-cta">Enroll</a></li>
     </ul>
     <div class="lang-toggle">
@@ -910,9 +1042,10 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg"></div>
+    <div class="hero-landscape"></div>
     <div class="hero-inner">
-      <h1 class="hero-title en">Where Faith Meets the Light<br>of Knowledge</h1>
-      <h1 class="hero-title-ar">حيث يلتقي الإيمان بنور العلم</h1>
+      <h1 class="hero-title en">Where Young Muslim<br>Women Rise.</h1>
+      <h1 class="hero-title-ar">حيث ترتقي المرأة المسلمة الشابة.</h1>
       <a href="#cta" class="hero-btn en">Begin Your Journey</a>
       <a href="#cta" class="hero-btn ar" style="display:none;">ابدئي رحلتك</a>
     </div>
@@ -922,31 +1055,30 @@
   <section id="about">
     <div class="section-inner">
       <div class="about-grid">
-        <div class="about-image-placeholder reveal">
-          <img src="https://placehold.co/520x650/c8b99a/7a6a52?text=Eshraqat+Academy" alt="Eshraqat Academy" />
+        <div class="about-img-wrap reveal">
+          <img src="https://placehold.co/520x650/c8b99a/6a5a42?text=" alt="Eshraqat Academy" />
         </div>
         <div class="about-right reveal reveal-delay-1">
           <div class="section-label">About the Academy</div>
           <h2 class="section-title en">Inspiring Hearts and<br>Minds with Islamic<br>Education</h2>
           <h2 class="section-title-ar">إلهام القلوب والعقول بالتعليم الإسلامي</h2>
-          <p class="section-body en" style="margin-top: 1.2rem;">
-            At Eshraqat Academy, we are dedicated to providing an enriching and holistic educational experience
-            that nurtures the intellectual, spiritual, and moral development of our students. Our school combines
-            the best of traditional Islamic teachings with excellence, preparing our students to excel in both
-            their religious and personal pursuits.
+          <p class="section-body en" style="margin-top:1.1rem;">
+            Eshraqat Academy is an Islamic studies program dedicated to young Muslim girls.
+            We go beyond memorization — we build confident, grounded, faith-centered leaders
+            who carry Islam in their hearts, their character, and their communities.
           </p>
-          <p class="section-body-ar" style="margin-top: 1.2rem;">
-            في إشراقات أكاديمي، نحن ملتزمون بتقديم تجربة تعليمية ثرية وشاملة تغذي النمو الفكري والروحي
-            والأخلاقي لطالباتنا.
+          <p class="section-body-ar" style="margin-top:1.1rem;">
+            إشراقات أكاديمي برنامج إسلامي متخصص للفتيات المسلمات. نتجاوز الحفظ إلى التأسيس
+            — نبني قياديات واثقات، راسخات في إيمانهن، يحملن الإسلام في قلوبهن وأخلاقهن ومجتمعاتهن.
           </p>
-          <p class="section-body en" style="margin-top: 1rem;">
-            At Eshraqat Academy, we are committed to empowering our students with the knowledge, values,
-            and skills necessary to navigate and contribute in an ever-changing world while staying committed to
-            their Islamic identity.
+          <p class="section-body en" style="margin-top:1rem;">
+            We are committed to empowering our students with the knowledge, values, and skills
+            necessary to navigate and contribute in an ever-changing world while staying committed
+            to their Islamic identity.
           </p>
-          <p class="section-body-ar" style="margin-top: 1rem;">
-            نسعى إلى تمكين طالباتنا من المعرفة والقيم والمهارات اللازمة للتعامل مع عالم متغير، مع البقاء
-            ملتزمات بهويتهن الإسلامية.
+          <p class="section-body-ar" style="margin-top:1rem;">
+            نحن ملتزمون بتمكين طالباتنا من المعرفة والقيم والمهارات اللازمة للتعامل مع عالم متغير،
+            مع البقاء ملتزمات بهويتهن الإسلامية.
           </p>
         </div>
       </div>
@@ -959,33 +1091,36 @@
       <div class="vision-layout">
         <div class="reveal">
           <div class="section-label">Our Vision</div>
-          <h2 class="section-title en">To Be the Premier<br>Institution</h2>
-          <h2 class="section-title-ar">أن نكون المؤسسة الرائدة</h2>
-          <p class="section-body en" style="margin-top: 1rem;">
-            To be the premier institution dedicated to nurturing Muslims who aspire to achieve the highest
-            spiritual excellence — Allah-Consciousness, Purification of Heart, and Self-Accountability.
+          <h2 class="section-title en">Preparing the Mothers of Tomorrow's Leaders.</h2>
+          <h2 class="section-title-ar">نُعِدُّ أمهات قادة الغد.</h2>
+          <p class="section-body en" style="margin-top:1rem;">
+            At the heart of Eshraqat Academy is a vision to empower Muslim girls with the essential
+            foundations they need to build confidence and live positively within their communities.
+            We are deeply committed to preparing future mothers who will play a vital role in raising
+            the next generation of leaders of this Ummah — through Quran, Aqeedah, Hadith, Fiqh, and Manners.
           </p>
-          <p class="section-body-ar" style="margin-top: 1rem;">
-            أن نكون المؤسسة الرائدة في تنشئة مسلمين يسعون لتحقيق أعلى درجات التميز الروحي
-            — تقوى الله، وتزكية النفس، والمحاسبة الذاتية.
+          <p class="section-body-ar" style="margin-top:1rem;">
+            في صميم إشراقات أكاديمي رؤية تسعى إلى تمكين الفتيات المسلمات من الأسس الضرورية
+            لبناء الثقة بالنفس والعيش بإيجابية داخل مجتمعاتهن. نحن ملتزمون بإعداد أمهات المستقبل
+            اللواتي سيؤدين دوراً محورياً في تنشئة الجيل القادم من قادة هذه الأمة.
           </p>
         </div>
         <div class="reveal reveal-delay-1">
           <div class="vision-pillars">
             <div class="vision-pillar">
               <div class="vision-pillar-icon">☪️</div>
-              <span class="vision-pillar-label en">Allah<br>Consciousness</span>
-              <span class="vision-pillar-label ar" style="display:none; font-family:'Amiri',serif;">تقوى الله</span>
+              <span class="vision-pillar-label">Allah<br>Consciousness</span>
+              <span class="vision-pillar-label-ar">تقوى الله</span>
             </div>
             <div class="vision-pillar">
               <div class="vision-pillar-icon">🕊️</div>
-              <span class="vision-pillar-label en">Purification<br>of Heart</span>
-              <span class="vision-pillar-label ar" style="display:none; font-family:'Amiri',serif;">تزكية القلب</span>
+              <span class="vision-pillar-label">Purification<br>of Heart</span>
+              <span class="vision-pillar-label-ar">تزكية القلب</span>
             </div>
             <div class="vision-pillar">
               <div class="vision-pillar-icon">⚖️</div>
-              <span class="vision-pillar-label en">Self<br>Accountability</span>
-              <span class="vision-pillar-label ar" style="display:none; font-family:'Amiri',serif;">المحاسبة الذاتية</span>
+              <span class="vision-pillar-label">Self<br>Accountability</span>
+              <span class="vision-pillar-label-ar">المحاسبة الذاتية</span>
             </div>
           </div>
         </div>
@@ -993,187 +1128,237 @@
     </div>
   </section>
 
-  <!-- MISSION -->
-  <section id="mission">
+  <!-- GOALS -->
+  <section id="goals">
     <div class="section-inner">
-      <div class="mission-header">
-        <div class="reveal">
-          <div class="section-label">Our Mission</div>
-          <h2 class="section-title en">Excellence in<br>Islamic Education</h2>
-          <h2 class="section-title-ar">التميز في التعليم الإسلامي</h2>
-        </div>
-        <div class="reveal reveal-delay-1">
-          <p class="section-body en" style="margin-top: 0.5rem;">
-            Our mission at Eshraqat Academy is to provide a comprehensive Islamic education that harmonises
-            traditional Islamic teachings with contemporary wisdom.
-          </p>
-          <p class="section-body-ar" style="margin-top: 0.5rem;">
-            مهمتنا في إشراقات أكاديمي هي تقديم تعليم إسلامي شامل يوازن بين التعاليم الإسلامية التقليدية
-            والحكمة المعاصرة.
-          </p>
-        </div>
+      <div class="goals-intro reveal">
+        <div class="section-label">What We Build</div>
+        <h2 class="section-title en">Our Goals</h2>
+        <h2 class="section-title-ar">أهدافنا</h2>
       </div>
-      <div class="mission-cards">
-        <div class="mission-card reveal">
-          <img class="mission-card-img-placeholder" src="https://placehold.co/540x400/c0aa85/5a4a32?text=Religious+Excellence" alt="Religious Excellence" />
-          <div class="mission-card-body">
-            <div class="mission-card-title en">Religious Excellence</div>
-            <div class="mission-card-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">التميز الديني</div>
-            <p class="mission-card-desc en">Striving for high-quality knowledge in Islamic studies, hadith, and fiqh while enjoying a deep understanding of Islamic knowledge.</p>
-            <p class="mission-card-desc ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">السعي لاكتساب المعرفة الإسلامية العالية الجودة في الفقه والحديث وفهم الإسلام فهماً عميقاً.</p>
-          </div>
+      <div class="goals-grid">
+        <div class="goal-card reveal">
+          <span class="goal-icon">🌸</span>
+          <div class="goal-title en">Muslim Identity</div>
+          <div class="goal-title-ar">الهوية الإسلامية</div>
+          <p class="goal-desc en">Build a strong, confident Muslim identity rooted in faith and self-assurance.</p>
+          <p class="goal-desc-ar">بناء هوية إسلامية راسخة وواثقة لدى الفتيات.</p>
         </div>
-        <div class="mission-card reveal reveal-delay-1">
-          <img class="mission-card-img-placeholder" src="https://placehold.co/540x400/b09a7a/4a3a28?text=Spiritual+Growth" alt="Spiritual Growth" />
-          <div class="mission-card-body">
-            <div class="mission-card-title en">Spiritual Growth</div>
-            <div class="mission-card-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">النمو الروحي</div>
-            <p class="mission-card-desc en">Cultivating a profound connection to Allah through worship, character development, and ethical behaviour.</p>
-            <p class="mission-card-desc ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">تنمية الارتباط العميق بالله من خلال العبادة وتطوير الشخصية والسلوك الأخلاقي.</p>
-          </div>
+        <div class="goal-card reveal reveal-delay-1">
+          <span class="goal-icon">📖</span>
+          <div class="goal-title en">Foundational Knowledge</div>
+          <div class="goal-title-ar">العلم الأساسي</div>
+          <p class="goal-desc en">Solid grounding in Quran, Hadith, Aqeedah, Fiqh, and Islamic manners.</p>
+          <p class="goal-desc-ar">تأسيس قاعدة علمية متينة في العلوم الإسلامية الأساسية.</p>
         </div>
-        <div class="mission-card reveal">
-          <img class="mission-card-img-placeholder" src="https://placehold.co/540x400/c8b49a/5c4c3a?text=Holistic+Development" alt="Holistic Development" />
-          <div class="mission-card-body">
-            <div class="mission-card-title en">Holistic Development</div>
-            <div class="mission-card-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">التنمية الشاملة</div>
-            <p class="mission-card-desc en">Fostering intellectual, moral, and social development of individuals who are confident in their faith and complete in their journey.</p>
-            <p class="mission-card-desc ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">تنمية الجوانب الفكرية والأخلاقية والاجتماعية لأفراد واثقين من إيمانهم.</p>
-          </div>
+        <div class="goal-card reveal reveal-delay-2">
+          <span class="goal-icon">🌍</span>
+          <div class="goal-title en">Real-Life Application</div>
+          <div class="goal-title-ar">التطبيق في الحياة</div>
+          <p class="goal-desc en">Connect Islamic teachings to everyday life as a Muslim in the West.</p>
+          <p class="goal-desc-ar">ربط تعاليم الإسلام بالحياة اليومية للمسلمة في الغرب.</p>
         </div>
-        <div class="mission-card reveal reveal-delay-1">
-          <img class="mission-card-img-placeholder" src="https://placehold.co/540x400/baa88a/50402e?text=Lifelong+Learning" alt="Lifelong Learning" />
-          <div class="mission-card-body">
-            <div class="mission-card-title en">Lifelong Learning</div>
-            <div class="mission-card-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">التعلم مدى الحياة</div>
-            <p class="mission-card-desc en">Instilling a passion for continuous learning and personal development to the light of Islamic teachings.</p>
-            <p class="mission-card-desc ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">غرس شغف التعلم المستمر والتطوير الشخصي في ضوء التعاليم الإسلامية.</p>
-          </div>
+        <div class="goal-card reveal">
+          <span class="goal-icon">🤝</span>
+          <div class="goal-title en">Sisterhood</div>
+          <div class="goal-title-ar">الأخوة والانتماء</div>
+          <p class="goal-desc en">Foster community, belonging, and meaningful bonds among Muslim girls.</p>
+          <p class="goal-desc-ar">تعزيز روح الأخوة والانتماء والمجتمع.</p>
+        </div>
+        <div class="goal-card reveal reveal-delay-1">
+          <span class="goal-icon">✨</span>
+          <div class="goal-title en">Character & Manners</div>
+          <div class="goal-title-ar">الأخلاق والقيادة</div>
+          <p class="goal-desc en">Develop ethical character, Islamic manners, and leadership qualities.</p>
+          <p class="goal-desc-ar">تنمية الأخلاق وحسن السيرة والقيادة الإيجابية.</p>
+        </div>
+        <div class="goal-card reveal reveal-delay-2">
+          <span class="goal-icon">🕊️</span>
+          <div class="goal-title en">Ambassadors of Faith</div>
+          <div class="goal-title-ar">سفيرات الدين</div>
+          <p class="goal-desc en">Inspire girls to confidently represent and share their beautiful faith.</p>
+          <p class="goal-desc-ar">إلهام الفتيات ليكن سفيرات واثقات لدينهن الحنيف.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PATHWAYS TO WORSHIP -->
-  <section id="pathways">
+  <!-- PILLARS STRIP -->
+  <section id="pillars">
+    <div class="pillars-inner reveal">
+      <p class="pillars-quote en">"Seeking knowledge is an obligation upon every Muslim."</p>
+      <p class="pillars-quote-ar">«طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ»</p>
+      <p class="pillars-source">— Ibn Mājah</p>
+      <div class="pillars-icons">
+        <div class="pillar-item reveal">
+          <div class="pillar-icon-wrap">📖</div>
+          <span class="pillar-label">Quran</span>
+          <span class="pillar-label-ar">القرآن</span>
+        </div>
+        <div class="pillar-item reveal reveal-delay-1">
+          <div class="pillar-icon-wrap">🌿</div>
+          <span class="pillar-label">Hadith</span>
+          <span class="pillar-label-ar">الحديث</span>
+        </div>
+        <div class="pillar-item reveal reveal-delay-1">
+          <div class="pillar-icon-wrap">🌙</div>
+          <span class="pillar-label">Aqeedah</span>
+          <span class="pillar-label-ar">العقيدة</span>
+        </div>
+        <div class="pillar-item reveal reveal-delay-2">
+          <div class="pillar-icon-wrap">⚖️</div>
+          <span class="pillar-label">Fiqh</span>
+          <span class="pillar-label-ar">الفقه</span>
+        </div>
+        <div class="pillar-item reveal reveal-delay-2">
+          <div class="pillar-icon-wrap">🕊️</div>
+          <span class="pillar-label">Manners</span>
+          <span class="pillar-label-ar">الآداب</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SABIQAT -->
+  <section id="sabiqat">
     <div class="section-inner">
-      <div class="pathways-header reveal">
-        <div class="section-label">Pathways to Worship</div>
-        <h2 class="section-title en">Rooted in Five Essentials</h2>
-        <h2 class="section-title-ar">متجذّرون في خمسة أساسيات</h2>
-        <p class="section-body en" style="margin: 1rem auto 0; text-align: center;">
-          At Eshraqat Academy, we are committed to empowering our students with the knowledge, values,
-          and skills necessary to navigate and contribute to our ever-changing world while staying committed
-          to their Islamic identity.
+
+      <div class="sabiqat-header reveal">
+        <div class="sabiqat-badge">Flagship Program</div>
+        <h2 class="sabiqat-title">SABIQAT</h2>
+        <p class="sabiqat-tagline en">The Islamic Studies Program for Muslim Girls · Ages 10–15</p>
+        <p class="sabiqat-tagline-ar">برنامج الدراسات الإسلامية للفتيات المسلمات · ١٠–١٥ سنة</p>
+        <div class="sabiqat-divider"></div>
+        <p class="sabiqat-desc en">
+          SABIQAT is Eshraqat Academy's flagship program — a uniquely designed Islamic studies curriculum
+          for Muslim girls ages 10–15. Over two structured semesters, students explore four core Islamic
+          disciplines in an environment that is warm, engaging, and sisterhood-focused.
+          More than a class — it's a journey. Students don't just learn; they reflect, connect, and grow.
+        </p>
+        <p class="sabiqat-desc-ar">
+          سابقات هو البرنامج الرئيسي لإشراقات أكاديمي — منهج إسلامي مصمم خصيصاً لفتيات مسلمات من سن 10 إلى 15.
+          على مدى فصلين دراسيين، تستكشف الطالبات أربعة محاور إسلامية أساسية في بيئة دافئة ومحفزة تقوم على روح الأخوة.
+          أكثر من مجرد درس — إنها رحلة. الطالبات لا يتعلمن فحسب، بل يتأملن ويتواصلن وينمون.
         </p>
       </div>
-      <div class="pathways-grid">
-        <div class="pathway-item reveal">
-          <div class="pathway-icon-wrap">📖</div>
-          <span class="pathway-label en">Quran</span>
-          <span class="pathway-label ar" style="display:none; font-family:'Amiri',serif;">القرآن</span>
-        </div>
-        <div class="pathway-item reveal reveal-delay-1">
-          <div class="pathway-icon-wrap">🌙</div>
-          <span class="pathway-label en">Sunnah</span>
-          <span class="pathway-label ar" style="display:none; font-family:'Amiri',serif;">السنة</span>
-        </div>
-        <div class="pathway-item reveal reveal-delay-1">
-          <div class="pathway-icon-wrap">📿</div>
-          <span class="pathway-label en">Knowledge</span>
-          <span class="pathway-label ar" style="display:none; font-family:'Amiri',serif;">العلم</span>
-        </div>
-        <div class="pathway-item reveal reveal-delay-2">
-          <div class="pathway-icon-wrap">🤲</div>
-          <span class="pathway-label en">Ibadat</span>
-          <span class="pathway-label ar" style="display:none; font-family:'Amiri',serif;">العبادات</span>
-        </div>
-        <div class="pathway-item reveal reveal-delay-2">
-          <div class="pathway-icon-wrap">🕌</div>
-          <span class="pathway-label en">Prayers</span>
-          <span class="pathway-label ar" style="display:none; font-family:'Amiri',serif;">الصلاة</span>
-        </div>
-        <div class="pathway-item reveal reveal-delay-3">
-          <div class="pathway-icon-wrap">📿</div>
-          <span class="pathway-label en">Adhkar</span>
-          <span class="pathway-label ar" style="display:none; font-family:'Amiri',serif;">الأذكار</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- FEATURED COURSES -->
-  <section id="courses">
-    <div class="section-inner">
-      <div class="courses-header reveal">
-        <div class="section-label">Featured Courses</div>
-        <h2 class="section-title en">Our Core Programs</h2>
-        <h2 class="section-title-ar">برامجنا الأساسية</h2>
-      </div>
+      <div class="courses-label reveal">Courses of Study</div>
       <div class="courses-grid">
-        <div class="course-card reveal">
-          <div class="course-card-img-wrap">
-            <img src="https://placehold.co/400x520/8B7355/f0e6d0?text=Fundamental+Program" alt="Fundamental Program for Kids" />
-            <div class="course-card-title en">Fundamental<br>Program for Kids</div>
-            <div class="course-card-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">البرنامج الأساسي للأطفال</div>
-          </div>
-        </div>
-        <div class="course-card reveal reveal-delay-1">
-          <div class="course-card-img-wrap">
-            <img src="https://placehold.co/400x520/7a6648/f0e6d0?text=Tajweed+Mastery" alt="Tajweed Mastery" />
-            <div class="course-card-title en">Tajweed<br>Mastery</div>
-            <div class="course-card-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">إتقان التجويد</div>
-          </div>
-        </div>
-        <div class="course-card reveal reveal-delay-2">
-          <div class="course-card-img-wrap">
-            <img src="https://placehold.co/400x520/6b5c42/f0e6d0?text=Adhan+%26+Iqamah" alt="Adhan and Iqamah Ijazah Certification" />
-            <div class="course-card-title en">Adhan and Iqamah<br>Ijazah Certification</div>
-            <div class="course-card-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">إجازة الأذان والإقامة</div>
-          </div>
-        </div>
-      </div>
-      <div class="courses-cta reveal">
-        <a href="#cta" class="btn-outline en">View All Courses</a>
-        <a href="#cta" class="btn-outline ar" style="display:none;">عرض جميع الدورات</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="section-inner">
-      <div class="testimonials-header reveal">
-        <div class="section-label">What Our Students Say!</div>
-        <h2 class="section-title en">Student Voices</h2>
-        <h2 class="section-title-ar">أصوات طالباتنا</h2>
+        <div class="course-card reveal">
+          <span class="course-num">1</span>
+          <div class="course-name en">Quran</div>
+          <div class="course-name-ar">القرآن الكريم</div>
+          <ul class="course-topics en">
+            <li>Reading correction with Tajweed</li>
+            <li>Memorization of Surat Al-Hujurat</li>
+            <li>Tadabbur — reflection & meaning in English</li>
+            <li>Applying morals in modern daily life</li>
+          </ul>
+          <ul class="course-topics-ar">
+            <li>تصحيح التلاوة مع أحكام التجويد</li>
+            <li>حفظ سورة الحجرات</li>
+            <li>التدبر — التأمل والمعنى باللغة الإنجليزية</li>
+            <li>تطبيق الأخلاق في الحياة اليومية المعاصرة</li>
+          </ul>
+        </div>
+
+        <div class="course-card reveal reveal-delay-1">
+          <span class="course-num">2</span>
+          <div class="course-name en">Hadith</div>
+          <div class="course-name-ar">الحديث الشريف</div>
+          <ul class="course-topics en">
+            <li>10 selected Hadith from Imam Nawawi's collection</li>
+            <li>One Hadith per week — deep study & optional memorization</li>
+            <li>Practical reflection activities</li>
+            <li>Applying moral teachings in everyday life</li>
+          </ul>
+          <ul class="course-topics-ar">
+            <li>10 أحاديث مختارة من كتاب الإمام النووي</li>
+            <li>حديث واحد أسبوعياً — دراسة معمّقة وحفظ اختياري</li>
+            <li>أنشطة تأملية تطبيقية</li>
+            <li>تطبيق التعاليم الأخلاقية في الحياة اليومية</li>
+          </ul>
+        </div>
+
+        <div class="course-card reveal">
+          <span class="course-num">3</span>
+          <div class="course-name en">Aqeedah</div>
+          <div class="course-name-ar">العقيدة</div>
+          <ul class="course-topics en">
+            <li>Who is Allah? The Beautiful Names of Allah</li>
+            <li>Tawheed — Oneness of God</li>
+            <li>Pillars of Islam, Iman, and Ihsan</li>
+            <li>Answering common questions Muslims face in the West</li>
+          </ul>
+          <ul class="course-topics-ar">
+            <li>من هو الله؟ أسماء الله الحسنى</li>
+            <li>التوحيد — وحدانية الله</li>
+            <li>أركان الإسلام والإيمان والإحسان</li>
+            <li>الإجابة على الأسئلة الشائعة للمسلمين في الغرب</li>
+          </ul>
+        </div>
+
+        <div class="course-card reveal reveal-delay-1">
+          <span class="course-num">4</span>
+          <div class="course-name en">Fiqh</div>
+          <div class="course-name-ar">الفقه</div>
+          <ul class="course-topics en">
+            <li>Semester 1: Fiqh of Taharah (Cleanliness)</li>
+            <li>Semester 1: Fiqh of Salah (Prayer)</li>
+            <li>Semester 2: Fiqh of Siyam (Fasting)</li>
+            <li>Semester 2: Fiqh of Food — Halal & Haram</li>
+          </ul>
+          <ul class="course-topics-ar">
+            <li>الفصل الأول: فقه الطهارة</li>
+            <li>الفصل الأول: فقه الصلاة</li>
+            <li>الفصل الثاني: فقه الصيام</li>
+            <li>الفصل الثاني: فقه المأكولات — الحلال والحرام</li>
+          </ul>
+        </div>
+
       </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal">
-          <div class="testimonial-avatar">👤</div>
-          <div class="testimonial-name">Aisha T.</div>
-          <div class="testimonial-role en">Parent · Fundamental Program</div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text en">Eshraqat Academy has been a transformative experience for my daughter. The teachers are knowledgeable, passionate, and truly care about each student's growth.</p>
-          <p class="testimonial-text ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">كانت إشراقات أكاديمي تجربة تحويلية لابنتي. المعلمات على دراية وشغف حقيقي بنمو كل طالبة.</p>
+
+      <div class="courses-label reveal">Program Structure</div>
+      <div class="structure-grid">
+        <div class="struct-item reveal">
+          <div class="struct-icon">📅</div>
+          <div class="struct-val">Weekly</div>
+          <div class="struct-label en">Sunday Sessions</div>
+          <div class="struct-label-ar">جلسات كل أحد</div>
         </div>
-        <div class="testimonial-card reveal reveal-delay-1">
-          <div class="testimonial-avatar">👤</div>
-          <div class="testimonial-name">Fatima H.</div>
-          <div class="testimonial-role en">Student · Tajweed Mastery</div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text en">I've improved my Quran recitation tremendously. The structured approach to Tajweed rules makes learning feel natural and enjoyable every session.</p>
-          <p class="testimonial-text ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">تحسّنت تلاوتي للقرآن كثيراً. النهج المنظم لأحكام التجويد يجعل التعلم طبيعياً وممتعاً.</p>
+        <div class="struct-item reveal reveal-delay-1">
+          <div class="struct-icon">⏱️</div>
+          <div class="struct-val">3 hrs</div>
+          <div class="struct-label en">Per Session</div>
+          <div class="struct-label-ar">لكل جلسة</div>
         </div>
-        <div class="testimonial-card reveal reveal-delay-2">
-          <div class="testimonial-avatar">👤</div>
-          <div class="testimonial-name">Maryam K.</div>
-          <div class="testimonial-role en">Parent · SABIQAT Program</div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text en">The sisterhood and community built within Eshraqat is unlike anything else. My daughter looks forward to every Sunday session with so much joy.</p>
-          <p class="testimonial-text ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">الأخوة والمجتمع المبني داخل إشراقات لا مثيل له. ابنتي تتطلع لكل جلسة يوم الأحد بفرح كبير.</p>
+        <div class="struct-item reveal reveal-delay-2">
+          <div class="struct-icon">📚</div>
+          <div class="struct-val">2</div>
+          <div class="struct-label en">Semesters · 4 Months Each</div>
+          <div class="struct-label-ar">فصلان · 4 أشهر لكل فصل</div>
+        </div>
+        <div class="struct-item reveal">
+          <div class="struct-icon">🎯</div>
+          <div class="struct-val">80%</div>
+          <div class="struct-label en">Min. Score for Semester 2</div>
+          <div class="struct-label-ar">الحد الأدنى للانتقال للفصل الثاني</div>
+        </div>
+        <div class="struct-item reveal reveal-delay-1">
+          <div class="struct-icon">🚌</div>
+          <div class="struct-val">2</div>
+          <div class="struct-label en">Field Trips Per Semester</div>
+          <div class="struct-label-ar">رحلتان ميدانيتان كل فصل</div>
+        </div>
+        <div class="struct-item reveal reveal-delay-2">
+          <div class="struct-icon">💬</div>
+          <div class="struct-val">+</div>
+          <div class="struct-label en">Mentorship & Guidance</div>
+          <div class="struct-label-ar">إرشاد وتوجيه مستمر</div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1181,14 +1366,13 @@
   <section id="cta">
     <div class="section-inner">
       <div class="cta-inner reveal">
-        <div class="section-label" style="justify-content: center; display: flex;">Enroll Today</div>
-        <h2 class="cta-title en">Begin Your Journey<br>with Eshraqat Academy</h2>
-        <h2 class="cta-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">ابدئي رحلتك مع إشراقات أكاديمي</h2>
-        <p class="cta-sub en">Seats are limited. Join a warm, faith-centered community dedicated to nurturing Muslim girls with knowledge and character.</p>
-        <p class="cta-sub ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">الأماكن محدودة. انضمي إلى مجتمع دافئ يركز على الإيمان ويكرّس نفسه لتنشئة الفتيات المسلمات.</p>
+        <div class="section-label" style="justify-content:center; display:flex;">Enroll Today</div>
+        <h2 class="cta-title en">Enroll Your Daughter Today</h2>
+        <h2 class="cta-title-ar">سجّلي ابنتك اليوم</h2>
+        <p class="cta-sub en">Seats are limited. Join the sisterhood that's building tomorrow's Muslim leaders.</p>
+        <p class="cta-sub-ar">الأماكن محدودة. انضمي إلى أخوات يبنين قيادات مسلمات لغد مشرق.</p>
         <a href="https://www.instagram.com/eshraqat_academy/" target="_blank" class="btn-primary en">Contact Us on Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=61571936108853" target="_blank" class="btn-outline en">Find Us on Facebook</a>
-        <br class="ar" style="display:none;" />
         <a href="https://www.instagram.com/eshraqat_academy/" target="_blank" class="btn-primary ar" style="display:none;">تواصلي معنا على إنستغرام</a>
       </div>
     </div>
@@ -1203,8 +1387,8 @@
     </div>
     <div class="footer-links">
       <a href="#about" class="en">About</a>
-      <a href="#mission" class="en">Mission</a>
-      <a href="#courses" class="en">Courses</a>
+      <a href="#vision" class="en">Vision</a>
+      <a href="#sabiqat" class="en">SABIQAT</a>
       <a href="#cta" class="en">Enroll</a>
     </div>
     <div class="footer-social">
@@ -1218,23 +1402,6 @@
       document.body.classList.toggle('ar', lang === 'ar');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
-
-      document.querySelectorAll('[class*=" en"], [class*=" ar"]').forEach(el => {
-        const classes = el.className.split(' ');
-        if (classes.includes('en')) el.style.display = lang === 'en' ? '' : 'none';
-        if (classes.includes('ar')) el.style.display = lang === 'ar' ? '' : 'none';
-      });
-
-      document.querySelectorAll('.vision-pillar-label').forEach(el => {
-        if (el.classList.contains('en')) el.style.display = lang === 'en' ? '' : 'none';
-        if (el.classList.contains('ar')) el.style.display = lang === 'ar' ? '' : 'none';
-      });
-
-      document.querySelectorAll('.pathway-label, .mission-card-title, .mission-card-desc, .testimonial-text').forEach(el => {
-        if (el.classList.contains('en')) el.style.display = lang === 'en' ? '' : 'none';
-        if (el.classList.contains('ar')) el.style.display = lang === 'ar' ? '' : 'none';
-      });
-
       document.querySelector('nav').style.direction = lang === 'ar' ? 'rtl' : 'ltr';
     }
 
@@ -1253,7 +1420,7 @@
 
     window.addEventListener('scroll', () => {
       const scrolled = window.scrollY > 60;
-      document.querySelector('nav').style.padding = scrolled ? '0.6rem 3rem' : '0.9rem 3rem';
+      document.querySelector('nav').style.padding = scrolled ? '0.55rem 3rem' : '0.9rem 3rem';
     });
   </script>
 </body>
