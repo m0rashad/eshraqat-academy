@@ -9,18 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy:    #0b1628;
-      --navy2:   #112040;
-      --navy3:   #1a3060;
+      --navy:    #162444;
+      --navy2:   #1e3060;
+      --navy3:   #284080;
       --gold:    #c9a84c;
       --gold2:   #e8c96a;
       --gold3:   #f5e6b8;
       --cream:   #fdf8ef;
       --white:   #ffffff;
-      --text:    #e8dfc8;
-      --muted:   #8a9bb8;
-      --border:  rgba(201,168,76,0.2);
-      --border2: rgba(201,168,76,0.08);
+      --text:    #f0e8d0;
+      --muted:   #a8bcda;
+      --border:  rgba(201,168,76,0.25);
+      --border2: rgba(201,168,76,0.10);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,8 +40,8 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
       background-size: 80px 80px;
       pointer-events: none;
       z-index: 0;
@@ -56,7 +56,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 4rem;
-      background: rgba(11,22,40,0.92);
+      background: rgba(22,36,68,0.94);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       transition: padding 0.3s, background 0.3s;
@@ -481,6 +481,29 @@
     }
 
     /* ── ABOUT ── */
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.8rem;
+    }
+    .about-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--text);
+      opacity: 0.82;
+    }
+    .about-list li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.45rem;
+      top: 0.55rem;
+    }
+
     #about {
       padding: 8rem 0 7rem;
     }
@@ -602,6 +625,231 @@
       background: linear-gradient(to bottom, var(--gold), transparent);
       opacity: 0.25;
       margin-top: 1rem;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    #gallery::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .gallery-header {
+      max-width: 760px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Category tabs */
+    .gallery-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .gallery-tab {
+      background: rgba(201,168,76,0.07);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.3rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .gallery-tab:hover {
+      color: var(--gold2);
+      border-color: rgba(201,168,76,0.45);
+    }
+
+    .gallery-tab.active {
+      background: rgba(201,168,76,0.18);
+      border-color: var(--gold);
+      color: var(--gold2);
+      font-weight: 600;
+    }
+
+    /* Category label above grid */
+    .gallery-category-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold2);
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-category {
+      margin-bottom: 3.5rem;
+      display: none;
+    }
+
+    .gallery-category.active { display: block; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+
+    .gallery-photo {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 1px solid var(--border);
+      background: var(--navy2);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery-photo:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(201,168,76,0.3);
+    }
+
+    .gallery-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .gallery-photo:hover img { transform: scale(1.04); }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(10,16,32,0.93);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-overlay.open { display: flex; }
+
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 6px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem; right: 2rem;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-close:hover { opacity: 0.7; }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-tabs { gap: 0.4rem; }
+    }
+
+    /* ── OUR TEAM ── */
+    #team {
+      padding: 6rem 0;
+      position: relative;
+    }
+    #team::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .team-inner {
+      max-width: 760px;
+    }
+
+    /* ── FOUNDER ── */
+    #founder {
+      padding: 7rem 0;
+      position: relative;
+    }
+
+    #founder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .founder-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .founder-portrait {
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
+
+    .founder-portrait-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      background: #ece5d6;
+    }
+
+    .founder-portrait-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .founder-portrait-ring {
+      position: absolute;
+      inset: -14px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      opacity: 0.35;
+      z-index: 1;
     }
 
     /* ── GOALS ── */
@@ -1399,6 +1647,7 @@
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .vision-layout { grid-template-columns: 1fr; }
       .vision-ornament { display: none; }
+      .founder-grid { grid-template-columns: 1fr; gap: 3rem; }
       .goals-grid { grid-template-columns: repeat(2, 1fr); }
       .courses-grid { grid-template-columns: 1fr; }
       .structure-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1427,10 +1676,14 @@
       .hero-scroll { display: none; }
 
       /* Sections */
-      #about, #vision, #goals, #sabiqat, #cta { padding: 5rem 0; }
+      #about, #vision, #founder, #goals, #sabiqat, #cta { padding: 5rem 0; }
 
       /* About */
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      /* Founder */
+      .founder-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .founder-portrait { width: 240px; height: 240px; }
 
       /* Goals */
       .goals-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -1468,6 +1721,270 @@
       .footer-links { justify-content: center; flex-wrap: wrap; gap: 0.8rem; }
       .footer-social { justify-content: center; }
     }
+    /* ── COURSE MODALS ── */
+    .course-card { cursor: pointer; }
+    .course-card:hover { transform: translateY(-4px); }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(8,16,36,0.82);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      background: linear-gradient(145deg, var(--navy2), var(--navy3));
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      max-width: 720px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2.8rem 3rem;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px var(--border2);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.2rem; right: 1.4rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--gold); }
+
+    .modal-icon { font-size: 2.4rem; margin-bottom: 0.6rem; }
+
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold2);
+      margin-bottom: 1.4rem;
+    }
+
+    .modal-divider {
+      width: 48px; height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin-bottom: 1.4rem;
+    }
+
+    .modal-body {
+      color: var(--text);
+      font-size: 0.97rem;
+      line-height: 1.8;
+    }
+
+    .modal-body p { margin-bottom: 1rem; }
+    .modal-body p:last-child { margin-bottom: 0; }
+
+    .modal-body h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--gold);
+      margin: 1.4rem 0 0.5rem;
+    }
+
+    .modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+    .modal-body ul li {
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+    .modal-body ul li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.5rem;
+      top: 0.45rem;
+    }
+
+    @media (max-width: 600px) {
+      .modal-box { padding: 2rem 1.4rem; }
+      .modal-title { font-size: 1.5rem; }
+    }
+
+    /* ── CONTACT SECTION ── */
+    #contact {
+      padding: 7rem 0;
+      position: relative;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 50%, rgba(201,168,76,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 2rem;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 0.85rem 2.4rem;
+      border-radius: 3px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .contact-btn:hover {
+      background: var(--gold2);
+      transform: translateY(-2px);
+    }
+
+    /* Contact Modal */
+    .contact-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 600;
+      background: rgba(8,16,36,0.85);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .contact-modal-overlay.open { display: flex; }
+
+    .contact-modal-box {
+      background: linear-gradient(145deg, var(--navy2), var(--navy3));
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      max-width: 560px;
+      width: 100%;
+      padding: 2.8rem 3rem;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px var(--border2);
+    }
+
+    .contact-modal-close {
+      position: absolute;
+      top: 1.2rem; right: 1.4rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .contact-modal-close:hover { color: var(--gold); }
+
+    .contact-modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold2);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-modal-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .contact-form label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.05);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form-submit {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 3px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .contact-form-submit:hover {
+      background: var(--gold2);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 600px) {
+      .contact-modal-box { padding: 2rem 1.4rem; }
+      .contact-modal-title { font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -1485,6 +2002,8 @@
       <li><a href="#about">About</a></li>
       <li><a href="#goals">Our Goals</a></li>
       <li><a href="#sabiqat">SABIQAT</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li><a href="#cta" class="nav-cta">Enroll</a></li>
     </ul>
     <div class="lang-toggle">
@@ -1502,6 +2021,8 @@
     <a href="#about" onclick="document.getElementById('navDrawer').classList.remove('open')">About</a>
     <a href="#goals" onclick="document.getElementById('navDrawer').classList.remove('open')">Our Goals</a>
     <a href="#sabiqat" onclick="document.getElementById('navDrawer').classList.remove('open')">SABIQAT</a>
+    <a href="#gallery" onclick="document.getElementById('navDrawer').classList.remove('open')">Events</a>
+    <a href="#contact" onclick="document.getElementById('navDrawer').classList.remove('open')">Contact</a>
     <a href="#cta" onclick="document.getElementById('navDrawer').classList.remove('open')" style="color:var(--gold);border:1px solid var(--gold);padding:0.5rem 2rem;border-radius:4px;">Enroll</a>
     <div class="lang-toggle" style="margin-top:1rem;">
       <button class="active" onclick="setLang('en');document.getElementById('navDrawer').classList.remove('open')">EN</button>
@@ -1563,24 +2084,39 @@
       <div class="about-grid">
         <div class="reveal">
           <div class="section-label">About the Academy</div>
-          <h2 class="section-title en">More Than a Classroom.</h2>
-          <h2 class="section-title-ar ar">أكثر من مجرد فصل دراسي.</h2>
+          <h2 class="section-title en">About EshraQat Academy</h2>
           <div class="gold-divider"></div>
           <p class="section-body en">
-            Eshraqat Academy is an Islamic studies program dedicated to young Muslim girls.
-            We go beyond memorization — we build confident, grounded, faith-centered leaders
-            who carry Islam in their hearts, their character, and their communities.
+            EshraQat Academy is an Islamic educational academy specializing in youth development and Islamic learning.
+            Our mission is to empower young Muslims with the essential knowledge and understanding needed to practice
+            their religion with confidence, clarity, and purpose.
           </p>
-          <p class="section-body-ar ar">
-            إشراقات أكاديمي برنامج إسلامي متخصص للفتيات المسلمات. نتجاوز الحفظ إلى التأسيس
-            — نبني قياديات واثقات، راسخات في إيمانهن، يحملن الإسلام في قلوبهن وأخلاقهن ومجتمعاتهن.
+          <p class="section-body en" style="margin-top:1rem;">
+            Through engaging programs, interactive activities, and a storytelling-based teaching approach, we inspire
+            curiosity, strengthen identity, and nurture a genuine love for learning within our youth communities.
+          </p>
+          <p class="section-body en" style="margin-top:1rem;">EshraQat Academy offers a variety of programs and initiatives, including:</p>
+          <ul class="about-list en">
+            <li>Islamic history programs that revive forgotten stories and lessons from our rich heritage</li>
+            <li>Seerah programs focused on the life and character of Prophet Muhammad ﷺ</li>
+            <li>"Pearls from the Sahaba" programs highlighting inspiring stories from the companions of the Prophet ﷺ</li>
+            <li>Our successful "SABIQAT" intensive Islamic studies program for girls</li>
+          </ul>
+          <p class="section-body en" style="margin-top:1rem;">
+            At the heart of all our programs is a commitment to building strong Islamic character, connecting students
+            with meaningful role models, and emphasizing the individual responsibility each member of the Muslim
+            community carries in preserving and contributing positively to the Ummah.
+          </p>
+          <p class="section-body en" style="margin-top:1rem;">
+            At Eshraqat Academy, we strive to nurture a generation of confident, knowledgeable, and principled young
+            Muslims who are prepared to lead the future of this Ummah with faith, purpose, and confidence.
           </p>
         </div>
 
         <div class="about-visual reveal reveal-delay-2">
           <div class="about-card">
             <div class="about-stat">
-              <span class="stat-num">4</span>
+              <span class="stat-num">6</span>
               <span class="stat-label en">Core Islamic Sciences</span>
               <span class="stat-label ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">فروع العلوم الإسلامية الأساسية</span>
             </div>
@@ -1620,15 +2156,66 @@
             foundations they need to build confidence and live positively within their communities. We are deeply
             committed to preparing future mothers who will play a vital role in raising the next generation of
             leaders of this Ummah — by teaching the fundamentals of the religion across its key branches:
-            Quran, Aqeedah, Hadith, Fiqh, and Manners.
+            Quran, Aqeedah, Hadith, Fiqh, Seerah, and Manners.
           </p>
           <p class="section-body-ar ar">
             في صميم إشراقات أكاديمي رؤية تسعى إلى تمكين الفتيات المسلمات من الأسس الضرورية التي يحتجن إليها
             لبناء الثقة بالنفس والعيش بإيجابية داخل مجتمعاتهن. نحن ملتزمون التزاماً عميقاً بإعداد أمهات
             المستقبل اللواتي سيؤدين دوراً محورياً في تنشئة الجيل القادم من قادة هذه الأمة — وذلك من خلال
-            تعليم أصول الدين في أبرز فروعه: القرآن الكريم، والعقيدة، والحديث الشريف، والفقه، والآداب الإسلامية.
+            تعليم أصول الدين في أبرز فروعه: القرآن الكريم، والعقيدة، والحديث الشريف، والفقه، والسيرة النبوية، والآداب الإسلامية.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT THE FOUNDER -->
+  <section id="founder">
+    <div class="section-inner">
+      <div class="founder-grid">
+        <div class="founder-visual reveal">
+          <div class="founder-portrait">
+            <div class="founder-portrait-inner">
+              <img src="Founder.png" alt="Founder of EshraQat Academy" />
+            </div>
+            <div class="founder-portrait-ring"></div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="section-label">About the Founder</div>
+          <h2 class="section-title en">A Vision Rooted in Knowledge & Service.</h2>
+          <h2 class="section-title-ar ar">رؤيةٌ متجذِّرةٌ في العلم والخدمة.</h2>
+          <div class="gold-divider"></div>
+          <p class="section-body en">
+            Al-Azhar University graduate and a dedicated member of the Northern Virginia Muslim community,
+            the founder of EshraQat Academy established the academy in 2024 with a passion for youth
+            education, Islamic learning, and community service.
+          </p>
+          <p class="section-body en" style="margin-top:1.2rem;">
+            After studying at Al-Azhar, she moved to the United States and earned a Bachelor's degree in
+            Electrical Engineering from George Mason University in 2009. Alongside her professional and
+            academic journey, she remained deeply committed to teaching youth and serving the Muslim
+            community. She is currently pursuing a Master's degree in Islamic Leadership at Boston
+            Islamic Seminary.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR TEAM -->
+  <section id="team">
+    <div class="section-inner">
+      <div class="team-inner reveal">
+        <div class="section-label">Our Team</div>
+        <h2 class="section-title">Dedicated to Empowering Youth.</h2>
+        <div class="gold-divider"></div>
+        <p class="section-body">
+          ESHRAQAT Academy also brings together a group of talented, educated, and passionate community members
+          who teach at Islamic schools across Northern Virginia. Together, they strive to serve the Muslim
+          community by empowering youth with the essential foundations needed to practice their religion with
+          confidence, understanding, and pride in their identity.
+        </p>
       </div>
     </div>
   </section>
@@ -1661,6 +2248,11 @@
           <span class="pillar-label-ar">الفقه</span>
         </div>
         <div class="pillar-item reveal reveal-delay-3">
+          <div class="pillar-icon-wrap">🕌</div>
+          <span class="pillar-label">Seerah</span>
+          <span class="pillar-label-ar">السيرة</span>
+        </div>
+        <div class="pillar-item reveal reveal-delay-3">
           <div class="pillar-icon-wrap">🕊️</div>
           <span class="pillar-label">Manners</span>
           <span class="pillar-label-ar">الآداب</span>
@@ -1689,7 +2281,7 @@
           <span class="goal-icon">📖</span>
           <div class="goal-title en">Foundational Knowledge</div>
           <div class="goal-title-ar ar">العلم الأساسي</div>
-          <p class="goal-desc en">Solid grounding in Quran, Hadith, Aqeedah, Fiqh, and Islamic manners.</p>
+          <p class="goal-desc en">Solid grounding in Quran, Hadith, Aqeedah, Fiqh, Seerah, and Islamic manners.</p>
           <p class="goal-desc-ar ar">تأسيس قاعدة علمية متينة في العلوم الإسلامية الأساسية.</p>
         </div>
         <div class="goal-card reveal reveal-delay-2">
@@ -1736,13 +2328,13 @@
         <div class="gold-divider" style="margin: 1.4rem auto;"></div>
         <p class="sabiqat-desc en">
           SABIQAT is Eshraqat Academy's flagship program — a uniquely designed Islamic studies curriculum
-          for Muslim girls ages 10–15. Over two structured semesters, students explore four core Islamic
+          for Muslim girls ages 10–16. Over two structured semesters, students explore six core Islamic
           disciplines in an environment that is warm, engaging, and sisterhood-focused.
           More than a class — it's a journey. Students don't just learn; they reflect, connect, and grow.
         </p>
         <p class="sabiqat-desc-ar ar">
-          سابقات هو البرنامج الرئيسي لإشراقات أكاديمي — منهج إسلامي مصمم خصيصاً لفتيات مسلمات من سن 10 إلى 15.
-          على مدى فصلين دراسيين، تستكشف الطالبات أربعة محاور إسلامية أساسية في بيئة دافئة ومحفزة تقوم على روح الأخوة.
+          سابقات هو البرنامج الرئيسي لإشراقات أكاديمي — منهج إسلامي مصمم خصيصاً لفتيات مسلمات من سن 10 إلى 16.
+          على مدى فصلين دراسيين، تستكشف الطالبات ستة محاور إسلامية أساسية في بيئة دافئة ومحفزة تقوم على روح الأخوة.
           أكثر من مجرد درس — إنها رحلة. الطالبات لا يتعلمن فحسب، بل يتأملن ويتواصلن وينمون.
         </p>
       </div>
@@ -1751,7 +2343,7 @@
       <div class="section-label reveal">Courses of Study</div>
       <div class="courses-grid">
 
-        <div class="course-card reveal">
+        <div class="course-card reveal" data-course="quran">
           <div class="course-img-wrap">
             <img src="Quran.png" alt="Quran" loading="lazy" />
           </div>
@@ -1760,20 +2352,20 @@
             <div class="course-name-ar ar">القرآن الكريم</div>
             <ul class="course-topics en">
               <li>Reading correction with Tajweed</li>
-              <li>Memorization of Surat Al-Hujurat</li>
+              <li>Memorization of Surat Al-Hujurat and Surat Luqman</li>
               <li>Tadabbur — reflection & meaning in English</li>
               <li>Applying morals in modern daily life</li>
             </ul>
             <ul class="course-topics-ar ar">
               <li>تصحيح التلاوة مع أحكام التجويد</li>
-              <li>حفظ سورة الحجرات</li>
+              <li>حفظ سورة الحجرات وسورة لقمان</li>
               <li>التدبر — التأمل والمعنى باللغة الإنجليزية</li>
               <li>تطبيق الأخلاق في الحياة اليومية المعاصرة</li>
             </ul>
           </div>
         </div>
 
-        <div class="course-card reveal reveal-delay-1">
+        <div class="course-card reveal reveal-delay-1" data-course="hadith">
           <div class="course-img-wrap">
             <img src="Hadith.png" alt="Hadith" loading="lazy" />
           </div>
@@ -1795,7 +2387,7 @@
           </div>
         </div>
 
-        <div class="course-card reveal">
+        <div class="course-card reveal" data-course="aqeedah">
           <div class="course-img-wrap">
             <img src="Aqeedah.png" alt="Aqeedah" loading="lazy" />
           </div>
@@ -1817,7 +2409,7 @@
           </div>
         </div>
 
-        <div class="course-card reveal reveal-delay-1">
+        <div class="course-card reveal reveal-delay-1" data-course="fiqh">
           <div class="course-img-wrap">
             <img src="Fiqh.png" alt="Fiqh" loading="lazy" />
           </div>
@@ -1825,65 +2417,149 @@
             <div class="course-name en">Fiqh</div>
             <div class="course-name-ar ar">الفقه</div>
             <ul class="course-topics en">
-              <li>Semester 1: Fiqh of Taharah (Cleanliness)</li>
-              <li>Semester 1: Fiqh of Salah (Prayer)</li>
-              <li>Semester 2: Fiqh of Siyam (Fasting)</li>
-              <li>Semester 2: Fiqh of Food — Halal & Haram</li>
+              <li>Fiqh of Taharah (Cleanliness)</li>
+              <li>Fiqh of Salah (Prayer)</li>
+              <li>Fiqh of Siyam (Fasting)</li>
+              <li>Fiqh of Zakah</li>
+              <li>Fiqh of Food — Halal & Haram</li>
             </ul>
             <ul class="course-topics-ar ar">
-              <li>الفصل الأول: فقه الطهارة</li>
-              <li>الفصل الأول: فقه الصلاة</li>
-              <li>الفصل الثاني: فقه الصيام</li>
-              <li>الفصل الثاني: فقه المأكولات — الحلال والحرام</li>
+              <li>فقه الطهارة</li>
+              <li>فقه الصلاة</li>
+              <li>فقه الصيام</li>
+              <li>فقه الزكاة</li>
+              <li>فقه المأكولات — الحلال والحرام</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="course-card reveal" data-course="seerah">
+          <div class="course-img-wrap">
+            <img src="Seerah.png" alt="Seerah" loading="lazy" />
+          </div>
+          <div class="course-body">
+            <div class="course-name en">Seerah</div>
+            <div class="course-name-ar ar">السيرة النبوية</div>
+            <ul class="course-topics en">
+              <li>Life of the Prophet ﷺ from birth to revelation</li>
+              <li>The Makkan and Madinan periods</li>
+              <li>Lessons in leadership, patience, and mercy</li>
+              <li>Applying the Prophet's example in daily life</li>
+            </ul>
+            <ul class="course-topics-ar ar">
+              <li>حياة النبي ﷺ من المولد إلى البعثة</li>
+              <li>المرحلتان المكية والمدنية</li>
+              <li>دروس في القيادة والصبر والرحمة</li>
+              <li>تطبيق هدي النبي ﷺ في الحياة اليومية</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="course-card reveal reveal-delay-1" data-course="manners">
+          <div class="course-img-wrap">
+            <img src="Manners.png" alt="Manners" loading="lazy" />
+          </div>
+          <div class="course-body">
+            <div class="course-name en">Manners</div>
+            <div class="course-name-ar ar">الآداب الإسلامية</div>
+            <ul class="course-topics en">
+              <li>Adab with Allah, parents, and elders</li>
+              <li>Manners of speech, friendship, and the home</li>
+              <li>Etiquette of learning and the masjid</li>
+              <li>Building noble character (akhlaq) every day</li>
+            </ul>
+            <ul class="course-topics-ar ar">
+              <li>الأدب مع الله والوالدين وكبار السن</li>
+              <li>آداب الحديث والصداقة والبيت</li>
+              <li>آداب طلب العلم والمسجد</li>
+              <li>بناء الأخلاق النبيلة في الحياة اليومية</li>
             </ul>
           </div>
         </div>
 
       </div>
 
-      <!-- Structure -->
-      <div class="section-label reveal">Program Structure</div>
-      <div class="structure-grid">
-        <div class="struct-item reveal">
-          <div class="struct-icon">📅</div>
-          <div class="struct-val">Weekly</div>
-          <div class="struct-label en">Sunday Sessions</div>
-          <div class="struct-label-ar ar">جلسات كل أحد</div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="section-inner">
+      <div class="gallery-header reveal">
+        <div class="section-label">Gallery</div>
+        <h2 class="section-title en">Memories from Our Journey</h2>
+        <h2 class="section-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">ذكريات من رحلتنا</h2>
+        <div class="gold-divider"></div>
+        <p class="section-body en">A glimpse into the vibrant life at Eshraqat Academy — where knowledge, sisterhood, and faith come alive.</p>
+        <p class="section-body ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">لمحة من الحياة المفعمة في أكاديمية إشراقات — حيث يتجلّى العلم والأخوة والإيمان.</p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="gallery-tabs reveal">
+        <button class="gallery-tab active" data-category="eid-cookies">Eid Cookies Baking</button>
+        <button class="gallery-tab" data-category="bbq">BBQ Field Trip</button>
+        <button class="gallery-tab" data-category="pickleball">Pickleball Queens</button>
+        <button class="gallery-tab" data-category="misc">Miscellaneous</button>
+      </div>
+
+      <!-- Eid Cookies Baking -->
+      <div class="gallery-category active" id="cat-eid-cookies">
+        <div class="gallery-category-label">Eid Cookies Baking</div>
+        <div class="gallery-grid">
+          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-1.jpg"><img src="Gallery/Eid Cookies/eid-cookies-1.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-2.jpg"><img src="Gallery/Eid Cookies/eid-cookies-2.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-3.jpg"><img src="Gallery/Eid Cookies/eid-cookies-3.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
         </div>
-        <div class="struct-item reveal reveal-delay-1">
-          <div class="struct-icon">⏱️</div>
-          <div class="struct-val">3 hrs</div>
-          <div class="struct-label en">Per Session</div>
-          <div class="struct-label-ar ar">لكل جلسة</div>
+      </div>
+
+      <!-- BBQ Field Trip -->
+      <div class="gallery-category" id="cat-bbq">
+        <div class="gallery-category-label">BBQ Field Trip</div>
+        <div class="gallery-grid">
+          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-1.jpg"><img src="Gallery/BBQ FIeld Trip/bbq-1.jpg" alt="BBQ Field Trip" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-2.jpg"><img src="Gallery/BBQ FIeld Trip/bbq-2.jpg" alt="BBQ Field Trip" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-3.jpg"><img src="Gallery/BBQ FIeld Trip/bbq-3.jpg" alt="BBQ Field Trip" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-4.JPG"><img src="Gallery/BBQ FIeld Trip/bbq-4.JPG" alt="BBQ Field Trip" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-5.JPG"><img src="Gallery/BBQ FIeld Trip/bbq-5.JPG" alt="BBQ Field Trip" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-6.jpg"><img src="Gallery/BBQ FIeld Trip/bbq-6.jpg" alt="BBQ Field Trip" loading="lazy" /></div>
         </div>
-        <div class="struct-item reveal reveal-delay-2">
-          <div class="struct-icon">📚</div>
-          <div class="struct-val">2</div>
-          <div class="struct-label en">Semesters · 4 Months Each</div>
-          <div class="struct-label-ar ar">فصلان · 4 أشهر لكل فصل</div>
+      </div>
+
+      <!-- Pickleball Queens -->
+      <div class="gallery-category" id="cat-pickleball">
+        <div class="gallery-category-label">Pickleball Queens</div>
+        <div class="gallery-grid">
+          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-1.JPG"><img src="Gallery/Pickleball Event/pickleball-1.JPG" alt="Pickleball Queens" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-2.JPG"><img src="Gallery/Pickleball Event/pickleball-2.JPG" alt="Pickleball Queens" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-3.JPG"><img src="Gallery/Pickleball Event/pickleball-3.JPG" alt="Pickleball Queens" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-4.JPG"><img src="Gallery/Pickleball Event/pickleball-4.JPG" alt="Pickleball Queens" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-5.JPG"><img src="Gallery/Pickleball Event/pickleball-5.JPG" alt="Pickleball Queens" loading="lazy" /></div>
         </div>
-        <div class="struct-item reveal">
-          <div class="struct-icon">🎯</div>
-          <div class="struct-val">80%</div>
-          <div class="struct-label en">Min. Score for Semester 2</div>
-          <div class="struct-label-ar ar">الحد الأدنى للانتقال للفصل الثاني</div>
-        </div>
-        <div class="struct-item reveal reveal-delay-1">
-          <div class="struct-icon">🚌</div>
-          <div class="struct-val">2</div>
-          <div class="struct-label en">Field Trips Per Semester</div>
-          <div class="struct-label-ar ar">رحلتان ميدانيتان كل فصل</div>
-        </div>
-        <div class="struct-item reveal reveal-delay-2">
-          <div class="struct-icon">💬</div>
-          <div class="struct-val">+</div>
-          <div class="struct-label en">Mentorship & Guidance</div>
-          <div class="struct-label-ar ar">إرشاد وتوجيه مستمر</div>
+      </div>
+
+      <!-- Miscellaneous -->
+      <div class="gallery-category" id="cat-misc">
+        <div class="gallery-category-label">Miscellaneous</div>
+        <div class="gallery-grid">
+          <div class="gallery-photo" data-src="Gallery/Misc/misc-1.jpg"><img src="Gallery/Misc/misc-1.jpg" alt="Miscellaneous" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Misc/misc-2.JPG"><img src="Gallery/Misc/misc-2.JPG" alt="Miscellaneous" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Misc/misc-3.jpg"><img src="Gallery/Misc/misc-3.jpg" alt="Miscellaneous" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Misc/misc-4.jpg"><img src="Gallery/Misc/misc-4.jpg" alt="Miscellaneous" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Misc/misc-5.jpeg"><img src="Gallery/Misc/misc-5.jpeg" alt="Miscellaneous" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Misc/misc-6.jpeg"><img src="Gallery/Misc/misc-6.jpeg" alt="Miscellaneous" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Misc/misc-7.jpeg"><img src="Gallery/Misc/misc-7.jpeg" alt="Miscellaneous" loading="lazy" /></div>
         </div>
       </div>
 
     </div>
   </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&#x2715;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Gallery photo" />
+  </div>
 
   <!-- CTA -->
   <section id="cta">
@@ -1908,6 +2584,23 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="contact-inner reveal">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title en">Contact Us</h2>
+        <h2 class="section-title-ar ar">تواصلي معنا</h2>
+        <div class="gold-divider" style="margin: 1.2rem auto;"></div>
+        <p class="section-body en">Have a question about enrollment, our programs, or anything else? We'd love to hear from you.</p>
+        <p class="section-body-ar ar">هل لديكِ سؤال حول التسجيل أو برامجنا؟ يسعدنا التواصل معكِ.</p>
+        <button class="contact-btn" onclick="openContactModal()">
+          ✉ Send Us a Message
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">
@@ -1918,6 +2611,8 @@
     <div class="footer-links">
       <a href="#about" class="en">About</a>
       <a href="#sabiqat" class="en">SABIQAT</a>
+      <a href="#gallery" class="en">Events</a>
+      <a href="#contact" class="en">Contact</a>
       <a href="#cta" class="en">Enroll</a>
     </div>
     <div class="footer-social">
@@ -1963,12 +2658,236 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+
+    /* ── COURSE MODAL DATA ── */
+    const courseModals = {
+      quran: {
+        icon: '📖',
+        title: 'Quran Program',
+        content: `
+          <p>Our Quran program focuses on mastering recitation with proper Tajweed rules, while also building a deep and meaningful connection with the Book of Allah. Students study one Surah per semester with careful attention to both reading accuracy and reflection.</p>
+          <p>In Semester 1, students study Surah Al-Hujurat, and in Semester 2, they study Surah Luqman. The selection of these Surahs is intentional, as both emphasize essential manners, character development, and guidance that are especially relevant for youth today.</p>
+          <p>Alongside mastering recitation and memorization of selected verses, students engage in structured reflection on each verse, exploring meanings, lessons, and real-life applications. This approach helps students see the Qur'an not only as a historical text, but as a living guide that speaks directly to their experiences and challenges today.</p>
+          <p>This connection is vital in strengthening their relationship with the Book of Allah, encouraging them to begin their own personal journey of studying, understanding, and applying its teachings in daily life.</p>
+          <h4>✨ "Know All About the Surah" Ramadan Project</h4>
+          <p>One of our most meaningful initiatives is the "Know All About the Surah" project, conducted during Ramadan. Each student selects a Surah of her choice and conducts a full study of it, including:</p>
+          <ul>
+            <li>Reasons for revelation (Asbab al-Nuzul)</li>
+            <li>Meaning of the Surah's title</li>
+            <li>Key themes and lessons from the verses</li>
+            <li>Reflection on how the verses connect to real life</li>
+          </ul>
+          <p>Students are also asked to identify at least one practical application of the Surah in their own lives, demonstrating how its guidance can shape behavior and character.</p>
+          <p>At the end of Ramadan, each student presents her project in a 7-minute presentation, sharing her findings, reflections, and personal growth with the class.</p>
+        `
+      },
+      hadith: {
+        icon: '🌿',
+        title: 'Hadith Studies',
+        content: `
+          <p>In our Hadith program, students study 10 important Hadith from Al-Nawawi's Forty Hadith. Through these narrations, girls learn to reflect on the meanings, lessons, and practical applications of the Prophet's teachings in their everyday lives.</p>
+          <p>Students are encouraged to actively engage with the Hadith through weekly assignments, discussions, and group projects that help them connect these timeless teachings to modern-day challenges and experiences.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>The importance of sincere intentions</li>
+            <li>Encouraging good and discouraging evil</li>
+            <li>Personal responsibility and accountability</li>
+            <li>The power and impact of one's words and speech</li>
+          </ul>
+          <p>The goal of the program is not only to help students memorize and understand Hadith, but also to nurture strong character, thoughtful reflection, and a deeper connection to Islamic values in their daily lives.</p>
+        `
+      },
+      aqeedah: {
+        icon: '🌙',
+        title: 'Aqeedah Program',
+        content: `
+          <p>In our Aqeedah program, students study the three main categories of Tawheed:</p>
+          <ul>
+            <li>Tawheed al-Uluhiyyah (Oneness of Worship)</li>
+            <li>Tawheed al-Rububiyyah (Oneness of Lordship)</li>
+            <li>Tawheed al-Asma' wa al-Sifat (Oneness of Allah's Names and Attributes)</li>
+          </ul>
+          <p>The program helps students build a strong and sound Islamic creed by understanding who Allah is, why He alone deserves worship, and how His beautiful names and attributes shape a Muslim's relationship with Him.</p>
+          <p>Students strengthen and apply their learning through engaging weekly assignments, trivia games, group activities, presentations, and interactive projects designed to make Aqeedah meaningful and relevant to their daily lives.</p>
+          <p>For example, students may work in groups to present the meaning and significance of one of the beautiful names of Allah (SWT), while also demonstrating how that name can be used in acts of worship such as du'a (supplication) and dhikr (remembrance of Allah).</p>
+          <p>Our goal is to help young Muslim girls develop confidence in their faith, deepen their connection with Allah, and establish a solid spiritual foundation rooted in authentic Islamic teachings.</p>
+        `
+      },
+      fiqh: {
+        icon: '⚖️',
+        title: 'Fiqh Program',
+        content: `
+          <p>In our Fiqh program, we focus on teaching young Muslim girls the essential foundations they need to flourish in their worship and daily religious practice.</p>
+          <p>We begin with the Fiqh of purification and the Fiqh of prayer, helping students understand both the knowledge and practical application of worship. During the second semester, students continue studying the Fiqh of prayer, along with the Fiqh of Zakah and the Fiqh of food and dietary guidelines.</p>
+          <p>By the end of the program, students gain a strong foundation in the essential rulings needed to practice their religion properly, confidently, and with understanding in their day-to-day lives.</p>
+          <p>To make learning engaging and meaningful, we incorporate real-life applications, interactive activities, and motivating competitions throughout the program to strengthen understanding and encourage implementation of what is learned.</p>
+          <h4>✨ The Fajr Challenge</h4>
+          <p>One example was our "Fajr Challenge," where students committed to praying Fajr on time for 21 consecutive days. Winning students were recognized and celebrated for building this beautiful habit into their daily routine and strengthening their relationship with Allah.</p>
+        `
+      },
+      seerah: {
+        icon: '🕌',
+        title: 'Seerah Program',
+        content: `
+          <p>In our Seerah program, students study the biography of Prophet Muhammad ﷺ, exploring key moments throughout his blessed life. At different stages of his journey, lessons are highlighted to allow students to reflect deeply on the meanings, wisdoms, and moral guidance found within this beautiful Seerah.</p>
+          <p>Through studying the life of the Prophet ﷺ, girls develop a stronger love and connection with their Messenger, gaining a deeper understanding of the hardships he endured so that Islam could reach us today. This helps nurture a sincere desire to follow his Sunnah in the best way possible and in a manner that is pleasing to him ﷺ.</p>
+          <p>Throughout the course, students also learn about the shining examples of the Companions of the Prophet ﷺ, recognizing their vital contributions in preserving and spreading the message of Islam to future generations. These reflections help students appreciate that the success of Islam was not only through the Prophet's ﷺ mission alone, but also through the dedication, sacrifice, and responsibility carried by each individual who followed him.</p>
+          <p>From this, students come to understand their own role and responsibility today — to continue learning, practicing, and passing on this message with sincerity, so that future generations may benefit as well.</p>
+        `
+      },
+      manners: {
+        icon: '🕊️',
+        title: 'Manners Program',
+        content: `
+          <p>Full program description coming soon. Stay tuned!</p>
+        `
+      }
+    };
+
+    /* ── COURSE MODAL WIRING (deferred until DOM ready) ── */
+    function closeModal() {
+      document.getElementById('courseModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.course-card[data-course]').forEach(card => {
+        card.addEventListener('click', () => {
+          const key = card.dataset.course;
+          const data = courseModals[key];
+          if (!data) return;
+          document.getElementById('modal-icon').textContent = data.icon;
+          document.getElementById('modal-title').textContent = data.title;
+          document.getElementById('modal-body').innerHTML = data.content;
+          document.getElementById('courseModal').classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+      document.getElementById('courseModal').addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeModal();
+      });
+
+      // Gallery tabs
+      document.querySelectorAll('.gallery-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.gallery-category').forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById('cat-' + tab.dataset.category).classList.add('active');
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+
+      document.querySelectorAll('.gallery-photo').forEach(photo => {
+        photo.addEventListener('click', () => {
+          const src = photo.dataset.src || photo.querySelector('img').src;
+          lightboxImg.src = src;
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      document.getElementById('lightbox-close').addEventListener('click', () => {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+
+      lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeContactModal();
+        const lb = document.getElementById('lightbox');
+        if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+      }
+    });
+
     window.addEventListener('scroll', () => {
       const scrolled = window.scrollY > 60;
       document.querySelector('nav').style.padding = scrolled
         ? (window.innerWidth > 960 ? '0.6rem 4rem' : '0.6rem 2rem')
         : (window.innerWidth > 960 ? '1rem 4rem' : '1rem 2rem');
     });
+
+    /* ── CONTACT MODAL ── */
+    function openContactModal() {
+      document.getElementById('contactModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeContactModal() {
+      document.getElementById('contactModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('contactModal').addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeContactModal();
+      });
+    });
+
+    function submitContactForm(e) {
+      e.preventDefault();
+      const name    = document.getElementById('contact-name').value.trim();
+      const email   = document.getElementById('contact-email').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+      const subject = encodeURIComponent('Message from ' + name + ' via Eshraqat Academy Website');
+      const body    = encodeURIComponent(
+        'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message
+      );
+      window.location.href = 'mailto:eshrakat.academy@gmail.com?subject=' + subject + '&body=' + body;
+      closeContactModal();
+      document.getElementById('contactForm').reset();
+    }
+
   </script>
+
+  <!-- CONTACT MODAL -->
+  <div class="contact-modal-overlay" id="contactModal" role="dialog" aria-modal="true">
+    <div class="contact-modal-box">
+      <button class="contact-modal-close" aria-label="Close" onclick="closeContactModal()">&#x2715;</button>
+      <div class="contact-modal-title">Send Us a Message</div>
+      <p class="contact-modal-sub">We'll get back to you as soon as possible · eshrakat.academy@gmail.com</p>
+      <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+        <div>
+          <label for="contact-name">Your Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="e.g. Fatima Al-Rashid" required />
+        </div>
+        <div>
+          <label for="contact-email">Your Email Address</label>
+          <input type="email" id="contact-email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div>
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" placeholder="Write your question or message here…" required></textarea>
+        </div>
+        <button type="submit" class="contact-form-submit">Send Message ✉</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- COURSE MODAL -->
+  <div class="modal-overlay" id="courseModal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close">&#x2715;</button>
+      <div class="modal-icon" id="modal-icon"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-divider"></div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
 </body>
 </html>
