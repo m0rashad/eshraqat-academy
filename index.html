@@ -2376,10 +2376,42 @@
         font-size: 1.5rem;
       }
     }
+
+    /* ── AUDIO BUTTON ── */
+    #audio-btn {
+      position: fixed;
+      bottom: 1.6rem;
+      right: 1.6rem;
+      z-index: 999;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(22,36,68,0.88);
+      backdrop-filter: blur(10px);
+      color: var(--gold2);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+    }
+
+    #audio-btn:hover {
+      border-color: var(--gold);
+      background: rgba(22,36,68,0.97);
+      transform: scale(1.1);
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- BACKGROUND AUDIO -->
+  <audio id="bg-audio" src="nasheed.mp3" loop preload="none"></audio>
+  <button id="audio-btn" title="Play background nasheed" aria-label="Play background nasheed">🔇</button>
 
   <!-- NAV -->
   <nav>
@@ -3248,6 +3280,41 @@
         ? (window.innerWidth > 960 ? '0.6rem 4rem' : '0.6rem 2rem')
         : (window.innerWidth > 960 ? '1rem 4rem' : '1rem 2rem');
     });
+
+    /* ── BACKGROUND AUDIO ── */
+    (function () {
+      const audio = document.getElementById('bg-audio');
+      const btn   = document.getElementById('audio-btn');
+      let playing = false;
+
+      audio.volume = 0.35;
+
+      function startPlay() {
+        audio.play().then(() => {
+          playing = true;
+          btn.textContent = '🔊';
+          btn.title = 'Mute nasheed';
+          btn.setAttribute('aria-label', 'Mute nasheed');
+        }).catch(() => {});
+      }
+
+      btn.addEventListener('click', () => {
+        if (!playing) {
+          startPlay();
+        } else {
+          audio.pause();
+          playing = false;
+          btn.textContent = '🔇';
+          btn.title = 'Play nasheed';
+          btn.setAttribute('aria-label', 'Play nasheed');
+        }
+      });
+
+      document.addEventListener('click', function startOnInteraction() {
+        if (!playing) startPlay();
+        document.removeEventListener('click', startOnInteraction);
+      }, { once: true });
+    })();
 
     /* ── CONTACT MODAL ── */
     function openContactModal() {
