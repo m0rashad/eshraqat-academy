@@ -5,6 +5,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eshraqat Academy — Pearls from the Sunna</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ESHRAQAT ACADEMY" />
+  <meta property="og:title" content="ESHRAQAT ACADEMY" />
+  <meta property="og:description" content="Pearls from the Sunna" />
+  <meta property="og:url" content="https://eshraqat-academy-site.web.app/" />
+  <meta property="og:image" content="https://eshraqat-academy-site.web.app/logo%20-%20Full.png" />
+  <meta property="og:image:secure_url" content="https://eshraqat-academy-site.web.app/logo%20-%20Full.png" />
+  <meta property="og:image:alt" content="Eshraqat Academy logo" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ESHRAQAT ACADEMY" />
+  <meta name="twitter:description" content="Pearls from the Sunna" />
+  <meta name="twitter:image" content="https://eshraqat-academy-site.web.app/logo%20-%20Full.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -480,7 +494,7 @@
     }
 
     .section-label {
-      font-size: 0.67rem;
+      font-size: 1rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--gold);
@@ -579,7 +593,7 @@
     }
 
     #about {
-      padding: 8rem 0 7rem;
+      padding: 5rem 0 4rem;
     }
 
     .about-grid {
@@ -656,7 +670,7 @@
 
     /* ── VISION ── */
     #vision {
-      padding: 7rem 0;
+      padding: 4rem 0;
       background: linear-gradient(180deg, transparent, rgba(26, 48, 96, 0.12) 50%, transparent);
       position: relative;
     }
@@ -671,9 +685,24 @@
 
     .vision-layout {
       display: grid;
-      grid-template-columns: 1fr 2.2fr;
+      grid-template-columns: 2.2fr 1.4fr;
       gap: 5rem;
-      align-items: start;
+      align-items: center;
+    }
+
+    .vision-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .vision-image img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 1px solid var(--border);
+      display: block;
     }
 
     .vision-ornament {
@@ -707,7 +736,7 @@
 
     /* ── GALLERY ── */
     #gallery {
-      padding: 6rem 0;
+      padding: 2rem 0;
       position: relative;
     }
 
@@ -873,7 +902,7 @@
 
     /* ── OUR TEAM ── */
     #team {
-      padding: 6rem 0;
+      padding: 4rem 0;
       position: relative;
     }
 
@@ -886,12 +915,46 @@
     }
 
     .team-inner {
-      max-width: 760px;
+      max-width: 1100px;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .team-text {
+      flex: 1;
+    }
+
+    .team-image {
+      flex: 0 0 360px;
+      max-width: 360px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .team-image img {
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .team-inner {
+        flex-direction: column;
+      }
+      .team-image {
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+      }
     }
 
     /* ── FOUNDER ── */
     #founder {
-      padding: 7rem 0;
+      padding: 4rem 0;
       position: relative;
     }
 
@@ -950,7 +1013,7 @@
 
     /* ── GOALS ── */
     #goals {
-      padding: 7rem 0;
+      padding: 4rem 0;
     }
 
     .goals-grid {
@@ -1041,7 +1104,7 @@
 
     /* ── PILLARS / QUOTE STRIP ── */
     #pillars {
-      padding: 5rem 0;
+      padding: 3rem 0;
       background: linear-gradient(135deg, var(--navy2), rgba(26, 48, 96, 0.5));
       border-top: 1px solid var(--border2);
       border-bottom: 1px solid var(--border2);
@@ -1142,7 +1205,11 @@
 
     /* ── SABIQAT PROGRAM ── */
     #sabiqat {
-      padding: 8rem 0;
+      padding: 5rem 0 2rem;
+    }
+
+    #previous-programs {
+      padding: 2rem 0 5rem;
     }
 
     .sabiqat-header {
@@ -1272,9 +1339,42 @@
       object-position: center;
     }
 
+    #previous-programs .course-img-wrap {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      overflow: visible;
+      width: 160px;
+      height: 160px;
+    }
+
+    #previous-programs .course-card:hover .course-img-wrap {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    #previous-programs .course-img-wrap img {
+      object-fit: contain;
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+    }
+
     .course-body {
       flex: 1;
       min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-body::after {
+      content: 'more...';
+      display: block;
+      margin-top: auto;
+      padding-top: 0.8rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      opacity: 0.75;
     }
 
     .course-name {
@@ -1460,7 +1560,7 @@
 
     /* ── CTA ── */
     #cta {
-      padding: 8rem 0;
+      padding: 5rem 0;
       text-align: center;
     }
 
@@ -1555,11 +1655,24 @@
     footer {
       border-top: 1px solid var(--border2);
       background: rgba(8, 16, 30, 0.8);
-      padding: 3.5rem 4rem;
+      padding: 3.5rem 4rem 1.5rem;
+    }
+
+    .footer-grid {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       gap: 2rem;
+    }
+
+    .footer-copyright {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border2);
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
     }
 
     .footer-brand {
@@ -1846,6 +1959,10 @@
         display: none;
       }
 
+      .vision-image {
+        display: none;
+      }
+
       .founder-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -1867,7 +1984,7 @@
         grid-template-columns: 1fr;
       }
 
-      footer {
+      .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
       }
@@ -1956,7 +2073,7 @@
       #goals,
       #sabiqat,
       #cta {
-        padding: 5rem 0;
+        padding: 3rem 0;
       }
 
       /* About */
@@ -2059,7 +2176,10 @@
 
       /* Footer */
       footer {
-        padding: 2.5rem 1.2rem;
+        padding: 2.5rem 1.2rem 1.2rem;
+      }
+
+      .footer-grid {
         gap: 2rem;
       }
 
@@ -2130,8 +2250,22 @@
     }
 
     .modal-icon {
-      font-size: 2.4rem;
-      margin-bottom: 0.6rem;
+      display: none;
+    }
+
+    #modal-image {
+      display: none;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      margin-bottom: 1.4rem;
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.4);
+    }
+
+    #modal-image.show {
+      display: block;
     }
 
     .modal-title {
@@ -2204,7 +2338,7 @@
 
     /* ── CONTACT SECTION ── */
     #contact {
-      padding: 7rem 0;
+      padding: 4rem 0;
       position: relative;
     }
 
@@ -2511,8 +2645,10 @@
     <div class="section-inner">
       <div class="about-grid">
         <div class="reveal">
-          <div class="section-label">About the Academy</div>
+          <div class="section-label en">About the Academy</div>
+          <div class="section-label ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">عن الأكاديمية</div>
           <h2 class="section-title en">About EshraQat Academy</h2>
+          <h2 class="section-title-ar ar">عن أكاديمية إشراقات</h2>
           <div class="gold-divider"></div>
           <p class="section-body en">
             EshraQat Academy is an Islamic educational academy specializing in youth development and Islamic learning.
@@ -2528,8 +2664,7 @@
           <ul class="about-list en">
             <li>Islamic history programs that revive forgotten stories and lessons from our rich heritage</li>
             <li>Seerah programs focused on the life and character of Prophet Muhammad ﷺ</li>
-            <li>"Pearls from the Sahaba" programs highlighting inspiring stories from the companions of the Prophet ﷺ
-            </li>
+            <li>"Pearls from the Sahaba" programs highlighting inspiring stories from the companions of the Prophet ﷺ</li>
             <li>Our successful "SABIQAT" intensive Islamic studies program for girls</li>
           </ul>
           <p class="section-body en" style="margin-top:1rem;">
@@ -2540,6 +2675,25 @@
           <p class="section-body en" style="margin-top:1rem;">
             At Eshraqat Academy, we strive to nurture a generation of confident, knowledgeable, and principled young
             Muslims who are prepared to lead the future of this Ummah with faith, purpose, and confidence.
+          </p>
+          <p class="ar" style="display:none; font-family:'Amiri',serif; direction:rtl; font-size:1.15rem; line-height:2;">
+            أكاديمية إشراقات أكاديمية تعليمية إسلامية متخصصة في تنمية الشباب والتعليم الإسلامي. رسالتنا تمكين الشباب المسلم من المعرفة والفهم الضروريين لممارسة دينهم بثقة ووضوح وهدف.
+          </p>
+          <p class="ar" style="display:none; margin-top:1rem; font-family:'Amiri',serif; direction:rtl; font-size:1.15rem; line-height:2;">
+            من خلال برامج شيّقة وأنشطة تفاعلية ومنهج تعليمي قائم على القصص، نُحفّز الفضول ونعزّز الهوية ونُغذّي حبًّا حقيقيًّا للتعلّم في مجتمعات شبابنا.
+          </p>
+          <p class="ar" style="display:none; margin-top:1rem; font-family:'Amiri',serif; direction:rtl; font-size:1.15rem; line-height:2;">تُقدّم أكاديمية إشراقات مجموعة متنوعة من البرامج والمبادرات، من بينها:</p>
+          <ul class="ar" style="display:none; font-family:'Amiri',serif; direction:rtl; font-size:1.15rem; line-height:2; padding-right:1.5rem; margin-top:0.5rem;">
+            <li>برامج التاريخ الإسلامي التي تُحيي القصص والدروس المنسية من تراثنا الغني</li>
+            <li>برامج السيرة النبوية المتمحورة حول حياة النبي محمد ﷺ وأخلاقه</li>
+            <li>برامج "درر من الصحابة" التي تُبرز قصصًا ملهِمة من سيرة صحابة النبي ﷺ</li>
+            <li>برنامج "سابقات" المكثّف الناجح في الدراسات الإسلامية للفتيات</li>
+          </ul>
+          <p class="ar" style="display:none; margin-top:1rem; font-family:'Amiri',serif; direction:rtl; font-size:1.15rem; line-height:2;">
+            في صميم جميع برامجنا التزام ببناء الشخصية الإسلامية القوية وربط الطلاب بقدوات معنوية رفيعة، مع التأكيد على المسؤولية الفردية التي يحملها كل عضو في المجتمع المسلم للحفاظ على الأمة والإسهام فيها إيجابيًّا.
+          </p>
+          <p class="ar" style="display:none; margin-top:1rem; font-family:'Amiri',serif; direction:rtl; font-size:1.15rem; line-height:2;">
+            في أكاديمية إشراقات، نسعى إلى تنشئة جيل من الشباب المسلم الواثق والمتعلم والراسخ على المبادئ، المستعدّ لقيادة مستقبل هذه الأمة بإيمان وهدف وثقة.
           </p>
         </div>
 
@@ -2575,10 +2729,7 @@
   <section id="vision">
     <div class="section-inner">
       <div class="vision-layout">
-        <div class="vision-ornament reveal">
-          <div class="ornament-circle">🌙</div>
-          <div class="ornament-line"></div>
-        </div>
+
         <div class="reveal reveal-delay-1">
           <div class="section-label">Our Vision</div>
           <h2 class="section-title en">Preparing the Mothers of Tomorrow's Leaders.</h2>
@@ -2592,12 +2743,15 @@
             Quran, Aqeedah, Hadith, Fiqh, Seerah, and Manners.
           </p>
           <p class="section-body-ar ar">
-            في صميم إشراقات أكاديمي رؤية تسعى إلى تمكين الفتيات المسلمات من الأسس الضرورية التي يحتجن إليها
+            في صميم أكاديمية إشراقات رؤية تسعى إلى تمكين الفتيات المسلمات من الأسس الضرورية التي يحتجن إليها
             لبناء الثقة بالنفس والعيش بإيجابية داخل مجتمعاتهن. نحن ملتزمون التزاماً عميقاً بإعداد أمهات
             المستقبل اللواتي سيؤدين دوراً محورياً في تنشئة الجيل القادم من قادة هذه الأمة — وذلك من خلال
             تعليم أصول الدين في أبرز فروعه: القرآن الكريم، والعقيدة، والحديث الشريف، والفقه، والسيرة النبوية، والآداب
             الإسلامية.
           </p>
+        </div>
+        <div class="vision-image reveal reveal-delay-2">
+          <img src="vision_girl.png" alt="Young Muslim girl studying">
         </div>
       </div>
     </div>
@@ -2616,7 +2770,8 @@
           </div>
         </div>
         <div class="reveal reveal-delay-1">
-          <div class="section-label">About the Founder</div>
+          <div class="section-label en">About the Founder</div>
+          <div class="section-label ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">عن المؤسِّسة</div>
           <h2 class="section-title en">A Vision Rooted in Knowledge & Service.</h2>
           <h2 class="section-title-ar ar">رؤيةٌ متجذِّرةٌ في العلم والخدمة.</h2>
           <div class="gold-divider"></div>
@@ -2627,10 +2782,16 @@
           </p>
           <p class="section-body en" style="margin-top:1.2rem;">
             After studying at Al-Azhar, she moved to the United States and earned a Bachelor's degree in
-            Electrical Engineering from George Mason University in 2009. Alongside her professional and
+            Electrical Engineering from George Mason University. Alongside her professional and
             academic journey, she remained deeply committed to teaching youth and serving the Muslim
             community. She is currently pursuing a Master's degree in Islamic Leadership at Boston
             Islamic Seminary.
+          </p>
+          <p class="ar" style="display:none; font-family:'Amiri',serif; direction:rtl; font-size:1.15rem; line-height:2;">
+            خريجة جامعة الأزهر الشريف وعضو فاعل في المجتمع المسلم بشمال فيرجينيا، أسّست مؤسِّسة أكاديمية إشراقات هذه الأكاديمية عام 2024 انطلاقًا من شغفها بتعليم الشباب والعلوم الإسلامية وخدمة المجتمع.
+          </p>
+          <p class="ar" style="display:none; margin-top:1.2rem; font-family:'Amiri',serif; direction:rtl; font-size:1.15rem; line-height:2;">
+            بعد دراستها في الأزهر، انتقلت إلى الولايات المتحدة الأمريكية وحصلت على درجة البكالوريوس في الهندسة الكهربائية من جامعة جورج ميسون. وعلى امتداد مسيرتها المهنية والأكاديمية، حافظت على التزامها العميق بتعليم الشباب وخدمة المجتمع المسلم. وهي تتابع حاليًا دراستها للحصول على درجة الماجستير في القيادة الإسلامية من معهد بوسطن الإسلامي.
           </p>
         </div>
       </div>
@@ -2641,15 +2802,25 @@
   <section id="team">
     <div class="section-inner">
       <div class="team-inner reveal">
-        <div class="section-label">Our Team</div>
-        <h2 class="section-title">Dedicated to Empowering Youth.</h2>
-        <div class="gold-divider"></div>
-        <p class="section-body">
-          ESHRAQAT Academy also brings together a group of talented, educated, and passionate community members
-          who teach at Islamic schools across Northern Virginia. Together, they strive to serve the Muslim
-          community by empowering youth with the essential foundations needed to practice their religion with
-          confidence, understanding, and pride in their identity.
-        </p>
+        <div class="team-text">
+          <div class="section-label en">Our Team</div>
+          <div class="section-label ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">فريقنا</div>
+          <h2 class="section-title en">Dedicated to Empowering Youth.</h2>
+          <h2 class="section-title-ar ar">ملتزمون بتمكين الشباب.</h2>
+          <div class="gold-divider"></div>
+          <p class="section-body en">
+            ESHRAQAT Academy also brings together a group of talented, educated, and passionate community members
+            who teach at Islamic schools across Northern Virginia. Together, they strive to serve the Muslim
+            community by empowering youth with the essential foundations needed to practice their religion with
+            confidence, understanding, and pride in their identity.
+          </p>
+          <p class="ar" style="display:none; font-family:'Amiri',serif; direction:rtl; font-size:1.15rem; line-height:2;">
+            تضمّ أكاديمية إشراقات أيضًا نخبة من أفراد المجتمع الموهوبين والمتعلمين والمتحمّسين، الذين يُدرّسون في مدارس إسلامية في شمال فيرجينيا. يعملون معًا على خدمة المجتمع المسلم وتمكين الشباب من الأسس الجوهرية التي تمكّنهم من ممارسة دينهم بثقة وفهم واعتزاز بهويتهم.
+          </p>
+        </div>
+        <div class="team-image">
+          <img src="Our_Team.png" alt="Our Team">
+        </div>
       </div>
     </div>
   </section>
@@ -2660,38 +2831,6 @@
       <p class="pillars-quote en">"Seeking knowledge is an obligation upon every Muslim."</p>
       <p class="pillars-quote-ar ar">«طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ»</p>
       <p class="pillars-source">— Ibn Mājah</p>
-      <div class="pillars-icons">
-        <div class="pillar-item reveal reveal-delay-1">
-          <div class="pillar-icon-wrap">📖</div>
-          <span class="pillar-label">Quran</span>
-          <span class="pillar-label-ar">القرآن</span>
-        </div>
-        <div class="pillar-item reveal reveal-delay-1">
-          <div class="pillar-icon-wrap">🌿</div>
-          <span class="pillar-label">Hadith</span>
-          <span class="pillar-label-ar">الحديث</span>
-        </div>
-        <div class="pillar-item reveal reveal-delay-2">
-          <div class="pillar-icon-wrap">🌙</div>
-          <span class="pillar-label">Aqeedah</span>
-          <span class="pillar-label-ar">العقيدة</span>
-        </div>
-        <div class="pillar-item reveal reveal-delay-2">
-          <div class="pillar-icon-wrap">⚖️</div>
-          <span class="pillar-label">Fiqh</span>
-          <span class="pillar-label-ar">الفقه</span>
-        </div>
-        <div class="pillar-item reveal reveal-delay-3">
-          <div class="pillar-icon-wrap">🕌</div>
-          <span class="pillar-label">Seerah</span>
-          <span class="pillar-label-ar">السيرة</span>
-        </div>
-        <div class="pillar-item reveal reveal-delay-3">
-          <div class="pillar-icon-wrap">🕊️</div>
-          <span class="pillar-label">Manners</span>
-          <span class="pillar-label-ar">الآداب</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -2756,7 +2895,7 @@
 
       <div class="sabiqat-header reveal">
         <div class="sabiqat-badge">Flagship Program</div>
-        <h2 class="sabiqat-title">SABIQAT</h2>
+        <img src="SABIQAT_logo.png" alt="SABIQAT Logo" style="display:block; margin:1.5rem auto; max-width:420px; width:100%; filter:brightness(0) invert(1);">
         <p class="sabiqat-tagline en">The Islamic Studies Program for Muslim Girls</p>
         <p class="sabiqat-tagline-ar ar">برنامج الدراسات الإسلامية للفتيات المسلمات</p>
         <div class="gold-divider" style="margin: 1.4rem auto;"></div>
@@ -2767,7 +2906,7 @@
           More than a class — it's a journey. Students don't just learn; they reflect, connect, and grow.
         </p>
         <p class="sabiqat-desc-ar ar">
-          سابقات هو البرنامج الرئيسي لإشراقات أكاديمي — منهج إسلامي مصمم خصيصاً لفتيات مسلمات من سن 10 إلى 16.
+          سابقات هو البرنامج الرئيسي لأكاديمية إشراقات — منهج إسلامي مصمم خصيصاً لفتيات مسلمات من سن 10 إلى 16.
           على مدى فصلين دراسيين، تستكشف الطالبات ستة محاور إسلامية أساسية في بيئة دافئة ومحفزة تقوم على روح الأخوة.
           أكثر من مجرد درس — إنها رحلة. الطالبات لا يتعلمن فحسب، بل يتأملن ويتواصلن وينمون.
         </p>
@@ -2917,6 +3056,74 @@
     </div>
   </section>
 
+  <!-- PREVIOUS PROGRAMS -->
+  <section id="previous-programs">
+    <div class="section-inner">
+      <div class="sabiqat-header reveal">
+        <div class="sabiqat-badge">Previous Programs</div>
+        <h2 class="section-title en" style="margin-top:1rem;">Our Past Journeys</h2>
+        <h2 class="section-title ar" style="display:none; font-family:'Amiri',serif; direction:rtl; margin-top:1rem;">رحلاتنا السابقة</h2>
+        <div class="gold-divider" style="margin: 1.4rem auto;"></div>
+        <p class="sabiqat-desc en">
+          A look back at the meaningful programs we've delivered to our girls — each one designed to nurture
+          faith, character, and connection to the timeless wisdom of Islam.
+        </p>
+        <p class="sabiqat-desc-ar ar">
+          نظرة على البرامج المؤثرة التي قدمناها لفتياتنا — كل برنامج صُمّم لتغذية الإيمان وبناء الشخصية
+          وترسيخ الصلة بحكمة الإسلام الخالدة.
+        </p>
+      </div>
+
+      <div class="courses-grid">
+
+        <div class="course-card reveal" data-course="pearls">
+          <div class="course-img-wrap">
+            <img src="Pearls_from_the_sahaba.jpeg" alt="Pearls from the Sahaba" loading="lazy" />
+          </div>
+          <div class="course-body">
+            <div class="course-name en">Pearls from the Sahaba</div>
+            <div class="course-name-ar ar">لآلئ من الصحابة</div>
+            <ul class="course-topics en">
+              <li>An 8-week journey through the lives of 16 noble companions</li>
+              <li>One male and one female companion explored each class</li>
+              <li>Reflection, discussion, and creative application activities</li>
+              <li>Reviving authentic role models for today's young Muslim girls</li>
+            </ul>
+            <ul class="course-topics-ar ar">
+              <li>رحلة على مدى 8 أسابيع في حياة 16 من الصحابة الكرام</li>
+              <li>دراسة صحابي وصحابية في كل لقاء</li>
+              <li>أنشطة تأملية وحوارية وإبداعية تطبيقية</li>
+              <li>إحياء القدوات الحقيقية لفتياتنا المسلمات اليوم</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="course-card reveal reveal-delay-1" data-course="kahf">
+          <div class="course-img-wrap">
+            <img src="Surat_Alkahf.jpeg" alt="Ramadan 2026 – Journey Through Surat Al-Kahf" loading="lazy" />
+          </div>
+          <div class="course-body">
+            <div class="course-name en">Ramadan 2026 – Surat Al-Kahf</div>
+            <div class="course-name-ar ar">رمضان 2026 — سورة الكهف</div>
+            <ul class="course-topics en">
+              <li>Four weekends exploring the four stories of Surat Al-Kahf</li>
+              <li>The People of the Cave — faith and steadfastness</li>
+              <li>The Two Gardens, Musa & Al-Khidr, and Dhul-Qarnayn</li>
+              <li>Living the surah's lessons as confident young Muslimahs</li>
+            </ul>
+            <ul class="course-topics-ar ar">
+              <li>أربعة أسابيع في تأمل قصص سورة الكهف الأربع</li>
+              <li>أصحاب الكهف — الإيمان والثبات على الحق</li>
+              <li>صاحب الجنّتين، وموسى مع الخضر، وذو القرنين</li>
+              <li>تطبيق دروس السورة في حياة المسلمة الواثقة</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- GALLERY -->
   <section id="gallery">
     <div class="section-inner">
@@ -2944,12 +3151,12 @@
       <div class="gallery-category active" id="cat-eid-cookies">
         <div class="gallery-category-label">Eid Cookies Baking</div>
         <div class="gallery-grid">
-          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-1.jpg"><img
-              src="Gallery/Eid Cookies/eid-cookies-1.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-2.jpg"><img
-              src="Gallery/Eid Cookies/eid-cookies-2.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
           <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-3.jpg"><img
               src="Gallery/Eid Cookies/eid-cookies-3.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-2.jpg"><img
+              src="Gallery/Eid Cookies/eid-cookies-2.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-1.jpg"><img
+              src="Gallery/Eid Cookies/eid-cookies-1.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
         </div>
       </div>
 
@@ -3029,14 +3236,6 @@
         <p class="cta-sub en">Seats are limited. Join the sisterhood that's building tomorrow's Muslim leaders.</p>
         <p class="cta-sub-ar ar">الأماكن محدودة. انضمي إلى أخوات يبنين قيادات مسلمات لغد مشرق.</p>
         <div class="cta-actions">
-          <a href="https://www.instagram.com/eshraqat_academy/" target="_blank" class="btn-primary">
-            <span class="en">Contact Us on Instagram</span>
-            <span class="ar" style="display:none;">تواصلي معنا على إنستغرام</span>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61571936108853" target="_blank" class="btn-secondary">
-            <span class="en">Find Us on Facebook</span>
-            <span class="ar" style="display:none;">تابعينا على فيسبوك</span>
-          </a>
         </div>
       </div>
     </div>
@@ -3062,26 +3261,33 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-brand">
-      Eshraqat Academy
-      <span class="en">Pearls from the Sunna · Est. 2024</span>
-      <span class="ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">درر من السنة · تأسست 2024</span>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        Eshraqat Academy
+        <span class="en">Pearls from the Sunna · Est. 2024</span>
+        <span class="ar" style="display:none; font-family:'Amiri',serif; direction:rtl;">درر من السنة · تأسست 2024</span>
+      </div>
+      <div class="footer-links">
+        <a href="#about" class="en">About</a>
+        <a href="#sabiqat" class="en">SABIQAT</a>
+        <a href="#gallery" class="en">Events</a>
+        <a href="#contact" class="en">Contact Us</a>
+        <a href="#cta" class="en">Enroll</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/eshraqat_academy/" target="_blank" class="social-btn" title="Instagram">ig</a>
+        <a href="https://www.facebook.com/profile.php?id=61571936108853" target="_blank" class="social-btn"
+          title="Facebook">fb</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="#about" class="en">About</a>
-      <a href="#sabiqat" class="en">SABIQAT</a>
-      <a href="#gallery" class="en">Events</a>
-      <a href="#contact" class="en">Contact Us</a>
-      <a href="#cta" class="en">Enroll</a>
-    </div>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/eshraqat_academy/" target="_blank" class="social-btn" title="Instagram">ig</a>
-      <a href="https://www.facebook.com/profile.php?id=61571936108853" target="_blank" class="social-btn"
-        title="Facebook">fb</a>
+    <div class="footer-copyright">
+      © <span id="footer-year"></span> Eshraqat Academy, LLC. All Rights Reserved
     </div>
   </footer>
 
   <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
     function setLang(lang) {
       document.body.classList.toggle('ar', lang === 'ar');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
@@ -3123,7 +3329,9 @@
     const courseModals = {
       quran: {
         icon: '📖',
+        image: 'Quran.png',
         title: 'Quran Program',
+        titleAr: 'برنامج القرآن الكريم',
         content: `
           <p>Our Quran program focuses on mastering recitation with proper Tajweed rules, while also building a deep and meaningful connection with the Book of Allah. Students study one Surah per semester with careful attention to both reading accuracy and reflection.</p>
           <p>In Semester 1, students study Surah Al-Hujurat, and in Semester 2, they study Surah Luqman. The selection of these Surahs is intentional, as both emphasize essential manners, character development, and guidance that are especially relevant for youth today.</p>
@@ -3139,11 +3347,29 @@
           </ul>
           <p>Students are also asked to identify at least one practical application of the Surah in their own lives, demonstrating how its guidance can shape behavior and character.</p>
           <p>At the end of Ramadan, each student presents her project in a 7-minute presentation, sharing her findings, reflections, and personal growth with the class.</p>
+        `,
+        contentAr: `
+          <p>يركّز برنامج القرآن الكريم على إتقان التلاوة وفق أحكام التجويد الصحيحة، مع بناء علاقة عميقة ومعنوية مع كتاب الله. تدرس الطالبات سورة واحدة في كل فصل دراسي مع اهتمام دقيق بصحة القراءة والتدبّر.</p>
+          <p>في الفصل الأول تُدرَّس سورة الحجرات، وفي الفصل الثاني سورة لقمان. واختيار هاتين السورتين مقصود، إذ تُركّزان على الآداب الإسلامية وتنمية الشخصية والتوجيه الذي يحتاجه الشباب اليوم.</p>
+          <p>إلى جانب إتقان التلاوة وحفظ الآيات المختارة، تنخرط الطالبات في تدبّر منظّم لكل آية، يستكشف المعاني والدروس وتطبيقاتها في الحياة اليومية. يساعد هذا النهج الطالبات على النظر إلى القرآن الكريم لا بوصفه نصًّا تاريخيًّا فحسب، بل دليلًا حيًّا يخاطب تجاربهن ومواقفهن مباشرة.</p>
+          <p>هذا الارتباط بالغ الأهمية في تعزيز علاقتهن بكتاب الله، ويشجّعهن على الانطلاق في رحلتهن الخاصة لدراسة القرآن وفهمه وتطبيق تعاليمه في حياتهن اليومية.</p>
+          <h4>✨ مشروع رمضان: "اعرفي كل شيء عن السورة"</h4>
+          <p>من أبرز مبادراتنا مشروع "اعرفي كل شيء عن السورة" الذي يُقام خلال شهر رمضان المبارك. تختار كل طالبة سورة من اختيارها وتُجري دراسة شاملة لها تشمل:</p>
+          <ul>
+            <li>أسباب النزول</li>
+            <li>معنى اسم السورة</li>
+            <li>المحاور الرئيسية والدروس المستخلصة من الآيات</li>
+            <li>التأمل في الصلة بين الآيات والحياة الواقعية</li>
+          </ul>
+          <p>كما تُطلب من كل طالبة تحديد تطبيق عملي واحد على الأقل للسورة في حياتها، تُثبت من خلاله كيف يمكن لتوجيهاتها أن تُشكّل سلوكها وشخصيتها.</p>
+          <p>في نهاية رمضان، تقدّم كل طالبة مشروعها في عرض مدته سبع دقائق، تشارك فيه اكتشافاتها وتأملاتها ونموّها الشخصي مع زميلاتها.</p>
         `
       },
       hadith: {
         icon: '🌿',
+        image: 'Hadith.png',
         title: 'Hadith Studies',
+        titleAr: 'دراسة الحديث النبوي',
         content: `
           <p>In our Hadith program, students study 10 important Hadith from Al-Nawawi's Forty Hadith. Through these narrations, girls learn to reflect on the meanings, lessons, and practical applications of the Prophet's teachings in their everyday lives.</p>
           <p>Students are encouraged to actively engage with the Hadith through weekly assignments, discussions, and group projects that help them connect these timeless teachings to modern-day challenges and experiences.</p>
@@ -3155,11 +3381,25 @@
             <li>The power and impact of one's words and speech</li>
           </ul>
           <p>The goal of the program is not only to help students memorize and understand Hadith, but also to nurture strong character, thoughtful reflection, and a deeper connection to Islamic values in their daily lives.</p>
+        `,
+        contentAr: `
+          <p>في برنامج الحديث النبوي، تدرس الطالبات عشرة أحاديث مختارة من الأربعين النووية. ومن خلال هذه الأحاديث، يتعلّمن التأمّل في المعاني والدروس والتطبيقات العملية لتعاليم النبي ﷺ في حياتهن اليومية.</p>
+          <p>تُشجَّع الطالبات على التفاعل الإيجابي مع الأحاديث عبر واجبات أسبوعية ونقاشات ومشاريع جماعية تربط هذه التعاليم الخالدة بتحديات العصر وتجاربه.</p>
+          <h4>المحاور الرئيسية</h4>
+          <ul>
+            <li>أهمية إخلاص النية</li>
+            <li>الأمر بالمعروف والنهي عن المنكر</li>
+            <li>المسؤولية الشخصية والمحاسبة</li>
+            <li>قوة الكلمة وأثرها</li>
+          </ul>
+          <p>هدف البرنامج لا يقتصر على مساعدة الطالبات في حفظ الأحاديث وفهمها، بل يسعى إلى تنمية شخصيتهن وتعميق تأملهن وتوطيد صلتهن بالقيم الإسلامية في حياتهن اليومية.</p>
         `
       },
       aqeedah: {
         icon: '🌙',
+        image: 'Aqeedah.png',
         title: 'Aqeedah Program',
+        titleAr: 'برنامج العقيدة',
         content: `
           <p>In our Aqeedah program, students study the three main categories of Tawheed:</p>
           <ul>
@@ -3171,11 +3411,25 @@
           <p>Students strengthen and apply their learning through engaging weekly assignments, trivia games, group activities, presentations, and interactive projects designed to make Aqeedah meaningful and relevant to their daily lives.</p>
           <p>For example, students may work in groups to present the meaning and significance of one of the beautiful names of Allah (SWT), while also demonstrating how that name can be used in acts of worship such as du'a (supplication) and dhikr (remembrance of Allah).</p>
           <p>Our goal is to help young Muslim girls develop confidence in their faith, deepen their connection with Allah, and establish a solid spiritual foundation rooted in authentic Islamic teachings.</p>
+        `,
+        contentAr: `
+          <p>في برنامج العقيدة، تدرس الطالبات أقسام التوحيد الثلاثة الرئيسية:</p>
+          <ul>
+            <li>توحيد الألوهية</li>
+            <li>توحيد الربوبية</li>
+            <li>توحيد الأسماء والصفات</li>
+          </ul>
+          <p>يساعد البرنامج الطالبات على بناء عقيدة إسلامية راسخة وسليمة من خلال فهم مَن هو الله، ولماذا يستحق وحده العبادة، وكيف تُشكّل أسماؤه الحسنى وصفاته العلا علاقة المسلمة به سبحانه.</p>
+          <p>تُعزّز الطالبات تعلّمهن وتطبّقه من خلال واجبات أسبوعية شيّقة ومسابقات معلوماتية وأنشطة جماعية وعروض تقديمية ومشاريع تفاعلية مصمَّمة لجعل العقيدة حيّة وذات صلة بحياتهن اليومية.</p>
+          <p>مثال على ذلك: قد تعمل الطالبات في مجموعات لتقديم معنى أحد أسماء الله الحسنى وأهميته، مع إظهار كيفية توظيف هذا الاسم في العبادة كالدعاء والذكر.</p>
+          <p>هدفنا مساعدة الفتيات المسلمات الصغيرات على بناء ثقتهن بدينهن، وتعميق ارتباطهن بالله، وترسيخ أساس روحي متين مبني على التعاليم الإسلامية الأصيلة.</p>
         `
       },
       fiqh: {
         icon: '⚖️',
+        image: 'Fiqh.png',
         title: 'Fiqh Program',
+        titleAr: 'برنامج الفقه',
         content: `
           <p>In our Fiqh program, we focus on teaching young Muslim girls the essential foundations they need to flourish in their worship and daily religious practice.</p>
           <p>We begin with the Fiqh of purification and the Fiqh of prayer, helping students understand both the knowledge and practical application of worship. During the second semester, students continue studying the Fiqh of prayer, along with the Fiqh of Zakah and the Fiqh of food and dietary guidelines.</p>
@@ -3183,23 +3437,118 @@
           <p>To make learning engaging and meaningful, we incorporate real-life applications, interactive activities, and motivating competitions throughout the program to strengthen understanding and encourage implementation of what is learned.</p>
           <h4>✨ The Fajr Challenge</h4>
           <p>One example was our "Fajr Challenge," where students committed to praying Fajr on time for 21 consecutive days. Winning students were recognized and celebrated for building this beautiful habit into their daily routine and strengthening their relationship with Allah.</p>
+        `,
+        contentAr: `
+          <p>في برنامج الفقه، نحرص على تعليم الفتيات المسلمات الأسس الجوهرية التي تحتجن إليها للنجاح في عبادتهن وممارسة دينهن في الحياة اليومية.</p>
+          <p>نبدأ بفقه الطهارة وفقه الصلاة، مما يساعد الطالبات على فهم العبادة من الناحيتين العلمية والتطبيقية. وفي الفصل الثاني، تواصل الطالبات دراسة فقه الصلاة، إضافة إلى فقه الزكاة وفقه الأطعمة والتغذية الحلال.</p>
+          <p>بنهاية البرنامج، تكون الطالبات قد اكتسبن أساسًا متينًا في الأحكام الفقهية الضرورية التي تمكّنهن من ممارسة دينهن بشكل صحيح وواثق ومدروس في يومياتهن.</p>
+          <p>لجعل التعلّم ممتعًا وفاعلًا، ندمج التطبيقات الحياتية والأنشطة التفاعلية والمسابقات التحفيزية طوال البرنامج لتعميق الفهم وتشجيع التطبيق الفعلي لما يُتعلَّم.</p>
+          <h4>✨ تحدّي الفجر</h4>
+          <p>من أبرز الأمثلة "تحدّي الفجر"، حيث التزمت الطالبات بأداء صلاة الفجر في وقتها لمدة واحد وعشرين يومًا متتاليًا. وكان الفائزات يُكرَّمن ويُحتفى بهن تقديرًا لبنائهن هذه العادة الجميلة في روتينهن اليومي وتعزيزهن علاقتهن بالله.</p>
         `
       },
       seerah: {
         icon: '🕌',
+        image: 'Seerah.png',
         title: 'Seerah Program',
+        titleAr: 'برنامج السيرة النبوية',
         content: `
           <p>In our Seerah program, students study the biography of Prophet Muhammad ﷺ, exploring key moments throughout his blessed life. At different stages of his journey, lessons are highlighted to allow students to reflect deeply on the meanings, wisdoms, and moral guidance found within this beautiful Seerah.</p>
           <p>Through studying the life of the Prophet ﷺ, girls develop a stronger love and connection with their Messenger, gaining a deeper understanding of the hardships he endured so that Islam could reach us today. This helps nurture a sincere desire to follow his Sunnah in the best way possible and in a manner that is pleasing to him ﷺ.</p>
           <p>Throughout the course, students also learn about the shining examples of the Companions of the Prophet ﷺ, recognizing their vital contributions in preserving and spreading the message of Islam to future generations. These reflections help students appreciate that the success of Islam was not only through the Prophet's ﷺ mission alone, but also through the dedication, sacrifice, and responsibility carried by each individual who followed him.</p>
           <p>From this, students come to understand their own role and responsibility today — to continue learning, practicing, and passing on this message with sincerity, so that future generations may benefit as well.</p>
+        `,
+        contentAr: `
+          <p>في برنامج السيرة النبوية، تدرس الطالبات سيرة النبي محمد ﷺ، ويستكشفن المحطات الكبرى في حياته المباركة. وفي كل مرحلة من مراحل مسيرته، تُستخلَص دروس تدعو الطالبات إلى التأمّل العميق في المعاني والحِكَم والإرشادات الأخلاقية التي تزخر بها هذه السيرة العطرة.</p>
+          <p>من خلال دراسة حياة النبي ﷺ، تنشأ لدى الفتيات محبة أعمق وارتباط أوثق برسولهن، ويدركن بصورة أجلى المعاناة التي احتملها ﷺ لكي يصل الإسلام إلينا اليوم. مما يُغذّي في نفوسهن رغبة صادقة في اتّباع سنّته على أفضل وجه وبما يُرضيه ﷺ.</p>
+          <p>على امتداد المساق، تتعرّف الطالبات أيضًا على النماذج المضيئة من صحابة النبي ﷺ، ويُدركن إسهاماتهم الجوهرية في حفظ رسالة الإسلام وتبليغها للأجيال القادمة. وتساعد هذه التأملات الطالبات على استيعاب أن نجاح الإسلام لم يكن ثمرة مسيرة النبي ﷺ وحده، بل كان كذلك حصيلة تفاني كل فرد اتّبعه وتضحيته ومسؤوليته.</p>
+          <p>من هذا المنطلق، تدرك الطالبات دورهن ومسؤوليتهن اليوم: مواصلة التعلّم والتطبيق ونقل هذه الرسالة بإخلاص، لتنتفع بها الأجيال القادمة كما انتفعنا نحن.</p>
         `
       },
       manners: {
         icon: '🕊️',
+        image: 'Manners.png',
         title: 'Manners Program',
+        titleAr: 'برنامج الآداب الإسلامية',
         content: `
-          <p>Full program description coming soon. Stay tuned!</p>
+          <p>In the Manners class, students explore essential Islamic morals and character traits that are increasingly neglected among today's generations due to cultural influences, technological exposure, and a general lack of Islamic knowledge. The class aims to revive and strengthen foundational values rooted in the Qur'an and Sunnah, including haya' (modesty), patience, gratitude, forgiveness, self-awareness, and respectful conduct toward others.</p>
+          <p>Students are encouraged not only to learn these values theoretically, but also to embody them through practical application. The class incorporates a variety of engaging hands-on activities such as creative projects, reflective writing, role-play performances, discussions, and article writing to help students internalize and practice these manners in their daily lives. Through this approach, the program seeks to nurture confident young Muslim women with strong Islamic character and moral responsibility.</p>
+        `,
+        contentAr: `
+          <p>في حصة الآداب، تستكشف الطالبات الأخلاق والصفات الإسلامية الجوهرية التي باتت تتراجع لدى الأجيال المعاصرة بفعل المؤثرات الثقافية والانفتاح التقني وضعف الحصيلة الشرعية. وتهدف الحصة إلى إحياء القيم الأصيلة المستمدة من الكتاب والسنة وترسيخها، ومنها: الحياء، والصبر، والشكر، والعفو، ومحاسبة النفس، وحسن التعامل مع الآخرين.</p>
+          <p>ولا يقتصر التشجيع على الجانب النظري، بل يمتد إلى التطبيق العملي وتمثّل هذه القيم في السلوك. وتتنوع الأنشطة التفاعلية في الحصة بين المشاريع الإبداعية، والكتابة التأمّلية، والتمثيل الأدائي، والنقاشات، وكتابة المقالات؛ بما يعين الطالبات على استيعاب هذه الآداب وممارستها في حياتهن اليومية. ومن خلال هذا النهج، يسعى البرنامج إلى تنشئة فتيات مسلمات واثقات يتحلّين بشخصية إسلامية متينة ومسؤولية أخلاقية راسخة.</p>
+        `
+      },
+      pearls: {
+        icon: '✨',
+        image: 'Pearls_from_the_sahaba.jpeg',
+        title: 'Pearls from the Sahaba Series',
+        titleAr: 'سلسلة لآلئ من الصحابة',
+        content: `
+          <p>Throughout this special series, we took our girls on a meaningful journey through the lives of the noble companions of Prophet Muhammad ﷺ — uncovering the examples of true role models whose faith, character, and sacrifices continue to inspire generations.</p>
+          <p>In a world overwhelmed by false role models and powerful digital influences, we recognized the urgent need to reconnect young Muslim girls with authentic examples of strength, sincerity, courage, and faith. And who better to learn from than the beloved companions of the Prophet ﷺ?</p>
+          <p>📖 Each class highlighted the story of one male companion and one female companion, allowing students to reflect on the diverse qualities and strengths found among the Sahaba.</p>
+          <h4>16 Remarkable Companions Over 8 Weeks</h4>
+          <ul>
+            <li>Abdurrahman ibn Awf رضي الله عنه</li>
+            <li>Mus'ab ibn Umair رضي الله عنه</li>
+            <li>Ja'far ibn Abi Talib رضي الله عنه</li>
+            <li>Nusaibah bint Ka'b رضي الله عنها</li>
+            <li>Fatimah Al-Zahraa رضي الله عنها</li>
+            <li>Safiyyah bint Abdul Muttalib رضي الله عنها</li>
+            <li>…and ten more inspiring companions</li>
+          </ul>
+          <p>Through reflection, discussion, creative activities, and personal application, the girls learned how these companions navigated challenges with faith and excellence. Most importantly, they were encouraged to apply those same qualities — courage, modesty, leadership, patience, generosity, and steadfastness — in their own daily lives as young Muslim women living in today's world.</p>
+          <p>✨ Our goal was not simply to teach history, but to revive living examples that inspire our girls to grow into confident believers and future leaders of this Ummah.</p>
+        `,
+        contentAr: `
+          <p>اصطحبنا فتياتنا في هذه السلسلة المميزة في رحلة معنوية بين سير الصحابة الكرام رضي الله عنهم — لنكشف عن قدوات حقيقية، لا يزال إيمانهم وأخلاقهم وتضحياتهم تُلهم الأجيال.</p>
+          <p>في عالم تكثر فيه القدوات الزائفة والمؤثرات الرقمية القوية، أدركنا الحاجة الملحة لإعادة وصل فتياتنا المسلمات بأمثلة أصيلة في القوة والصدق والشجاعة والإيمان. ومن أولى بذلك من صحابة النبي ﷺ الكرام؟</p>
+          <p>📖 خصّص كل لقاء لقصة صحابي وصحابية، لتتأمل الطالبات تنوّع الصفات والقوة في حياة الصحابة.</p>
+          <h4>16 صحابياً وصحابية على مدى 8 أسابيع</h4>
+          <ul>
+            <li>عبد الرحمن بن عوف رضي الله عنه</li>
+            <li>مصعب بن عمير رضي الله عنه</li>
+            <li>جعفر بن أبي طالب رضي الله عنه</li>
+            <li>نسيبة بنت كعب رضي الله عنها</li>
+            <li>فاطمة الزهراء رضي الله عنها</li>
+            <li>صفية بنت عبد المطلب رضي الله عنها</li>
+            <li>…وعشرة آخرون من الصحابة الملهمين</li>
+          </ul>
+          <p>من خلال التأمل والحوار والأنشطة الإبداعية والتطبيق الشخصي، تعلّمت الطالبات كيف تجاوز الصحابة تحدياتهم بإيمان وإحسان. والأهم من ذلك، شُجِّعن على تمثّل هذه الصفات — الشجاعة والحياء والقيادة والصبر والكرم والثبات — في حياتهن اليومية كفتيات مسلمات في عالم اليوم.</p>
+          <p>✨ لم يكن هدفنا تعليم التاريخ فحسب، بل إحياء قدوات حيّة تُلهم فتياتنا ليصبحن مؤمنات واثقات وقائدات لهذه الأمة في المستقبل.</p>
+        `
+      },
+      kahf: {
+        icon: '🌙',
+        image: 'Surat_Alkahf.jpeg',
+        title: 'Ramadan 2026 – Journey Through Surat Al-Kahf',
+        titleAr: 'رمضان 2026 — رحلة في سورة الكهف',
+        content: `
+          <p>This Ramadan, our girls embarked on a powerful journey through Surat Al-Kahf — a surah filled with light, protection, wisdom, and timeless guidance for every generation.</p>
+          <p>📖 Over four enriching weekends, we reflected on the four remarkable stories of the surah and uncovered lessons that speak directly to the challenges young Muslim girls face today.</p>
+          <h4>🌟 Week 1: The People of the Cave</h4>
+          <p>A story of faith, courage, and remaining steadfast upon truth even when the world pushes back.</p>
+          <h4>🌿 Week 2: The Man with Two Gardens</h4>
+          <p>A powerful reminder about gratitude, humility, and understanding where true success and blessings truly lie.</p>
+          <h4>🌊 Week 3: Musa ﷺ and Al-Khidr</h4>
+          <p>Lessons in patience, trust in Allah's wisdom, and realizing that not everything is as it first appears.</p>
+          <h4>👑 Week 4: Dhul-Qarnayn</h4>
+          <p>Exploring leadership, justice, responsibility, and using strength with faith and purpose.</p>
+          <p>✨ Together, we explored the secrets, virtues, and divine wisdom of this beautiful surah — and most importantly, how to apply its lessons in our daily lives as confident, faithful young Muslim girls striving to lead the next generation of this Ummah with strength and sincerity.</p>
+        `,
+        contentAr: `
+          <p>في هذا الشهر المبارك، انطلقت فتياتنا في رحلة مؤثرة في رحاب سورة الكهف — سورة مفعمة بالنور والحفظ والحكمة والهدى الخالد لكل جيل.</p>
+          <p>📖 على مدى أربعة أسابيع، تأمّلنا قصص السورة الأربع، واستخرجنا منها دروساً تخاطب التحديات التي تواجهها فتياتنا المسلمات اليوم.</p>
+          <h4>🌟 الأسبوع الأول: أصحاب الكهف</h4>
+          <p>قصة في الإيمان والشجاعة والثبات على الحق، حتى حين يصدّ العالم عنه.</p>
+          <h4>🌿 الأسبوع الثاني: صاحب الجنّتين</h4>
+          <p>تذكير بليغ بالشكر والتواضع وإدراك الموطن الحقيقي للنعمة والنجاح.</p>
+          <h4>🌊 الأسبوع الثالث: موسى ﷺ والخضر</h4>
+          <p>دروس في الصبر، والتسليم لحكمة الله، وإدراك أن الأمور ليست دائماً كما تبدو في ظاهرها.</p>
+          <h4>👑 الأسبوع الرابع: ذو القرنين</h4>
+          <p>تأمّل في القيادة والعدل والمسؤولية، وتسخير القوة بإيمان وغاية.</p>
+          <p>✨ معاً اكتشفنا أسرار هذه السورة العظيمة وفضائلها وحكمتها الربانية — والأهم: كيف نطبّق دروسها في حياتنا اليومية كفتيات مسلمات واثقات صادقات، يسعين لقيادة الجيل القادم من هذه الأمة بقوة وإخلاص.</p>
         `
       }
     };
@@ -3216,9 +3565,22 @@
           const key = card.dataset.course;
           const data = courseModals[key];
           if (!data) return;
+          const isAr = document.body.classList.contains('ar');
+          const modalBox = document.querySelector('#courseModal .modal-box');
+          const modalImage = document.getElementById('modal-image');
+          if (data.image) {
+            modalImage.src = data.image;
+            modalImage.alt = isAr ? data.titleAr : data.title;
+            modalImage.classList.add('show');
+          } else {
+            modalImage.classList.remove('show');
+            modalImage.removeAttribute('src');
+          }
           document.getElementById('modal-icon').textContent = data.icon;
-          document.getElementById('modal-title').textContent = data.title;
-          document.getElementById('modal-body').innerHTML = data.content;
+          document.getElementById('modal-title').textContent = isAr ? data.titleAr : data.title;
+          document.getElementById('modal-body').innerHTML = isAr ? data.contentAr : data.content;
+          modalBox.style.direction = isAr ? 'rtl' : 'ltr';
+          modalBox.style.fontFamily = isAr ? "'Amiri', serif" : '';
           document.getElementById('courseModal').classList.add('open');
           document.body.style.overflow = 'hidden';
         });
@@ -3395,6 +3757,7 @@
   <div class="modal-overlay" id="courseModal" role="dialog" aria-modal="true">
     <div class="modal-box">
       <button class="modal-close" id="modal-close-btn" aria-label="Close">&#x2715;</button>
+      <img id="modal-image" alt="" />
       <div class="modal-icon" id="modal-icon"></div>
       <div class="modal-title" id="modal-title"></div>
       <div class="modal-divider"></div>

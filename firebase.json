@@ -5,9 +5,7 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
-      "CLAUDE.md",
-      "logo - Full.png",
-      "Hadith 2.png"
+      "CLAUDE.md"
     ],
     "rewrites": [
       {
