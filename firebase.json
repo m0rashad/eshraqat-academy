@@ -4,6 +4,9 @@
     "ignore": [
       "firebase.json",
       "**/.*",
+      "**/.*/**",
+      ".tmp.driveupload",
+      ".tmp.driveupload/**",
       "**/node_modules/**",
       "CLAUDE.md"
     ],
@@ -12,6 +15,7 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "cleanUrls": true
   }
 }
