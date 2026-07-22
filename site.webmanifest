@@ -1,0 +1,13 @@
+{
+  "name": "Eshraqat Academy",
+  "short_name": "Eshraqat",
+  "description": "Islamic educational academy empowering young Muslim women — Pearls from the Sunna.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#673943",
+  "theme_color": "#673943",
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

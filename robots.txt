@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eshraqat-academy-site.web.app/sitemap.xml

@@ -8,12 +8,56 @@
       ".tmp.driveupload",
       ".tmp.driveupload/**",
       "**/node_modules/**",
-      "CLAUDE.md"
+      "scripts/**",
+      "package.json",
+      "package-lock.json",
+      "CLAUDE.md",
+      "Gallery/**",
+      "ESHRAQAT_Banner.png",
+      "ESHRAQAT_Banner_clean.png",
+      "Founder.png",
+      "Founder_2.png",
+      "Our_Team.png",
+      "SABIQAT_logo.png",
+      "Quran.png",
+      "Hadith.png",
+      "Hadith 2.png",
+      "Aqeedah.png",
+      "Fiqh.png",
+      "Seerah.png",
+      "Manners.png",
+      "Pearls_from_the_sahaba.jpeg",
+      "Surat_Alkahf.jpeg",
+      "vision_girl_arabic.jpg",
+      "vision_girl.png",
+      "vision_girl_expanded.jpg",
+      "vision_mothers.jpg",
+      "Gemini_Generated_Image_3ac1cv3ac1cv3ac1.png"
     ],
     "rewrites": [
       {
         "source": "**",
         "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/assets/**",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        ]
+      },
+      {
+        "source": "**/*.@(webp|jpg|jpeg|png|gif|svg|ico|mp3|woff|woff2)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=86400" }
+        ]
+      },
+      {
+        "source": "/index.html",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        ]
       }
     ],
     "cleanUrls": true
