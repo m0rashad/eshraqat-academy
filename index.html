@@ -5,6 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eshraqat Academy — Pearls from the Sunna</title>
+  <meta name="description" content="Eshraqat Academy is an Islamic educational academy in Northern Virginia empowering young Muslim women with Quran, Aqeedah, Hadith, Fiqh, Seerah, and Manners." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#673943" />
+  <link rel="canonical" href="https://eshraqat-academy-site.web.app/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="ESHRAQAT ACADEMY" />
@@ -52,6 +60,35 @@
 
     html {
       scroll-behavior: smooth;
+    }
+
+    /* ── ACCESSIBILITY: keyboard focus + skip link ── */
+    :focus-visible {
+      outline: 2px solid var(--gold2);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -120%);
+      z-index: 200;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Jost', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      padding: 0.6rem 1.4rem;
+      border-radius: 0 0 4px 4px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .skip-link:focus {
+      transform: translate(-50%, 0);
     }
 
     body {
@@ -104,7 +141,8 @@
       width: 84px;
       border-radius: 50%;
       background-color: #f0eee8;
-      background-image: url('logo.png');
+      background-image: url('assets/img/logo.png');
+      background-image: image-set(url('assets/img/logo.webp') type('image/webp'), url('assets/img/logo.png') type('image/png'));
       background-size: 90%;
       background-position: center 38%;
       background-repeat: no-repeat;
@@ -2923,6 +2961,12 @@
       background: rgba(201, 168, 76, 0.05);
     }
 
+    .contact-form input:focus-visible,
+    .contact-form textarea:focus-visible {
+      outline: 2px solid var(--gold2);
+      outline-offset: 2px;
+    }
+
     .contact-form textarea {
       resize: vertical;
       min-height: 120px;
@@ -2987,9 +3031,20 @@
       transform: scale(1.1);
     }
   </style>
+  <noscript>
+    <style>
+      /* Without JS, IntersectionObserver never runs — force all reveal content visible. */
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
 </head>
 
 <body>
+
+  <a href="#hero" class="skip-link">Skip to content</a>
 
   <!-- BACKGROUND AUDIO -->
   <audio id="bg-audio" src="nasheed.mp3" loop preload="none"></audio>
@@ -3043,7 +3098,10 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-banner-wrap">
-      <img src="ESHRAQAT_Banner_clean.png" alt="Eshraqat Academy — Where Young Muslim Women Rise" class="hero-banner" />
+      <picture>
+        <source type="image/webp" srcset="assets/img/hero-banner-960.webp 960w, assets/img/hero-banner.webp 1920w" sizes="100vw" />
+        <img src="assets/img/hero-banner.png" srcset="assets/img/hero-banner-960.png 960w, assets/img/hero-banner.png 1920w" sizes="100vw" alt="Eshraqat Academy — Where Young Muslim Women Rise" class="hero-banner" fetchpriority="high" />
+      </picture>
 
       <div class="hero-overlay-left">
         <h2 class="hero-headline">Where Young Muslim Women Rise</h2>
@@ -3184,7 +3242,10 @@
           <h2 class="section-title-ar ar">نُعِدُّ أمهات قادة الغد.</h2>
           <div class="gold-divider"></div>
           <div class="vision-image vision-image-mobile reveal reveal-delay-2">
-            <img src="vision_girl_arabic.jpg" alt="Young Muslim woman studying">
+            <picture>
+              <source type="image/webp" srcset="assets/img/vision-girl-360.webp 360w, assets/img/vision-girl.webp 720w" sizes="280px" />
+              <img src="assets/img/vision-girl.jpg" srcset="assets/img/vision-girl-360.jpg 360w, assets/img/vision-girl.jpg 720w" sizes="280px" alt="Young Muslim woman studying" loading="lazy">
+            </picture>
           </div>
           <p class="section-body en">
             At the heart of Eshraqat Academy is a vision to empower Muslim girls and youth with the essential
@@ -3202,7 +3263,10 @@
           </p>
         </div>
         <div class="vision-image vision-image-desktop reveal reveal-delay-2">
-          <img src="vision_girl_arabic.jpg" alt="Young Muslim woman studying">
+          <picture>
+            <source type="image/webp" srcset="assets/img/vision-girl-360.webp 360w, assets/img/vision-girl.webp 720w" sizes="280px" />
+            <img src="assets/img/vision-girl.jpg" srcset="assets/img/vision-girl-360.jpg 360w, assets/img/vision-girl.jpg 720w" sizes="280px" alt="Young Muslim woman studying" loading="lazy">
+          </picture>
         </div>
       </div>
     </div>
@@ -3215,7 +3279,10 @@
         <div class="founder-visual founder-visual-desktop reveal">
           <div class="founder-portrait">
             <div class="founder-portrait-inner">
-              <img src="Founder.png" alt="Founder of EshraQat Academy" />
+              <picture>
+                <source type="image/webp" srcset="assets/img/founder-360.webp 360w, assets/img/founder.webp 720w" sizes="320px" />
+                <img src="assets/img/founder.jpg" srcset="assets/img/founder-360.jpg 360w, assets/img/founder.jpg 720w" sizes="320px" alt="Founder of EshraQat Academy" loading="lazy" />
+              </picture>
             </div>
             <div class="founder-portrait-ring"></div>
           </div>
@@ -3229,7 +3296,10 @@
           <div class="founder-visual founder-visual-mobile reveal">
             <div class="founder-portrait">
               <div class="founder-portrait-inner">
-                <img src="Founder.png" alt="Founder of EshraQat Academy" />
+                <picture>
+                  <source type="image/webp" srcset="assets/img/founder-360.webp 360w, assets/img/founder.webp 720w" sizes="320px" />
+                  <img src="assets/img/founder.jpg" srcset="assets/img/founder-360.jpg 360w, assets/img/founder.jpg 720w" sizes="320px" alt="Founder of EshraQat Academy" loading="lazy" />
+                </picture>
               </div>
               <div class="founder-portrait-ring"></div>
             </div>
@@ -3268,7 +3338,10 @@
           <h2 class="section-title-ar ar">ملتزمون بتمكين الشباب.</h2>
           <div class="gold-divider"></div>
           <div class="team-image team-image-mobile">
-            <img src="Our_Team.png" alt="Our Team">
+            <picture>
+              <source type="image/webp" srcset="assets/img/our-team-360.webp 360w, assets/img/our-team.webp 720w" sizes="360px" />
+              <img src="assets/img/our-team.jpg" srcset="assets/img/our-team-360.jpg 360w, assets/img/our-team.jpg 720w" sizes="360px" alt="Our Team" loading="lazy">
+            </picture>
           </div>
           <p class="section-body en">
             ESHRAQAT Academy also brings together a group of talented, educated, and passionate community members
@@ -3281,7 +3354,10 @@
           </p>
         </div>
         <div class="team-image team-image-desktop">
-          <img src="Our_Team.png" alt="Our Team">
+          <picture>
+            <source type="image/webp" srcset="assets/img/our-team-360.webp 360w, assets/img/our-team.webp 720w" sizes="360px" />
+            <img src="assets/img/our-team.jpg" srcset="assets/img/our-team-360.jpg 360w, assets/img/our-team.jpg 720w" sizes="360px" alt="Our Team" loading="lazy">
+          </picture>
         </div>
       </div>
     </div>
@@ -3357,7 +3433,10 @@
 
       <div class="sabiqat-header reveal">
         <div class="sabiqat-badge">Flagship Program</div>
-        <img src="SABIQAT_logo.png" alt="SABIQAT Logo" style="display:block; margin:1.5rem auto; max-width:420px; width:100%; filter:brightness(0) invert(1);">
+        <picture>
+          <source type="image/webp" srcset="assets/img/sabiqat-logo.webp" />
+          <img src="assets/img/sabiqat-logo.png" alt="SABIQAT Logo" loading="lazy" style="display:block; margin:1.5rem auto; max-width:420px; width:100%; filter:brightness(0) invert(1);">
+        </picture>
         <p class="sabiqat-tagline en">The Islamic Studies Program for Muslim Girls</p>
         <p class="sabiqat-tagline-ar ar">برنامج الدراسات الإسلامية للفتيات المسلمات</p>
         <div class="gold-divider" style="margin: 1.4rem auto;"></div>
@@ -3405,7 +3484,10 @@
 
         <div class="course-card reveal" data-course="quran">
           <div class="course-img-wrap">
-            <img src="Quran.png" alt="Quran" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/img/course-quran.webp" />
+              <img src="assets/img/course-quran.jpg" alt="Quran" loading="lazy" />
+            </picture>
           </div>
           <div class="course-body">
             <div class="course-name en">Quran</div>
@@ -3427,7 +3509,10 @@
 
         <div class="course-card reveal reveal-delay-1" data-course="hadith">
           <div class="course-img-wrap">
-            <img src="Hadith.png" alt="Hadith" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/img/course-hadith.webp" />
+              <img src="assets/img/course-hadith.jpg" alt="Hadith" loading="lazy" />
+            </picture>
           </div>
           <div class="course-body">
             <div class="course-name en">Hadith</div>
@@ -3449,7 +3534,10 @@
 
         <div class="course-card reveal" data-course="aqeedah">
           <div class="course-img-wrap">
-            <img src="Aqeedah.png" alt="Aqeedah" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/img/course-aqeedah.webp" />
+              <img src="assets/img/course-aqeedah.jpg" alt="Aqeedah" loading="lazy" />
+            </picture>
           </div>
           <div class="course-body">
             <div class="course-name en">Aqeedah</div>
@@ -3471,7 +3559,10 @@
 
         <div class="course-card reveal reveal-delay-1" data-course="fiqh">
           <div class="course-img-wrap">
-            <img src="Fiqh.png" alt="Fiqh" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/img/course-fiqh.webp" />
+              <img src="assets/img/course-fiqh.jpg" alt="Fiqh" loading="lazy" />
+            </picture>
           </div>
           <div class="course-body">
             <div class="course-name en">Fiqh</div>
@@ -3495,7 +3586,10 @@
 
         <div class="course-card reveal" data-course="seerah">
           <div class="course-img-wrap">
-            <img src="Seerah.png" alt="Seerah" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/img/course-seerah.webp" />
+              <img src="assets/img/course-seerah.jpg" alt="Seerah" loading="lazy" />
+            </picture>
           </div>
           <div class="course-body">
             <div class="course-name en">Seerah</div>
@@ -3517,7 +3611,10 @@
 
         <div class="course-card reveal reveal-delay-1" data-course="manners">
           <div class="course-img-wrap">
-            <img src="Manners.png" alt="Manners" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/img/course-manners.webp" />
+              <img src="assets/img/course-manners.jpg" alt="Manners" loading="lazy" />
+            </picture>
           </div>
           <div class="course-body">
             <div class="course-name en">Manners</div>
@@ -3622,7 +3719,10 @@
 
         <div class="course-card reveal" data-course="pearls">
           <div class="course-img-wrap">
-            <img src="Pearls_from_the_sahaba.jpeg" alt="Pearls from the Sahaba" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/img/pearls-sahaba.webp" />
+              <img src="assets/img/pearls-sahaba.jpg" alt="Pearls from the Sahaba" loading="lazy" />
+            </picture>
           </div>
           <div class="course-body">
             <div class="course-name en">Pearls from the Sahaba</div>
@@ -3644,7 +3744,10 @@
 
         <div class="course-card reveal reveal-delay-1" data-course="kahf">
           <div class="course-img-wrap">
-            <img src="Surat_Alkahf.jpeg" alt="Ramadan 2026 – Journey Through Surat Al-Kahf" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="assets/img/surat-alkahf.webp" />
+              <img src="assets/img/surat-alkahf.jpg" alt="Ramadan 2026 – Journey Through Surat Al-Kahf" loading="lazy" />
+            </picture>
           </div>
           <div class="course-body">
             <div class="course-name en">Ramadan 2026 – Surat Al-Kahf</div>
@@ -3691,73 +3794,154 @@
         <button class="gallery-tab" data-category="misc">Miscellaneous</button>
       </div>
 
-      <!-- Eid Cookies Baking -->
+      <!-- Gallery categories -->
       <div class="gallery-category active" id="cat-eid-cookies">
         <div class="gallery-category-label">Eid Cookies Baking</div>
         <div class="gallery-grid">
-          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-3.jpg"><img
-              src="Gallery/Eid Cookies/eid-cookies-3.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-2.jpg"><img
-              src="Gallery/Eid Cookies/eid-cookies-2.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Eid Cookies/eid-cookies-1.jpg"><img
-              src="Gallery/Eid Cookies/eid-cookies-1.jpg" alt="Eid Cookies Baking" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="assets/img/gallery/eid-cookies-3-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/eid-cookies-3-thumb.webp" />
+              <img src="assets/img/gallery/eid-cookies-3-thumb.jpg" alt="Eid Cookies Baking — photo 1" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/eid-cookies-2-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/eid-cookies-2-thumb.webp" />
+              <img src="assets/img/gallery/eid-cookies-2-thumb.jpg" alt="Eid Cookies Baking — photo 2" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/eid-cookies-1-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/eid-cookies-1-thumb.webp" />
+              <img src="assets/img/gallery/eid-cookies-1-thumb.jpg" alt="Eid Cookies Baking — photo 3" loading="lazy" />
+            </picture>
+          </div>
         </div>
       </div>
 
-      <!-- BBQ Field Trip -->
       <div class="gallery-category" id="cat-bbq">
         <div class="gallery-category-label">BBQ Field Trip</div>
         <div class="gallery-grid">
-          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-1.jpg"><img
-              src="Gallery/BBQ FIeld Trip/bbq-1.jpg" alt="BBQ Field Trip" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-2.jpg"><img
-              src="Gallery/BBQ FIeld Trip/bbq-2.jpg" alt="BBQ Field Trip" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-3.jpg"><img
-              src="Gallery/BBQ FIeld Trip/bbq-3.jpg" alt="BBQ Field Trip" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-4.JPG"><img
-              src="Gallery/BBQ FIeld Trip/bbq-4.JPG" alt="BBQ Field Trip" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-5.JPG"><img
-              src="Gallery/BBQ FIeld Trip/bbq-5.JPG" alt="BBQ Field Trip" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/BBQ FIeld Trip/bbq-6.jpg"><img
-              src="Gallery/BBQ FIeld Trip/bbq-6.jpg" alt="BBQ Field Trip" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="assets/img/gallery/bbq-1-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/bbq-1-thumb.webp" />
+              <img src="assets/img/gallery/bbq-1-thumb.jpg" alt="BBQ Field Trip — photo 1" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/bbq-2-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/bbq-2-thumb.webp" />
+              <img src="assets/img/gallery/bbq-2-thumb.jpg" alt="BBQ Field Trip — photo 2" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/bbq-3-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/bbq-3-thumb.webp" />
+              <img src="assets/img/gallery/bbq-3-thumb.jpg" alt="BBQ Field Trip — photo 3" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/bbq-4-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/bbq-4-thumb.webp" />
+              <img src="assets/img/gallery/bbq-4-thumb.jpg" alt="BBQ Field Trip — photo 4" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/bbq-5-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/bbq-5-thumb.webp" />
+              <img src="assets/img/gallery/bbq-5-thumb.jpg" alt="BBQ Field Trip — photo 5" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/bbq-6-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/bbq-6-thumb.webp" />
+              <img src="assets/img/gallery/bbq-6-thumb.jpg" alt="BBQ Field Trip — photo 6" loading="lazy" />
+            </picture>
+          </div>
         </div>
       </div>
 
-      <!-- Pickleball Queens -->
       <div class="gallery-category" id="cat-pickleball">
         <div class="gallery-category-label">Pickleball Queens</div>
         <div class="gallery-grid">
-          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-1.JPG"><img
-              src="Gallery/Pickleball Event/pickleball-1.JPG" alt="Pickleball Queens" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-2.JPG"><img
-              src="Gallery/Pickleball Event/pickleball-2.JPG" alt="Pickleball Queens" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-3.JPG"><img
-              src="Gallery/Pickleball Event/pickleball-3.JPG" alt="Pickleball Queens" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-4.JPG"><img
-              src="Gallery/Pickleball Event/pickleball-4.JPG" alt="Pickleball Queens" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Pickleball Event/pickleball-5.JPG"><img
-              src="Gallery/Pickleball Event/pickleball-5.JPG" alt="Pickleball Queens" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="assets/img/gallery/pickleball-1-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/pickleball-1-thumb.webp" />
+              <img src="assets/img/gallery/pickleball-1-thumb.jpg" alt="Pickleball Queens — photo 1" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/pickleball-2-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/pickleball-2-thumb.webp" />
+              <img src="assets/img/gallery/pickleball-2-thumb.jpg" alt="Pickleball Queens — photo 2" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/pickleball-3-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/pickleball-3-thumb.webp" />
+              <img src="assets/img/gallery/pickleball-3-thumb.jpg" alt="Pickleball Queens — photo 3" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/pickleball-4-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/pickleball-4-thumb.webp" />
+              <img src="assets/img/gallery/pickleball-4-thumb.jpg" alt="Pickleball Queens — photo 4" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/pickleball-5-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/pickleball-5-thumb.webp" />
+              <img src="assets/img/gallery/pickleball-5-thumb.jpg" alt="Pickleball Queens — photo 5" loading="lazy" />
+            </picture>
+          </div>
         </div>
       </div>
 
-      <!-- Miscellaneous -->
       <div class="gallery-category" id="cat-misc">
         <div class="gallery-category-label">Miscellaneous</div>
         <div class="gallery-grid">
-          <div class="gallery-photo" data-src="Gallery/Misc/misc-1.jpg"><img src="Gallery/Misc/misc-1.jpg"
-              alt="Miscellaneous" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Misc/misc-2.JPG"><img src="Gallery/Misc/misc-2.JPG"
-              alt="Miscellaneous" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Misc/misc-3.jpg"><img src="Gallery/Misc/misc-3.jpg"
-              alt="Miscellaneous" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Misc/misc-4.jpg"><img src="Gallery/Misc/misc-4.jpg"
-              alt="Miscellaneous" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Misc/misc-5.jpeg"><img src="Gallery/Misc/misc-5.jpeg"
-              alt="Miscellaneous" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Misc/misc-6.jpeg"><img src="Gallery/Misc/misc-6.jpeg"
-              alt="Miscellaneous" loading="lazy" /></div>
-          <div class="gallery-photo" data-src="Gallery/Misc/misc-7.jpeg"><img src="Gallery/Misc/misc-7.jpeg"
-              alt="Miscellaneous" loading="lazy" /></div>
+          <div class="gallery-photo" data-src="assets/img/gallery/misc-1-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/misc-1-thumb.webp" />
+              <img src="assets/img/gallery/misc-1-thumb.jpg" alt="Miscellaneous — photo 1" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/misc-2-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/misc-2-thumb.webp" />
+              <img src="assets/img/gallery/misc-2-thumb.jpg" alt="Miscellaneous — photo 2" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/misc-3-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/misc-3-thumb.webp" />
+              <img src="assets/img/gallery/misc-3-thumb.jpg" alt="Miscellaneous — photo 3" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/misc-4-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/misc-4-thumb.webp" />
+              <img src="assets/img/gallery/misc-4-thumb.jpg" alt="Miscellaneous — photo 4" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/misc-5-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/misc-5-thumb.webp" />
+              <img src="assets/img/gallery/misc-5-thumb.jpg" alt="Miscellaneous — photo 5" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/misc-6-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/misc-6-thumb.webp" />
+              <img src="assets/img/gallery/misc-6-thumb.jpg" alt="Miscellaneous — photo 6" loading="lazy" />
+            </picture>
+          </div>
+          <div class="gallery-photo" data-src="assets/img/gallery/misc-7-full.jpg">
+            <picture>
+              <source type="image/webp" srcset="assets/img/gallery/misc-7-thumb.webp" />
+              <img src="assets/img/gallery/misc-7-thumb.jpg" alt="Miscellaneous — photo 7" loading="lazy" />
+            </picture>
+          </div>
         </div>
       </div>
 
@@ -3847,23 +4031,28 @@
 
     setLang('en');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      // Fallback: no IntersectionObserver support — show everything immediately.
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
 
 
     /* ── COURSE MODAL DATA ── */
     const courseModals = {
       quran: {
         icon: '📖',
-        image: 'Quran.png',
+        image: 'assets/img/course-quran.jpg',
         title: 'Quran Program',
         titleAr: 'برنامج القرآن الكريم',
         content: `
@@ -3901,7 +4090,7 @@
       },
       hadith: {
         icon: '🌿',
-        image: 'Hadith.png',
+        image: 'assets/img/course-hadith.jpg',
         title: 'Hadith Studies',
         titleAr: 'دراسة الحديث النبوي',
         content: `
@@ -3931,7 +4120,7 @@
       },
       aqeedah: {
         icon: '🌙',
-        image: 'Aqeedah.png',
+        image: 'assets/img/course-aqeedah.jpg',
         title: 'Aqeedah Program',
         titleAr: 'برنامج العقيدة',
         content: `
@@ -3961,7 +4150,7 @@
       },
       fiqh: {
         icon: '⚖️',
-        image: 'Fiqh.png',
+        image: 'assets/img/course-fiqh.jpg',
         title: 'Fiqh Program',
         titleAr: 'برنامج الفقه',
         content: `
@@ -3983,7 +4172,7 @@
       },
       seerah: {
         icon: '🕌',
-        image: 'Seerah.png',
+        image: 'assets/img/course-seerah.jpg',
         title: 'Seerah Program',
         titleAr: 'برنامج السيرة النبوية',
         content: `
@@ -4001,7 +4190,7 @@
       },
       manners: {
         icon: '🕊️',
-        image: 'Manners.png',
+        image: 'assets/img/course-manners.jpg',
         title: 'Manners Program',
         titleAr: 'برنامج الآداب الإسلامية',
         content: `
@@ -4015,7 +4204,7 @@
       },
       pearls: {
         icon: '✨',
-        image: 'Pearls_from_the_sahaba.jpeg',
+        image: 'assets/img/pearls-sahaba.jpg',
         title: 'Pearls from the Sahaba Series',
         titleAr: 'سلسلة لآلئ من الصحابة',
         content: `
@@ -4055,7 +4244,7 @@
       },
       kahf: {
         icon: '🌙',
-        image: 'Surat_Alkahf.jpeg',
+        image: 'assets/img/surat-alkahf.jpg',
         title: 'Ramadan 2026 – Journey Through Surat Al-Kahf',
         titleAr: 'رمضان 2026 — رحلة في سورة الكهف',
         content: `
