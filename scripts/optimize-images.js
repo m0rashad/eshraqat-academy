@@ -38,6 +38,7 @@ const jobs = [
   { src: 'Fiqh.png', base: 'course-fiqh', widths: [920], format: 'jpeg', quality: 80 },
   { src: 'Seerah.png', base: 'course-seerah', widths: [920], format: 'jpeg', quality: 80 },
   { src: 'Manners.png', base: 'course-manners', widths: [920], format: 'jpeg', quality: 80 },
+  { src: 'Baseerah.png', base: 'course-baseerah', widths: [920], format: 'jpeg', quality: 80 },
   { src: 'Pearls_from_the_sahaba.jpeg', base: 'pearls-sahaba', widths: [920], format: 'jpeg', quality: 80 },
   { src: 'Surat_Alkahf.jpeg', base: 'surat-alkahf', widths: [920], format: 'jpeg', quality: 80 },
 ];
