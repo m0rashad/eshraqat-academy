@@ -186,6 +186,16 @@
       list-style: none;
     }
 
+    @media (min-width: 961px) and (max-width: 1180px) {
+      .nav-links {
+        gap: 1.4rem;
+      }
+
+      .nav-links a {
+        letter-spacing: 0.08em;
+      }
+    }
+
     .nav-links a {
       color: var(--text);
       text-decoration: none;
@@ -1630,6 +1640,10 @@
       padding: 5rem 0 2rem;
     }
 
+    #sabiqoon {
+      padding: 3rem 0 2rem;
+    }
+
     #previous-programs {
       padding: 2rem 0 5rem;
     }
@@ -1805,6 +1819,21 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+    }
+
+    .course-img-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 40%, var(--navy3), var(--navy2));
+    }
+
+    .course-img-text span {
+      font-family: 'Amiri', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      direction: rtl;
     }
 
     #previous-programs .course-img-wrap {
@@ -2699,6 +2728,7 @@
       #founder,
       #goals,
       #sabiqat,
+      #sabiqoon,
       #cta {
         padding: 3rem 0;
       }
@@ -3215,6 +3245,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#goals">Our Goals</a></li>
       <li><a href="#sabiqat">SABIQAT</a></li>
+      <li><a href="#sabiqoon">SABIQOON</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact Us</a></li>
       <li class="enroll-menu" id="enrollMenu">
@@ -3229,7 +3260,7 @@
             </a>
           </li>
           <li>
-            <a href="https://forms.gle/oGgYudkLZ2WUrcRg7" target="_blank" rel="noopener noreferrer">
+            <a href="#sabiqoon">
               <span class="enroll-opt-name">SABIQOON</span>
               <span class="enroll-opt-sub en">Boys Program</span>
               <span class="enroll-opt-sub ar" style="display:none;">برنامج الأولاد</span>
@@ -3255,6 +3286,7 @@
     <a href="#about" onclick="document.getElementById('navDrawer').classList.remove('open')">About</a>
     <a href="#goals" onclick="document.getElementById('navDrawer').classList.remove('open')">Our Goals</a>
     <a href="#sabiqat" onclick="document.getElementById('navDrawer').classList.remove('open')">SABIQAT</a>
+    <a href="#sabiqoon" onclick="document.getElementById('navDrawer').classList.remove('open')">SABIQOON</a>
     <a href="#gallery" onclick="document.getElementById('navDrawer').classList.remove('open')">Events</a>
     <a href="#contact" onclick="document.getElementById('navDrawer').classList.remove('open')">Contact Us</a>
     <div class="enroll-group">
@@ -3263,8 +3295,7 @@
         <span class="enroll-opt-sub en">Girls Program</span>
         <span class="enroll-opt-sub ar" style="display:none;">برنامج الفتيات</span>
       </a>
-      <a href="https://forms.gle/oGgYudkLZ2WUrcRg7" target="_blank" rel="noopener noreferrer"
-        onclick="document.getElementById('navDrawer').classList.remove('open')">
+      <a href="#sabiqoon" onclick="document.getElementById('navDrawer').classList.remove('open')">
         SABIQOON
         <span class="enroll-opt-sub en">Boys Program</span>
         <span class="enroll-opt-sub ar" style="display:none;">برنامج الأولاد</span>
@@ -3879,6 +3910,154 @@
     </div>
   </section>
 
+  <!-- SABIQOON PROGRAM -->
+  <section id="sabiqoon">
+    <div class="section-inner">
+
+      <div class="sabiqat-header reveal">
+        <div class="sabiqat-badge">Boys Youth Program</div>
+        <h2 class="sabiqat-title">SABIQOON</h2>
+        <p class="sabiqat-tagline en">The Islamic Youth Program for Muslim Boys</p>
+        <p class="sabiqat-tagline-ar ar">برنامج الشباب الإسلامي للأولاد المسلمين</p>
+        <div class="gold-divider" style="margin: 1.4rem auto;"></div>
+        <p class="sabiqat-desc en">
+          SABIQOON is Eshraqat Academy's Islamic youth program for boys ages 11–15, created to help young
+          Muslim boys grow in faith, character, confidence, leadership, and Islamic identity. Building on the
+          vision of our SABIQAT girls program, it gives boys a supportive environment to strengthen their
+          connection with Allah, deepen their understanding of Islam, and apply Islamic values to the real
+          challenges they face growing up today.
+        </p>
+        <p class="sabiqat-desc-ar ar">
+          سابقون هو برنامج الشباب الإسلامي في أكاديمية إشراقات للأولاد من سن 11 إلى 15، صُمّم لمساعدة الأولاد المسلمين
+          على النمو في الإيمان والأخلاق والثقة والقيادة والهوية الإسلامية. وانطلاقاً من رؤية برنامج سابقات للفتيات،
+          يوفّر البرنامج بيئة داعمة يقوّي فيها الأولاد صلتهم بالله، ويعمّقون فهمهم للإسلام، ويطبّقون القيم الإسلامية
+          على التحديات الحقيقية التي يواجهونها في نشأتهم اليوم.
+        </p>
+        <!-- Info Tabs -->
+        <div class="sabiqat-info-grid reveal">
+          <div class="sabiqat-info-tab en">Boys<br>Ages 11–15</div>
+        </div>
+        <div class="sabiqat-info-grid ar reveal" style="font-family:'Amiri',serif; direction:rtl; display:none;">
+          <div class="sabiqat-info-tab">الأولاد<br>من 11 إلى 15</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <a id="cta-sabiqoon" href="https://forms.gle/oGgYudkLZ2WUrcRg7" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block;margin-bottom:2rem;scroll-margin-top:100px;">
+        <div class="cta-box reveal">
+          <h2 class="cta-title en">Enroll Your Son</h2>
+          <h2 class="cta-title-ar ar">سجّلوا ابنكم اليوم</h2>
+          <p class="cta-sub en">Seats are limited. Help him grow into a confident young Muslim man of faith and character.</p>
+          <p class="cta-sub-ar ar">الأماكن محدودة. ساعدوه لينشأ شاباً مسلماً واثقاً صاحب إيمان وخُلق.</p>
+        </div>
+      </a>
+
+      <!-- Courses -->
+      <div class="section-label reveal">Core Subjects</div>
+      <div class="courses-grid">
+
+        <div class="course-card reveal" data-course="sq-quran">
+          <div class="course-img-wrap">
+            <picture>
+              <source type="image/webp" srcset="assets/img/course-quran.webp" />
+              <img src="assets/img/course-quran.jpg" alt="Quran" loading="lazy" />
+            </picture>
+          </div>
+          <div class="course-body">
+            <div class="course-name en">Qur'an with Reflections</div>
+            <div class="course-name-ar ar">القرآن الكريم مع التدبر</div>
+            <ul class="course-topics en">
+              <li>Guided study of Surah Luqman</li>
+              <li>Luqman's timeless advice to his son</li>
+              <li>Tawheed, gratitude, prayer, and respect for parents</li>
+              <li>Connecting the verses to home, school, and friends</li>
+            </ul>
+            <ul class="course-topics-ar ar">
+              <li>دراسة موجّهة لسورة لقمان</li>
+              <li>وصايا لقمان الخالدة لابنه</li>
+              <li>التوحيد والشكر والصلاة وبر الوالدين</li>
+              <li>ربط الآيات بالبيت والمدرسة والأصدقاء</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="course-card reveal reveal-delay-1" data-course="sq-fiqh">
+          <div class="course-img-wrap">
+            <picture>
+              <source type="image/webp" srcset="assets/img/course-fiqh.webp" />
+              <img src="assets/img/course-fiqh.jpg" alt="Fiqh" loading="lazy" />
+            </picture>
+          </div>
+          <div class="course-body">
+            <div class="course-name en">Fiqh</div>
+            <div class="course-name-ar ar">الفقه</div>
+            <ul class="course-topics en">
+              <li>Purification — wudu, ghusl, and tayammum</li>
+              <li>Removing impurities and bathroom etiquette</li>
+              <li>Salah — conditions, pillars, and obligations</li>
+              <li>Common mistakes and the meaning of prayer</li>
+            </ul>
+            <ul class="course-topics-ar ar">
+              <li>الطهارة — الوضوء والغسل والتيمم</li>
+              <li>إزالة النجاسات وآداب قضاء الحاجة</li>
+              <li>الصلاة — شروطها وأركانها وواجباتها</li>
+              <li>الأخطاء الشائعة ومعنى الصلاة</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="course-card reveal" data-course="sq-aqeedah">
+          <div class="course-img-wrap">
+            <picture>
+              <source type="image/webp" srcset="assets/img/course-aqeedah.webp" />
+              <img src="assets/img/course-aqeedah.jpg" alt="Aqeedah" loading="lazy" />
+            </picture>
+          </div>
+          <div class="course-body">
+            <div class="course-name en">Aqeedah</div>
+            <div class="course-name-ar ar">العقيدة</div>
+            <ul class="course-topics en">
+              <li>Tawheed — believing in Allah alone</li>
+              <li>His Lordship, worship, Names and Attributes</li>
+              <li>The six pillars of Iman</li>
+              <li>How correct belief shapes choices and identity</li>
+            </ul>
+            <ul class="course-topics-ar ar">
+              <li>التوحيد — الإيمان بالله وحده</li>
+              <li>الربوبية والألوهية والأسماء والصفات</li>
+              <li>أركان الإيمان الستة</li>
+              <li>أثر العقيدة الصحيحة في الاختيارات والهوية</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="course-card reveal reveal-delay-1" data-course="sq-baseerah">
+          <div class="course-img-wrap course-img-text" aria-hidden="true">
+            <span>بصيرة</span>
+          </div>
+          <div class="course-body">
+            <div class="course-name en">Baseerah</div>
+            <div class="course-name-ar ar">بصيرة</div>
+            <ul class="course-topics en">
+              <li>Seeing clearly through Qur'anic lenses</li>
+              <li>Love, Patience, Dignity, and Power</li>
+              <li>Recognizing and correcting common misconceptions</li>
+              <li>Building a true Islamic worldview</li>
+            </ul>
+            <ul class="course-topics-ar ar">
+              <li>رؤية واضحة بمنظار القرآن الكريم</li>
+              <li>المحبة والصبر والعزة والقوة</li>
+              <li>تمييز المفاهيم الخاطئة الشائعة وتصحيحها</li>
+              <li>بناء تصوّر إسلامي صحيح للحياة</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- PREVIOUS PROGRAMS -->
   <section id="previous-programs">
     <div class="section-inner">
@@ -4163,10 +4342,11 @@
       <div class="footer-links">
         <a href="#about" class="en">About</a>
         <a href="#sabiqat" class="en">SABIQAT</a>
+        <a href="#sabiqoon" class="en">SABIQOON</a>
         <a href="#gallery" class="en">Events</a>
         <a href="#contact" class="en">Contact Us</a>
         <a href="#sabiqat" class="en">Enroll &mdash; SABIQAT (Girls)</a>
-        <a href="https://forms.gle/oGgYudkLZ2WUrcRg7" target="_blank" rel="noopener noreferrer" class="en">Enroll &mdash; SABIQOON (Boys)</a>
+        <a href="#sabiqoon" class="en">Enroll &mdash; SABIQOON (Boys)</a>
       </div>
       <div class="footer-social">
         <a href="https://www.instagram.com/eshraqat_academy/" target="_blank" class="social-btn" title="Instagram">
@@ -4525,6 +4705,141 @@
           <h4>👑 الأسبوع الرابع: ذو القرنين</h4>
           <p>تأمّل في القيادة والعدل والمسؤولية، وتسخير القوة بإيمان وغاية.</p>
           <p>✨ معاً اكتشفنا أسرار هذه السورة العظيمة وفضائلها وحكمتها الربانية — والأهم: كيف نطبّق دروسها في حياتنا اليومية كفتيات مسلمات واثقات صادقات، يسعين لقيادة الجيل القادم من هذه الأمة بقوة وإخلاص.</p>
+        `
+      },
+      'sq-quran': {
+        icon: '📖',
+        image: 'assets/img/course-quran.jpg',
+        title: "Qur'an with Reflections — Surah Luqman",
+        titleAr: 'القرآن الكريم مع التدبر — سورة لقمان',
+        content: `
+          <p>Students will study Surah Luqman through guided reflections and age-appropriate discussion. The goal is not only to read and understand the verses, but to explore the timeless lessons Allah gives us through the advice of Luqman to his son.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Tawheed</li>
+            <li>Gratitude</li>
+            <li>Respect for parents</li>
+            <li>Prayer</li>
+            <li>Good character and humility</li>
+            <li>Responsibility and accountability before Allah</li>
+          </ul>
+          <p>Students will be encouraged to connect these Qur'anic lessons to situations they experience at home, at school, with friends, and within their community.</p>
+        `,
+        contentAr: `
+          <p>يدرس الطلاب سورة لقمان من خلال تأملات موجّهة ونقاشات تناسب أعمارهم. والهدف ليس قراءة الآيات وفهمها فحسب، بل استكشاف الدروس الخالدة التي يعلّمنا الله إياها من خلال وصايا لقمان لابنه.</p>
+          <h4>المحاور الرئيسية</h4>
+          <ul>
+            <li>التوحيد</li>
+            <li>الشكر</li>
+            <li>بر الوالدين</li>
+            <li>الصلاة</li>
+            <li>حسن الخلق والتواضع</li>
+            <li>المسؤولية والمحاسبة أمام الله</li>
+          </ul>
+          <p>ويُشجَّع الطلاب على ربط هذه الدروس القرآنية بالمواقف التي يعيشونها في البيت والمدرسة ومع الأصدقاء وفي مجتمعهم.</p>
+        `
+      },
+      'sq-fiqh': {
+        icon: '⚖️',
+        image: 'assets/img/course-fiqh.jpg',
+        title: 'Fiqh — Purification & Prayer',
+        titleAr: 'الفقه — الطهارة والصلاة',
+        content: `
+          <p>Students will build a practical understanding of the essential rulings of purification and Salah.</p>
+          <h4>Purification</h4>
+          <p>The purification unit covers cleanliness in Islam, types of water, wudu, ghusl, tayammum, removing impurities, bathroom etiquette, and other foundational rulings needed for worship.</p>
+          <h4>Prayer</h4>
+          <p>The prayer unit focuses on how to perform Salah correctly, including its conditions, pillars, obligations, recommended actions, common mistakes, and the meaning and importance of prayer in a Muslim's daily life.</p>
+          <p>Our goal is for students to understand not only how to worship Allah correctly, but also why these acts of worship matter.</p>
+        `,
+        contentAr: `
+          <p>يكتسب الطلاب فهماً عملياً للأحكام الأساسية للطهارة والصلاة.</p>
+          <h4>الطهارة</h4>
+          <p>تتناول وحدة الطهارة النظافة في الإسلام، وأنواع المياه، والوضوء، والغسل، والتيمم، وإزالة النجاسات، وآداب قضاء الحاجة، وغيرها من الأحكام التأسيسية التي تحتاجها العبادة.</p>
+          <h4>الصلاة</h4>
+          <p>تركّز وحدة الصلاة على أدائها بالشكل الصحيح، بما في ذلك شروطها وأركانها وواجباتها وسننها والأخطاء الشائعة فيها، إضافة إلى معنى الصلاة وأهميتها في حياة المسلم اليومية.</p>
+          <p>هدفنا أن يفهم الطلاب ليس فقط كيف يعبدون الله عبادة صحيحة، بل أيضاً لماذا تهمّ هذه العبادات.</p>
+        `
+      },
+      'sq-aqeedah': {
+        icon: '🌙',
+        image: 'assets/img/course-aqeedah.jpg',
+        title: 'Aqeedah — Tawheed & the Pillars of Iman',
+        titleAr: 'العقيدة — التوحيد وأركان الإيمان',
+        content: `
+          <p>Students will explore the foundations of Islamic belief through the study of Tawheed and the six pillars of Iman.</p>
+          <p>They will learn what it means to believe in Allah alone, understand His Lordship, worship Him sincerely, and recognize His Names and Attributes in a way that strengthens their relationship with Him.</p>
+          <h4>The Six Pillars of Iman</h4>
+          <ul>
+            <li>Belief in Allah</li>
+            <li>His Angels</li>
+            <li>His Books</li>
+            <li>His Messengers</li>
+            <li>The Last Day</li>
+            <li>Divine Decree (Qadr)</li>
+          </ul>
+          <p>Rather than treating Aqeedah as abstract information, students will be encouraged to understand how correct belief influences their choices, confidence, patience, worship, values, and identity as Muslims.</p>
+        `,
+        contentAr: `
+          <p>يستكشف الطلاب أسس العقيدة الإسلامية من خلال دراسة التوحيد وأركان الإيمان الستة.</p>
+          <p>ويتعلّمون معنى الإيمان بالله وحده، وفهم ربوبيته، وعبادته بإخلاص، ومعرفة أسمائه وصفاته بما يقوّي علاقتهم به سبحانه.</p>
+          <h4>أركان الإيمان الستة</h4>
+          <ul>
+            <li>الإيمان بالله</li>
+            <li>وملائكته</li>
+            <li>وكتبه</li>
+            <li>ورسله</li>
+            <li>واليوم الآخر</li>
+            <li>والقدر خيره وشره</li>
+          </ul>
+          <p>وبدلاً من تناول العقيدة كمعلومات مجرّدة، يُشجَّع الطلاب على فهم كيف تؤثّر العقيدة الصحيحة في اختياراتهم وثقتهم وصبرهم وعبادتهم وقيمهم وهويتهم كمسلمين.</p>
+        `
+      },
+      'sq-baseerah': {
+        icon: '👁️',
+        title: "Baseerah — Seeing Clearly Through Qur'anic Lenses",
+        titleAr: 'بصيرة — رؤية واضحة بمنظار القرآن',
+        content: `
+          <p>Baseerah is more than knowledge. It is the ability to see clearly, think deeply, and recognize truth through the guidance of Allah.</p>
+          <p>Our youth are growing up surrounded by powerful messages about what it means to love, to be strong, to have dignity, to succeed, and to respond to hardship. Social media, friendships, entertainment, and culture constantly shape the way young people understand themselves and the world around them.</p>
+          <p>Baseerah teaches students to pause, reflect, and ask:</p>
+          <ul>
+            <li>Is this really true?</li>
+            <li>What does the world tell me?</li>
+            <li>What does Allah teach me?</li>
+            <li>And how should that change the way I live?</li>
+          </ul>
+          <p>Through Qur'anic guidance, stories of the Prophets and Sahabah, real-life situations, group discussions, and reflection, students learn to recognize common misconceptions and replace them with a deeper, faith-centered understanding.</p>
+          <h4>❤️ Love — المحبة</h4>
+          <p>The world often presents love as following feelings, seeking approval, or doing anything for the people we care about. Baseerah teaches that true love must be guided by what is good and pleasing to Allah. Students will explore how love for Allah shapes every other relationship, why obedience can be a sign of love, and why not everything we love is necessarily good for us.</p>
+          <h4>🌿 Patience — الصبر</h4>
+          <p>Patience is often misunderstood as simply waiting quietly or pretending that something does not hurt. Baseerah teaches that patience does not mean the absence of emotion or difficulty. It means remaining connected to Allah and committed to what is right even when we are tested by hardship, temptation, pressure, or delay. Students learn that real patience is strength, perseverance, and trust in Allah.</p>
+          <h4>👑 Dignity — العزة</h4>
+          <p>Young people are often taught to measure their worth through popularity, appearance, achievement, possessions, or the approval of others. Baseerah teaches that a believer's dignity does not come from people — it comes from Allah. Students will explore how Islamic dignity builds confidence without arrogance, protects them from unhealthy peer pressure, and helps them remain firm in their values even when standing alone.</p>
+          <h4>💪 Power — القوة</h4>
+          <p>Society may define power as control, dominance, popularity, status, or the ability to make others submit. Baseerah challenges students to develop a deeper understanding of strength. True power includes self-control, courage, responsibility, discipline, standing for truth, controlling anger and desires, and using one's abilities to serve rather than harm others. Students learn that strength in Islam is not about overpowering people, but about having enough inner strength to control oneself and use influence in a way that pleases Allah.</p>
+          <p>✨ Across all four themes, students are encouraged to move beyond simply knowing Islamic teachings to developing an Islamic worldview.</p>
+        `,
+        contentAr: `
+          <p>البصيرة أكثر من مجرد معرفة؛ إنها القدرة على الرؤية الواضحة، والتفكير العميق، وإدراك الحق بهداية الله.</p>
+          <p>ينشأ شبابنا محاطين برسائل قوية حول معنى الحب والقوة والكرامة والنجاح ومواجهة الشدائد. فوسائل التواصل الاجتماعي والصداقات والترفيه والثقافة تشكّل باستمرار الطريقة التي يفهم بها الشباب أنفسهم والعالم من حولهم.</p>
+          <p>يعلّم برنامج بصيرة الطلاب أن يتوقفوا ويتأملوا ويسألوا:</p>
+          <ul>
+            <li>هل هذا صحيح حقاً؟</li>
+            <li>ماذا يقول لي العالم؟</li>
+            <li>ماذا يعلّمني الله؟</li>
+            <li>وكيف ينبغي أن يغيّر ذلك طريقة حياتي؟</li>
+          </ul>
+          <p>ومن خلال الهدي القرآني، وقصص الأنبياء والصحابة، والمواقف الواقعية، والنقاشات الجماعية، والتأمل، يتعلّم الطلاب تمييز المفاهيم الخاطئة الشائعة واستبدالها بفهم أعمق يرتكز على الإيمان.</p>
+          <h4>❤️ المحبة</h4>
+          <p>كثيراً ما يصوّر العالم الحب على أنه اتباع للمشاعر، أو سعي لنيل الرضا، أو فعل أي شيء لأجل من نحب. ويعلّم برنامج بصيرة أن الحب الحقيقي يجب أن يكون موجّهاً بما هو خير ويرضي الله. يستكشف الطلاب كيف تشكّل محبة الله كل علاقة أخرى، ولماذا تكون الطاعة علامة على المحبة، ولماذا ليس كل ما نحبه خيراً لنا بالضرورة.</p>
+          <h4>🌿 الصبر</h4>
+          <p>كثيراً ما يُفهم الصبر خطأً على أنه مجرد انتظار صامت أو تظاهر بعدم الألم. ويعلّم برنامج بصيرة أن الصبر لا يعني غياب المشاعر أو الصعوبات، بل يعني البقاء على صلة بالله والثبات على الحق حتى حين نُبتلى بالشدة أو الفتنة أو الضغط أو التأخير. ويتعلّم الطلاب أن الصبر الحقيقي قوة ومثابرة وتوكّل على الله.</p>
+          <h4>👑 العزة</h4>
+          <p>كثيراً ما يتعلّم الشباب قياس قيمتهم بالشهرة أو المظهر أو الإنجاز أو الممتلكات أو رضا الآخرين. ويعلّم برنامج بصيرة أن عزة المؤمن لا تأتي من الناس، بل من الله. يستكشف الطلاب كيف تبني العزة الإسلامية ثقة بلا كِبر، وتحميهم من ضغط الأقران غير الصحي، وتساعدهم على الثبات على قيمهم حتى لو وقفوا وحدهم.</p>
+          <h4>💪 القوة</h4>
+          <p>قد يعرّف المجتمع القوة بالسيطرة أو الهيمنة أو الشهرة أو المكانة أو القدرة على إخضاع الآخرين. ويتحدّى برنامج بصيرة الطلاب لتكوين فهم أعمق للقوة؛ فالقوة الحقيقية تشمل ضبط النفس، والشجاعة، والمسؤولية، والانضباط، والوقوف مع الحق، وكظم الغضب وضبط الشهوات، وتسخير القدرات لخدمة الآخرين لا لإيذائهم. ويتعلّم الطلاب أن القوة في الإسلام ليست في قهر الناس، بل في امتلاك قوة داخلية تضبط النفس وتوظّف التأثير فيما يرضي الله.</p>
+          <p>✨ وعبر هذه المحاور الأربعة، يُشجَّع الطلاب على تجاوز مجرد معرفة التعاليم الإسلامية إلى بناء تصوّر إسلامي متكامل للحياة.</p>
         `
       }
     };
