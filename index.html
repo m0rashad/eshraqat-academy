@@ -187,12 +187,23 @@
     }
 
     @media (min-width: 961px) and (max-width: 1180px) {
+      nav {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
       .nav-links {
-        gap: 1.4rem;
+        gap: 1.1rem;
       }
 
       .nav-links a {
-        letter-spacing: 0.08em;
+        font-size: 0.74rem;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+      }
+
+      .nav-cta {
+        padding: 0.5rem 1rem !important;
       }
     }
 
@@ -224,6 +235,34 @@
 
     .nav-links a:hover::after {
       width: 100%;
+    }
+
+    /* Program links: small audience label tucked under the name */
+    .nav-links a.nav-prog {
+      display: inline-block;
+    }
+
+    .nav-links .nav-prog-sub {
+      display: block;
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 0.62rem;
+      font-style: italic;
+      letter-spacing: 0.1em;
+      text-transform: none;
+      color: var(--gold2);
+    }
+
+    .nav-drawer .nav-prog-sub {
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: var(--text);
     }
 
     .nav-cta {
@@ -3229,8 +3268,8 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#goals">Our Goals</a></li>
-      <li><a href="#sabiqat">SABIQAT</a></li>
-      <li><a href="#sabiqoon">SABIQOON</a></li>
+      <li><a href="#sabiqat" class="nav-prog">SABIQAT<span class="nav-prog-sub en">Girls</span><span class="nav-prog-sub ar" style="display:none;">للفتيات</span></a></li>
+      <li><a href="#sabiqoon" class="nav-prog">SABIQOON<span class="nav-prog-sub en">Boys</span><span class="nav-prog-sub ar" style="display:none;">للأولاد</span></a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact Us</a></li>
       <li class="enroll-menu" id="enrollMenu">
@@ -3270,8 +3309,8 @@
       onclick="document.getElementById('navDrawer').classList.remove('open')">✕</button>
     <a href="#about" onclick="document.getElementById('navDrawer').classList.remove('open')">About</a>
     <a href="#goals" onclick="document.getElementById('navDrawer').classList.remove('open')">Our Goals</a>
-    <a href="#sabiqat" onclick="document.getElementById('navDrawer').classList.remove('open')">SABIQAT</a>
-    <a href="#sabiqoon" onclick="document.getElementById('navDrawer').classList.remove('open')">SABIQOON</a>
+    <a href="#sabiqat" onclick="document.getElementById('navDrawer').classList.remove('open')">SABIQAT<span class="nav-prog-sub en">Girls</span><span class="nav-prog-sub ar" style="display:none;">للفتيات</span></a>
+    <a href="#sabiqoon" onclick="document.getElementById('navDrawer').classList.remove('open')">SABIQOON<span class="nav-prog-sub en">Boys</span><span class="nav-prog-sub ar" style="display:none;">للأولاد</span></a>
     <a href="#gallery" onclick="document.getElementById('navDrawer').classList.remove('open')">Events</a>
     <a href="#contact" onclick="document.getElementById('navDrawer').classList.remove('open')">Contact Us</a>
     <div class="enroll-group">
