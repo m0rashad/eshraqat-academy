@@ -28,6 +28,9 @@ const jobs = [
   // SABIQAT logo — transparent PNG, max-width 420, 2x = 840
   { src: 'SABIQAT_logo.png', base: 'sabiqat-logo', widths: [840], format: 'png', quality: 90 },
 
+  // SABIQOON logo — white bg keyed to alpha (source: "SABIQOON logo.png"), max-width 340, 2x = 680
+  { src: 'SABIQOON_logo_transparent.png', base: 'sabiqoon-logo', widths: [680], format: 'png', quality: 90 },
+
   // Nav logo mark — 84px circle, 2x = 168
   { src: 'logo.png', base: 'logo', widths: [168], format: 'png', quality: 90 },
 
