@@ -12,6 +12,7 @@
       "package.json",
       "package-lock.json",
       "CLAUDE.md",
+      "AGENTS.md",
       "Gallery/**",
       "ESHRAQAT_Banner.png",
       "ESHRAQAT_Banner_clean.png",
