@@ -1289,12 +1289,23 @@
         letter-spacing: 0.03em;
         line-height: 1.18;
       }
+      /* wave overlaps only the photo's bottom edge; tagline flows below it */
+      .hero-wave {
+        position: relative;
+        bottom: auto;
+        margin-top: calc(-1 * clamp(34px, 9vw, 60px) + 1px);
+      }
       .hero-wave-shape {
         height: clamp(34px, 9vw, 60px);
       }
       .hero-tagline {
-        bottom: clamp(4px, 1.2vw, 12px);
+        position: static;
+        transform: none;
         gap: 1.1em;
+        margin-top: -1px;
+        padding: 0.2rem 16px 1.4rem;
+        line-height: 1.4;
+        background: #14284a;
       }
       .hero-tagline-text {
         font-size: clamp(0.45rem, 1.5vw, 0.7rem);
